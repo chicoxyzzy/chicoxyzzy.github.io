@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ribbon theme for Shower</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/screen.css">
+    <link rel="stylesheet" href="styles/prism.css">
+</head>
+<body class="list">
+    <!--
+        Debug class on <body> enables
+        cyan grid on slides
+        -->
+    <header class="caption">
+        <h1>Web Assembly</h1>
+        <p><a href="http://chicoxyzzy.github.io/">Sergey Rubanov</a>, EXANTE limited</p>
+    </header>
+    <section class="slide cover w"><div>
+        <div class="place t r">
+            <h2 style="color:red;margin-top:10px;">Sergey Rubanov</h2>
+            <p style="color:dimgrey;margin-right:50px;">JavaScript samurai at <strong>EXANTE ltd.</strong></p>
+        </div>
+        <img src="pictures/me.jpg">
+    </div></section>
+    <section class="slide shout grow"><div>
+        <h2>Web Assembly</h2>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Кратчайшая история web-приложений</h2>
+        <ul>
+            <li><a href="www.adaptivepath.com/ideas/ajax-new-approach-web-applications/">Ajax: A New Approach to Web Applications</a> (18 февраля 2005)</li>
+            <li class="next">JIT-компиляция
+                <ul>
+                    <li class="next">v8, Nitro (2008)</li>
+                    <li class="next">TraceMonkey (2009)</li>
+                    <li class="next">Chakra (2011)</li>
+                </ul>
+            </li>
+        </ul>
+        <footer>
+            В 2008 Google выпускает браузер Chrome с движком V8. Примерно в то же время Apple выпускает Safari 4 с движком Nitro.
+            Эти движки позволили достичь невероятной скорости исполнения за счет JIT-компиляции.
+            Они конверитровали JavaScript в код, который мог исполняться напрямую на CPU, увеличив производительность более чем в 3 раза.
+            В 2009 Mozilla представляет Firefox 3.5 с TraceMonkey, а в 2011 Microsoft выпускает IE9 с Chakra.
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>JavaScript как compile target</h2>
+        <ul><mark>JavaScript is Assembly Language for the Web (июль 2011)</mark>
+            <li><a href="http://www.hanselman.com/blog/JavaScriptIsAssemblyLanguageForTheWebSematicMarkupIsDeadCleanVsMachinecodedHTML.aspx">Sematic Markup is Dead! Clean vs. Machine-coded HTML</a></li>
+            <li><a href="http://www.hanselman.com/blog/JavaScriptisAssemblyLanguagefortheWebPart2MadnessorjustInsanity.aspx">Part 2 - Madness or just Insanity?</a></li>
+        </ul>
+    </div></section>
+    <section class="slide shout"><div>
+        <h2>Главная проблема JavaScript — это <br>
+        <span class="next"><mark>сам JavaScript</mark></span></h2>
+        <footer>
+            Язык устроен так, что его сложно оптимизировать.
+            Динамическая природа.
+            Динамическая типизация.
+            Он просто изначально был спроектирован не для перформанса
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>И вот это</h2>
+        <pre><code class="language-js">null == 0;               // false
+null > 0;                // false
+null >= 0;               // true</code></pre>
+        <pre><code class="language-js">Math.min() < Math.max(); // false</code></pre>
+        <footer>
+        </footer>
+    </div></section>
+    <section class="slide shout"><div>
+        <h2>Дальнейшее развитие ECMAScript ограничено</h2>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Reserved words</h2>
+        <img src="pictures/reserved_words1.png" width="100%" alt="">
+    </div></section>
+    <section class="slide"><div>
+        <h2>Future reserved words</h2>
+        <img src="pictures/reserved_words2.png" width="100%" alt="">
+    </div></section>
+    <section class="slide shout"><div>
+        <h2>Принцип don't break the Web</h2>
+        <footer>
+            история переименования String.prototype.conains() в String.prototype.includes()
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>asm.js</h2>
+        <p>
+            статически-типизированное подмножество JavaScript
+        </p>
+        <ul>
+            <li>представлен 21 марта 2013 (поддержка в FireFox 22)</li>
+            <li>на Google I/O 2013 было объявлено об улучшенной поддержке asm.js в <a href="http://blog.chromium.org/2013/05/chrome-28-beta-more-immersive-web.html">Chrome 28 beta</a></li>
+            <li>7 мая 2015 <a href="blogs.windows.com/msedgedev/2015/05/07/bringing-asm-js-to-chakra-microsoft-edge/">объявлена поддерживается</a> браузером Microsoft Edge</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>asm.js pipeline</h2>
+        <img src="pictures/asmjs-pipeline.png" alt="">
+        <p>
+            Не предназначен для написания программ человеком, получается с помощью компиляторов исходного кода в исходный код, таких как Emscripten
+        </p>
+        <footer>
+            околонативная скорость исполнения достигается за счет AOT-оптимизации
+            типизацию в asm.js можно воспринимать как аннотацию типов
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>код на c</h2>
+        <pre><code class="language-c">int add1(int i) {
+    return i + 1;
+}</code></pre>
+    </div></section>
+    <section class="slide"><div>
+        <h2>код на asm.js</h2>
+        <pre><code class="language-js">function add1(i) {
+    i = i|0;
+    return (i + 1)|0;
+}</code></pre>
+    </div></section>
+    <section class="slide"><div>
+        <h2>особенности asm.js</h2>
+        <ul>
+            <li>нет сборщика мусора</li>
+            <li>нет потоков</li>
+            <li>нет разделяемой памяти</li>
+            <li>так как это подмножество JS, то
+                <ul>
+                    <li>долгий и ресурсоемкий парсинг</li>
+                    <li>большой размер конечного кода</li>
+                </ul>
+            </li>
+            <li>на нем сложно написать web-приложение вручную</li>
+        </ul>
+        <footer>
+            Парсинг: конечно можно сделать отдельный парсер, но тогда придется мейнтейнить два парсера со всеми вытекающими.
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>PNaCl</h2>
+        <p>архитектурно-независимое решение для исполнения нативного кода в песочнице</p>
+        <ul>
+            <li>представлен <a href="blog.chromium.org/2013/11/portable-native-client-pinnacle-of.html">12 ноября 2013</a></li>
+            <li>основан на <a href="https://developer.chrome.com/native-client">NaCl</a>
+                <ul>
+                    <li>компилирует C и C++ код в промежуточное представление подмножества LLVM с помощью AOT-компилятора</li>
+                    <li>исполняется в песочнице браузера</li>
+                </ul>
+            </li>
+        </ul>
+        <footer>
+            Позволяет перенести полноценные десктопные приложения в браузер.
+            Так и не получил широкого распространения.
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Особенности PNaCl</h2>
+        <p>изолирован в собственной виртуальной машине и не имеет прямого доступа к DOM, JS</p>
+        <footer>
+            Позволяет перенести полноценные десктопные приложения в браузер.
+            Так и не получил широкого распространения.
+        </footer>
+    </div></section>
+    <section class="slide shout"><div>
+        <h2>Что насчет JVM?</h2>
+        <footer>
+            JVM не открытая, проблемы с безопасностью, изолирована от web-платформы.
+        </footer>
+    </div></section>
+    <section class="slide cover h"><div>
+        <img src="pictures/no1.png" alt="">
+        <footer>
+        </footer>
+    </div></section>
+    <section class="slide shout"><div>
+        <h2>А может быть... <br>
+            <span class="next">LLVM?</span></h2>
+        </div>
+        <footer>
+            Не портативная.
+            Не стабильная (возможны breaking changes).
+        </footer>
+    </div></section>
+    <section class="slide cover h"><div>
+        <img src="pictures/no2.jpg" alt="">
+        <footer>
+        </footer>
+    </div></section>
+    <section class="slide shout"><div>
+        <h2>А что если... <br>
+            <span class="next">Flash VM?</span></h2>
+        </div>
+        <footer>
+        </footer>
+    </div></section>
+    <section class="slide cover h"><div>
+        <img src="pictures/no3.gif" alt="">
+        <footer>
+        </footer>
+    </div></section>
+    <section class="slide shout grow"><div>
+        <h2>Web Assembly</h2>
+    </div></section>
+    <section class="slide cover h"><div>
+        <img src="pictures/yes.gif" alt="">
+    </div></section>
+    <section class="slide shout grow"><div>
+        <figure>
+            <blockquote>
+                <p>a new binary syntax for low-level safe code, initially co-expressive with asm.js, but in the long run able to diverge from JS’s semantics, in order to best serve as common object-level format for multiple source-level programming languages.</p>
+            </blockquote>
+            <figcaption>Brendan Eich</figcaption>
+            <p>Он <a href="https://brendaneich.com/2015/06/from-asm-js-to-webassembly/">представил</a> Web Assembly в своем блоге 17 июня 2015</p>
+        </figure>
+    </div></section>
+    <section class="slide"><div>
+        <h2>High-Level Goals</h2>
+        <ul>
+            <li>Определить портативный, эффективный по объему и времени загрузки бинарный формат как compile-target, который в свою очередь может быть компилирован для исполнения на околонативной скорости на разных платформах, включая мобильные платформы и IoT.</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>High-Level Goals</h2>
+        <ul>
+            <li>Описать и имплементировать
+                <ul>
+                    <li>MVP для стандартной функциональности, аналогичной asm.js</li>
+                    <li>эффективный polyfill для MVP, который позволяет транслировать wasm в js для запуска в браузерах</li>
+                    <li>PostMVP, который добавляет несколько значимых фич</li>
+                    <li>Дополнительные фичи на основе обратной связи и опыта использования, включая поддержку других языков</li>
+                </ul>
+            </li>
+        </ul>
+        <footer>
+            Feature-testing
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>High-Level Goals</h2>
+        <ul>
+            <li>Интеграция в существующую web-платформу:
+                <ul>
+                    <li>безверсионная разработка, обратная совместимость</li>
+                    <li>выполняется той же самантической вселенной, что и JavaScript</li>
+                    <li>предоставлять синхронные вызовы в и из JavaScript</li>
+                    <li>политика безопасности и правил ограничения домена</li>
+                    <li>доступ к функциональности браузера через Web API</li>
+                    <li>определить человеко-понятный текстовый формат, который можно конвертировать в бинарный формат и обратно</li>
+                </ul>
+            </li>
+        </ul>
+        <footer>
+            Feature-testing
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>High-Level Goals</h2>
+        <ul>
+            <li>WebAssembly должен поддерживать интеграцию не только в браузеры</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>High-Level Goals</h2>
+        <ul>
+            <li>Создать привлекательную платформу
+                <ul>
+                    <li>новый LLVM-бэкенд и сопутствующий порт Clang</li>
+                    <li>поощрять другие компиляторы и инструменты для использования WebAssembly как цели компиляции</li>
+                    <li>предоставить ползезный инструментарий разработки и отладки</li>
+                </ul>
+            </li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>MVP</h2>
+        <ul>
+            <li><mark>модули</mark></li>
+        </ul>
+        <footer>
+            Будет содержать фичи, которые доступны сегодня в современных браузерах десктопных и мобильных браузерах, то есть функциональность, аналогичная asm.js.
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Модули WebAssembly</h2>
+        <ul>
+            <li>набор импортов и экспортов</li>
+            <li>секция, определяющая линейную память</li>
+            <li>секция с кодом</li>
+            <li>после MVP — секция debug-информация</li>
+            <li>Возможно другие секции в будущем</li>
+        </ul>
+        <footer>
+            Модули должны декларировать свой тип и длину в байтах. Секции с неизвестными типами игнорируются
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Инстанс модуля содержит</h2>
+        <ul>
+            <li>код из модуля, из которого он был загружен</li>
+            <li>линейную память</li>
+            <li>полностью разрешенные импорты</li>
+            <li>host-specific state (например, reflect экспортов в JS)</li>
+            <li>код нескольких модулей, динамически связанных в один инстанс (когда будет доступно динамическое связывание)</li>
+            <li>другие семантически-видимые секции в будущем</li>
+        </ul>
+        <footer>
+            Несмотря на то, что модули спроектированы так, чтобы быть интероперабельными с ES модулями в web-окружении,
+            они также могут быть определены независимо от JavaScript и работать вне VM
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Линейная память</h2>
+        <ul>
+            <li>memory_size</li>
+            <li>load</li>
+            <li>store</li>
+            <li>grow_memory</li>
+        </ul>
+        <footer>
+            Память sandboxed
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>MVP</h2>
+        <ul>
+            <li>модули</li>
+            <li><mark>AST</mark></li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Порядок вычисления AST</h2>
+        <p>Все узлы, отличающиеся от конструкций управления, вычисляются в том порядке, в котором они представлены в AST.</p>
+        <pre><code class="language-js">(i32.add
+    (set_local $x (i32.const 1))
+    (set_local $x (i32.const 2)))</code></pre>
+        <footer>
+            Локальная переменная $x будет равна 2
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Ловушки</h2>
+        <p>Если экземпляр прервал работу, то информация об этом прокидывается во внешнее окружение.
+        В JavaScript окружении, например, таком как браузер, ловушка вызывает исключение и может быть увидена в DevTools.</p>
+        <footer>
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Типы</h2>
+        <ul>WebAssembly имеет следующие <em>типы значений</em>:
+            <li>32: 32-bit integer</li>
+            <li>i64: 64-bit integer</li>
+            <li>f32: 32-bit floating point</li>
+            <li>f64: 64-bit floating point</li>
+        </ul>
+        <footer>
+            Интерпретация целочисленных типов определяется отдельными операторами.
+            Параметры и локальные значения имеют типы значений
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Управляющие конструкции</h2>
+        <ul>
+            <li>block</li>
+            <li>loop</li>
+            <li>if, if_else</li>
+            <li>br, br_if</li>
+            <li>tableswitch, case</li>
+            <li>return</li>
+        </ul>
+        <footer>
+            * block: a fixed-length sequence of statements with a label at the end
+            * loop: a fixed-length sequence of statements with a label at the end and a loop header label at the top (note: this does not loop by itself, so one would often combine this with a br_if at the end to form a branch back to the top)
+            * if: if statement with then body
+            * if_else: if statement with then and else bodies
+            * br: branch to a given label in an enclosing construct (see below)
+            * br_if: conditionally branch to a given label in an enclosing construct
+            * tableswitch: a jump table which may jump either to enclosed case blocks or to labels in enclosing constructs (see below for a more detailed description)
+            * case: must be an immediate child of tableswitch; has a label declared in the tableswitch's table and a body (as above, see below)
+            * return: return zero or more values from this function
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>MVP</h2>
+        <ul>
+            <li>модули</li>
+            <li>AST</li>
+            <li><mark>Бинарный формат</mark></li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Бинарный Формат</h2>
+        <p>Предназначен быстрого старта, а именно уменьшение размера модулей и быстрого декодирования</p>
+        <ul>Этапы сжатия:
+            <li><strong>сырой формат</strong> - стандартизированный бинарный формат</li>
+            <li><strong>специальное сжатие</strong> бинарного формата (не специфицировано, зависит от окружения)</li>
+            <li><strong>общая компрессия</strong> (gzip, LZMA, LZHAM, Brotli)</li>
+        </ul>
+        <footer>
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>MVP</h2>
+        <ul>
+            <li>модули</li>
+            <li>AST</li>
+            <li>Бинарный формат</li>
+            <li><mark>Текстовый формат</mark></li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Текстовый формат</h2>
+        <ul>
+            <li>View Source для модуля WebAssembly, что позволит вписаться в web (где каждый исходник может быть просмотрен) естественным образом.</li>
+            <li>Отображение инструментах разработки браузера когда source maps недоступны (обязательное требование MVP).</li>
+            <li>Написание кода WebAssembly напрямую для педогогических целей, экспериментов, отладки, оптимизации и тестирования спецификации.</li>
+        </ul>
+        <footer>
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Отладка текстового формата</h2>
+        <p>
+            Текстовый формат эквивалентен и изоморфен бинарному. <br>
+            В бинарном представлении все имена функций и переменных сжимаются до индексов, поэтому в текстовом режиме могут не отображаться.
+            Для решения этой проблемы можно добавить опциональную глобальную секцию debug symbol.
+        </p>
+        <footer>
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>MVP</h2>
+        <ul>
+            <li>модули</li>
+            <li>AST</li>
+            <li>Бинарный формат</li>
+            <li>Текстовый формат</li>
+            <li><mark>Среды исполнения</mark></li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>MVP</h2>
+        <ul>
+            <li>модули</li>
+            <li>AST</li>
+            <li>Бинарный формат</li>
+            <li>Текстовый формат</li>
+            <li>Среды исполнения</li>
+            <li><mark>Polyfill</mark></li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Polyfill</h2>
+        <ul>
+            <li>эффективное преобразовывание бинарного формата в JavaScript</li>
+            <li>конвертирование asm.js кода в WebAssembly</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>PostMVP</h2>
+        <ul>
+            <li>потоки</li>
+            <li>SIMD</li>
+            <li>zero-cost exception handling</li>
+            <li>доступ к модулям JS</li>
+            <li>Сборщик мусора</li>
+            <li>Поддержка DOM, Web API</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Дальнейшие планы</h2>
+        <ul>
+            <li>динамическое связывание</li>
+            <li>полное управление памятью (mmap, Shared Memory)</li>
+            <li>низкоуровневый доступ к структурам сборщика мусора</li>
+            <li>JIT компиляция</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Feature detection</h2>
+        <p>Подход из JavaScript не работает</p>
+        <pre><code class="language-js">if (foo)
+    foo();
+else
+    alternativeToFoo();</code></pre>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Feature detection</h2>
+        <p>Подход, который работает</p>
+        <ol>
+            <li>Компиляция нескольких версий модуля, каждый подразумевает разную поддержку фич и использует <mark>has_feature</mark> тесты, чтобы определить какую версию нужно загрузить. </li>
+            <li><em>Специальный</em> уровень декодирования — использование <mark>has_feature</mark> для определения неподдерживаемых фич и использование полифилла или ловушек.</li>
+        </ol>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Инструментарий</h2>
+        <ul>
+            <li>редакторы</li>
+            <li>компиляторы и vm</li>
+            <li>дебаггеры</li>
+        </ul>
+        <footer>
+            Компиляторы и vm:
+            * Compilers for languages which can target WebAssembly (C/C++, Rust, Go, C#) should be able to run in WebAssembly themselves, emit a WebAssembly module that can then be executed.
+            * Virtual machines for languages such as bash, Python, Ruby should work.
+            * Virtual machines which use a just-in-time compiler (JavaScript VMs, luajit, pypy) should be able to support a new just-in-time backend for WebAssembly.
+            Дебаггеры:
+            - поддержка сорсмапов
+            - полная интеграция с языками вроде c++ требует больше усилий на формат информации для отладки, а также разрешения на прерывание работы программ, инспектирование и изменение их состояния
+            - информация для отладки должна быть доступна по требованию, а не встроена в модуль  WebAssembly
+        </footer>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Какие плюсы принесет WebAssembly</h2>
+        <ul>Внедрение WebAssembly даст возможность воплотить в жизнь создание новых продуктов, работающих в браузере, в том числе:
+            <li>высокопроизводительных игр</li>
+            <li>систем редактирования видео/звука/изображений</li>
+            <li>P2P-систем</li>
+            <li>САПР</li>
+            <li>средств разработки и коммуникации (запуск локального веб-сервера в браузере, эффективная упаковка веб-фреймворков)</li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <h2>Что почитать</h2>
+        <ul>
+            <li><a href="https://github.com/WebAssembly/design">WebAssembly Design Documents</a></li>
+            <li><a href="https://github.com/WebAssembly">WebAssembly organization on GitHub</a></li>
+            <li><a href="https://brendaneich.com/2015/06/from-asm-js-to-webassembly">статья о WebAssembly в блоге Брендана Айка</a></li>
+            <li><a href="https://blog.mozilla.org/luke/2015/06/17/webassembly">статья инженера Mozilla Люка Вагнера</a></li>
+            <li><a href="https://medium.com/javascript-scene/why-we-need-webassembly-an-interview-with-brendan-eich-7fb2a60b0723">интервью Эрика Эллиота с Брендоном Айком</a></li>
+            <li><a href="https://bugs.webkit.org/show_bug.cgi?id=146064">https://bugs.webkit.org/show_bug.cgi?id=146064</a></li>
+            <li><a href="http://blogs.msdn.com/b/mikeholman/archive/2015/06/17/working-on-the-future-of-compile-to-web-applications.aspx">Статья Майка Холдмана из Microsoft</a></li>
+        </ul>
+    </div></section>
+    <section class="slide"><div>
+        <div class="place">
+            <h2>Contact me</h2>
+            <div>
+                <img style="vertical-align: middle;" src="pictures/GitHub-Mark-120px-plus.png" height="60" width="60"> <a href="https://github.com/chicoxyzzy">github.com/chicoxyzzy</a>
+            </div>
+            <div>
+                <img style="vertical-align: middle;" src="pictures/TwitterLogo_%2355acee.png" height="60" width="60"> <a href="https://twitter.com/chicoxyzzy">twitter.com/chicoxyzzy</a>
+            </div>
+            <div>
+                <img style="vertical-align: middle;" src="pictures/In-2C-128px-R.png" height="60" width="60"> <a href="https://ru.linkedin.com/in/chicoxyzzy">ru.linkedin.com/in/chicoxyzzy</a>
+            </div>
+            <br>
+            <div>Slides <a href="https://chicoxyzzy.github.io/talks/wasm/">chicoxyzzy.github.io/talks/wasm/</a></div>
+        </div>
+    </div></section>
+    <div class="progress"><div></div></div>
+    <script src="scripts/shower.min.js"></script>
+    <script src="scripts/prism.js"></script>
+</body>
+</html>
