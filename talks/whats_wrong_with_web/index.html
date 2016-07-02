@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>What's wrong with Web and how to live with it</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="node_modules/prismjs/themes/prism-okaidia.css">
+	<link rel="stylesheet" href="node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>What's wrong with Web and how to live with it</h1>
+		<p><a href="https://twitter.com/chicoxyzzy">Sergey Rubanov</a>, <a href="https://exante.eu">EXANTE ltd.</a></p>
+	</header>
+	<section class="slide white" id="cover">
+		<!--<img src="pictures/me.jpg" alt="" class="cover">-->
+		<header>
+			<img src="pictures/odessajs.png" class="place r b" alt="">
+			<h2>What's wrong with Web</h2>
+			<p style="margin-top: -40px;">and how to live with it</p>
+			<p style="margin-top: -40px;"><a href="https://twitter.com/chicoxyzzy">Sergey Rubanov</a></p>
+			<p style="font-size: 20px; margin-top: -50px;">JavaScript Samurai</p>
+			<div>
+				<p><img src="pictures/Exante_RGB_logo%20only.png" alt=""></p>
+				<p style="margin-top: -60px; font-size: 20px;"><a href="https://exante.eu">EXANTE ltd.</a></p>
+			</div>
+
+		</header>
+		<style>
+			#cover header {
+				text-align: center;
+			}
+			#cover h2 {
+				font-size:80px;
+			}
+			#cover p {
+				font-size:31px;
+			}
+		</style>
+	</section>
+	<section class="slide">
+		<img src="pictures/buddha.jpg" class="cover w">
+		<h2>Harmony</h2>
+		<p>ECMA-262 (6th edition) - ECMAScript 2015 Language Specification</p>
+		<p>ECMA-402 (2nd edition) - ECMAScript 2015 Internationalization API Specification</p>
+		<p class="next">My talk <a href="https://github.com/chicoxyzzy/public-talks/blob/master/MoscowJS23/README.md">TC39 Process (ru)</a></p>
+		<p class="note">June 17, 2015</p>
+		<footer>
+			ECMAScript 5.1 - 245 pages
+			ECMAScript 2015 - 593 pages
+			My meetup talk - June 25, 2015
+		</footer>
+	</section>
+	<section class="slide">
+		<h2>Stable browsers + Edge</h2>
+		<p style="text-align: center">
+			<img src="pictures/compat-table-25062015.png"  width="100%" alt="">
+			<div>June 25, 2015</div>
+		</p>
+		<footer>
+			Now IE 11 has - 15%
+			¯\_(ツ)_/¯
+		</footer>
+	</section>
+	<section class="slide">
+		<h2>Unstable browsers</h2>
+		<p style="text-align: center">
+			<img src="pictures/compat-table-27062016.png" width="100%" alt="">
+			<div style="margin-top: 80px;">June 27, 2016</div>
+		</p>
+	</section>
+	<section class="slide" id="postharmony">
+		<img src="pictures/meditation.jpg" alt="" class="cover h">
+		<h2>Post-Harmony</h2>
+		<p><a href="http://www.ecma-international.org/ecma-262/7.0/index.html">ECMA-262 (7th edition)</a> - ECMAScript 2016 Language Specification</p>
+		<p><a href="http://www.ecma-international.org/ecma-402/3.0/index.html">ECMA-402 (3rd edition)</a> - ECMAScript 2016 Internationalization API Specification</p>
+		<p class="next"><a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-414.pdf">ECMA-414 (1st edition)</a> - ECMAScript Specification Suite</p>
+		<p class="note">June 14, 2016</p>
+		<style>
+			#postharmony p {
+				font-size: 23px;
+				margin-top: -13px;
+			}
+		</style>
+		<footer>
+			This International Standard defines the ECMAScript Specification Suite containing the ECMAScript programming language and its required and optional built-in libraries.
+			ECMA-262, ECMAScript Language Specification
+			ECMA-402, ECMAScript Internationalization API Specification
+			ECMA-404, The JSON Data Interchange Format
+		</footer>
+	</section>
+	<section class="slide">
+		<img src="pictures/trollface.png" class="place" style="opacity: 0.2" height="100%" alt="">
+		<h2 class="shout grow" style="">Problems?</h2>
+	</section>
+	<section class="slide">
+		<h2 class="shout">Syntax evolution</h2>
+	</section>
+	<section class="slide">
+		<h2>Reserved words</h2>
+		<img src="pictures/reserved_words1.png" style="margin-top: 40px;" width="100%" class="cover" alt="">
+	</section>
+	<section class="slide">
+		<h2>Future reserved words</h2>
+		<img src="pictures/reserved_words2.png" width="100%" class="place" alt="">
+	</section>
+    <section class="slide shout">
+        <h2>Annex E</h2>
+        <p><a href="https://tc39.github.io/ecma262/#sec-additions-and-changes-that-introduce-incompatibilities-with-prior-editions">Additions and Changes That Introduce Incompatibilities with Prior Editions</a></p>
+    </section>
+	<section class="slide">
+		<h2 class="shout">Mozilla<br>vs<br>Mootools</h2>
+	</section>
+	<section class="slide">
+		<h2>array.<mark>indexOf</mark>(element) !== -1</h2>
+		<div style="text-align: center;">
+			<img src="pictures/thinking.jpg" height="300" alt="">
+			<p>Mozilla</p>
+		</div>
+	</section>
+	<section class="slide">
+		<h2>Array.prototype.<mark>contains()</mark></h2>
+		<div style="text-align: center;">
+			<img src="pictures/thubsup.png" height="300" alt="">
+			<p>Mozilla</p>
+		</div>
+	</section>
+	<section class="slide">
+		<h2>if (!Array.prototype.contains) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array.prototype.contains = ...<br>}</h2>
+		<div style="text-align: center;">
+			<img src="pictures/trollface.png" style="margin-top: -80px" height="300" alt="">
+			<p>Mootools 1.2</p>
+		</div>
+	</section>
+	<section class="slide">
+		<h2>Array.prototype.<mark>includes()</mark></h2>
+		<div style="text-align: center;">
+			<img src="pictures/okayface.png" height="300px" alt="">
+			<p>Mozilla</p>
+		</div>
+	</section>
+	<section class="slide">
+		<img src="pictures/markbage.jpg" class="cover h" alt="">
+		<h2 class="shout grow">FIN.</h2>
+	</section>
+	<section class="slide">
+		<img src="pictures/markbage-1.jpg" class="cover h" alt="">
+		<h2 class="shout">FIN.</h2>
+	</section>
+	<section class="slide">
+		<img src="pictures/markbage-2.jpg" class="cover h" alt="">
+		<h2 class="shout">FIN.</h2>
+	</section>
+	<section class="slide">
+		<h2>contains vs includes</h2>
+		<ul>
+			<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=789036">Bugzilla</a></li>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes#String.prototype.contains">MDN</a></li>
+			<li><a href="https://github.com/tc39/Array.prototype.includes">proposal on GitHub</a></li>
+		</ul>
+		<footer>
+			turned off in FF17
+			Mootools 1.2.6 and 1.3 releases
+			turned on in FF18-39
+			renamed to includes
+		</footer>
+	</section>
+	<section class="slide">
+		<img src="pictures/uroboron.png" alt="" class="place" height="100%">
+		<h2 class="shout">Tail Calls</h2>
+	</section>
+	<section class="slide">
+		<figure>
+			<blockquote>
+				<p>A tail call is a <code style="font-style: normal">return</code> statement with a function call, where nothing has to happen after the call except returning its value.</p>
+			</blockquote>
+			<figcaption>Kyle Simpson, <a href="https://github.com/getify/You-Dont-Know-JS/blob/master/es6%20%26%20beyond/ch7.md#tail-call-optimization-tco">YDKJS</a></figcaption>
+		</figure>
+	</section>
+	<section class="slide">
+		<pre class="language-js" style="font-size: medium"><code>"use strict";
+
+function factorial(n) {
+    if (!n) return 1;
+    return n * factorial(n - 1);   // not tail call
+}
+
+factorial(170);                    // RangeError</code></pre>
+	</section>
+	<section class="slide">
+		<pre class="language-js" style="font-size: medium"><code>"use strict";
+
+function factorial(n, partialFactorial = 1) {
+    if (!n) return partialFactorial;
+    return factorial(n - 1, n * partialFactorial); // tail call
+}
+
+factorial(170);                                    // 7.257415615308004e+30</code></pre>
+	</section>
+	<section class="slide">
+		<h2>Tail Position</h2>
+		<ul>A function call is in tail position if the following criteria are met:
+			<li>The calling function is in strict mode.</li>
+			<li>The calling function is either a normal function or an arrow function.</li>
+			<li>The calling function is not a generator function.</li>
+			<li>The return value of the called function is returned by the calling function.</li>
+		</ul>
+		<footer>
+			When a function call is in tail position, ECMAScript 6 mandates that such a call must reuse the stack space of its own frame instead of pushing another frame onto the call stack. To emphasize, ECMAScript 6 requires that a call in tail position will reuse the caller’s stack space. The calling function’s frame is called a tail deleted frame as it is no longer on the stack once it makes a tail call. This means that the tail deleted function will not show up in a stack trace. It is important to note that PTC differs from Tail Call Optimization, which is a discretionary optimization that many optimizing compilers will make for various performance reasons.
+		</footer>
+	</section>
+	<section class="slide">
+		<h2>Benefits of Proper Tail Calls</h2>
+		<ul>
+			<li>call stack space reuse</li>
+			<li>reduced memory footprint</li>
+			<li>performance improvements</li>
+		</ul>
+		<footer>
+			- The reuse of the stack memory allows for recursive and tail call coding patterns common to functional programming and other programming paradigms. Using PTC, a program could make an unbounded number of consecutive tail calls without unboundedly growing the stack.
+			- Programs that utilize PTC can see a reduced memory footprint because the garbage collector will be more likely to collect certain local objects
+			- There is less processing when returning from a tail called function
+		</footer>
+	</section>
+	<section class="slide">
+		<h2>Current state of Tail Calls in JavaScript</h2>
+		<ul>
+			<li>PTC is <a href="https://webkit.org/blog/6240/ecmascript-6-proper-tail-calls-in-webkit/">implemented</a> in WebKit Nightly, Safari TP 4+ and Safari 10</li>
+			<li class="next">PTC is not <a href="http://c2.com/cgi/wiki?TailCallOptimization">TCO</a>. TCO is not in specification</li>
+			<li class="next">V8 has implemented PTC, but has been <a href="http://v8project.blogspot.ru/2016/04/es6-es7-and-beyond.html">holding back</a> on shipping</li>
+			<li class="next">Both <a href="https://github.com/Microsoft/ChakraCore/issues/796">Microsoft</a> and Mozilla (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=723959">IonMonkey bug</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1133529">OdinMonkey bug</a>) has faced problems implementing PTC</li>
+			<li class="next">At the last TC39 meeting the committee <a href="https://github.com/tc39/tc39-notes/blob/master/es7/2016-05/may-24.md#syntactic-tail-calls-bt">failed to reach consensus</a> on removing implicit tail-calls from the spec as well as promoting STC it to stage 1</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Syntactic Tail Calls</h2>
+		<pre><code class="language-js" style="font-size: medium">"use strict";
+
+function factorial(n, acc = 1) {
+    if (!n) return partialFactorial;
+    return continue factorial(n - 1, n * partialFactorial);
+}</code></pre>
+	</section>
+	<section class="slide">
+		<h2>Issues with PTC (according to STC proposal)</h2>
+		<ul>
+			<li>Performance</li>
+			<li class="next">Developer Tools</li>
+			<li class="next">Error.stack</li>
+			<li class="next">Cross-Realm Tail Calls</li>
+			<li class="next">Developer Intent</li>
+		</ul>
+		<footer>
+			Perf: v8 - neutral, Chakra - regressions or sacrificing spec conformance
+			DevTools: missing call stack; ShadowChicken in JSC (only when DevTools open)
+			Error.stack: missing call stack when DevTools are closed, Sentry, etc.
+			Cross-Realm Tail Calls: PTC exposes previously hidden implementation details about function objects. Mozilla membrane-based security model
+			Developer Intent: we now what user want to - can optimize, can warn if wrong tail call
+		</footer>
+	</section>
+	<section class="slide">
+		<h2>Additional info</h2>
+		<ul>
+			<li><a href="https://github.com/tc39/proposal-ptc-syntax">Syntactic Tail Calls proposal</a></li>
+			<li><a href="https://github.com/kangax/compat-table/issues/819#issuecomment-226620936">"Tail calls controversy" issue</a> in compatibility table repo</li>
+			<li><a href="https://github.com/nodejs/CTC/issues/3">"Tail call optimization" issue</a> in ES6 & Node.js</li>
+			<li>Apple's <a href="https://github.com/tc39/ecma262/issues/535">response to the proposal to add explicit tail call syntax to ECMAScript</a></li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2 class="shout">for-in initializers</h2>
+	</section>
+	<section class="slide">
+		<figure>
+			<blockquote>
+				<p>All of V8, JavaScriptCore, and SpiderMonkey have found themselves unable to honor the ECMAScript 2015 requirement that <code style="font-style: normal">for (var x = 0 in []);</code> is a SyntaxError (which is documented in Annex E 13.7).</p>
+			</blockquote>
+			<figcaption>Jay Freeman, <a href="https://github.com/tc39/ecma262/issues/260">issue</a> in ECMA-262 spec repo</figcaption>
+		</figure>
+	</section>
+	<section class="slide">
+		<img src="pictures/unicorn.jpg" class="place" width="100%" alt="">
+		<h2 class="shout">WebAssembly</h2>
+	</section>
+	<section class="slide" style="text-align: center">
+		<h2>My talk <a href="https://github.com/chicoxyzzy/public-talks/tree/master/KharkivJS5">WebAssembly: new Era of Web (ru)</a></h2>
+		<img src="pictures/wasm.jpeg" alt="">
+	</section>
+	<section class="slide">
+		<figure>
+			<blockquote>
+				<p>a new binary syntax for low-level safe code, initially co-expressive with asm.js, but in the long run able to diverge from JS’s semantics, in order to best serve as common object-level format for multiple source-level programming languages.</p>
+			</blockquote>
+			<figcaption>Brendan Eich</figcaption>
+			<p><a href="https://brendaneich.com/2015/06/from-asm-js-to-webassembly/">Brandan Eich's blog</a>, June 17, 2015</p>
+		</figure>
+	</section>
+	<section class="slide">
+		<h2>WebAssembly is efficient and fast</h2>
+		<p>The wasm AST is designed to be encoded in a size- and load-time-efficient binary format. WebAssembly aims to execute at native speed by taking advantage of common hardware capabilities available on a wide range of platforms.</p>
+	</section>
+	<section class="slide">
+		<h2>WebAssembly is safe</h2>
+		<p>WebAssembly describes a memory-safe, sandboxed execution environment that may even be implemented inside existing JavaScript virtual machines. When embedded in the web, WebAssembly will enforce the same-origin and permissions security policies of the browser.</p>
+	</section>
+	<section class="slide">
+		<h2>WebAssembly is open and debuggable</h2>
+		<p>WebAssembly is designed to be pretty-printed in a textual format for debugging, testing, experimenting, optimizing, learning, teaching, and writing programs by hand. The textual format will be used when viewing the source of wasm modules on the web.</p>
+	</section>
+	<section class="slide">
+		<h2>WebAssembly is part of the open web platform</h2>
+		<p>WebAssembly is designed to maintain the versionless, feature-tested, and backwards-compatible nature of the web. WebAssembly modules will be able to call into and out of the JavaScript context and access browser functionality through the same Web APIs accessible from JavaScript. WebAssembly also supports non-web embeddings.</p>
+	</section>
+	<section class="slide">
+		<h2>High-Level Goals</h2>
+        <ol>
+            <li>Define a portable, size- and load-time-efficient binary format to serve as a compilation target which can be compiled to execute at native speed by taking advantage of common hardware capabilities available on a wide range of platforms, including mobile and IoT.</li>
+        </ol>
+	</section>
+	<section class="slide">
+		<h2>High-Level Goals</h2>
+        <ol start="2">
+            <li class="hidden"></li>
+            <li>Specify and implement incrementally:
+                <ul style="font-size: 20px">
+                    <li>a <b>Minimum Viable Product</b> (MVP) for the standard with roughly the same functionality as asm.js, primarily aimed at C/C++;</li>
+                    <li>an effective and efficient <b>polyfill</b> library for the MVP that translates WebAssembly code into JavaScript in the client so that WebAssembly MVP can run on existing browsers;</li>
+                    <li>a <b>follow-up to the MVP</b> which adds several more essential features; and</li>
+                    <li><b>additional features</b>, specified iteratively and prioritized by feedback and experience, including support for languages other than C/C++.</li>
+                </ul>
+            </li>
+        </ol>
+        <style>
+            li.hidden { visibility: hidden; height: 0; font-size: 0; }
+        </style>
+	</section>
+	<section class="slide">
+		<h2>High-Level Goals</h2>
+        <ol start="3">
+            <li class="hidden"></li>
+            <li class="hidden"></li>
+            <li>Design to execute within and integrate well with the existing Web platform:
+                <ul style="font-size: 20px">
+                    <li>maintain the versionless, feature-tested and backwards-compatible evolution story of the Web;</li>
+                    <li>execute in the same semantic universe as JavaScript;</li>
+                    <li>allow synchronous calls to and from JavaScript;</li>
+                    <li>enforce the same-origin and permissions security policies;</li>
+                    <li>access browser functionality through the same Web APIs that are accessible to JavaScript; and</li>
+                    <li>define a human-editable text format that is convertible to and from the binary format, supporting View Source functionality.</li>
+                </ul>
+		    </li>
+        </ol>
+	</section>
+	<section class="slide">
+		<h2>High-Level Goals</h2>
+        <ol start="4">
+            <li class="hidden"></li>
+            <li class="hidden"></li>
+            <li class="hidden"></li>
+            <li>Design to support non-browser embeddings as well.</li>
+        </ol>
+	</section>
+    <section class="slide">
+        <h2>High-Level Goals</h2>
+        <ol start="5">
+            <li class="hidden"></li>
+            <li class="hidden"></li>
+            <li class="hidden"></li>
+            <li class="hidden"></li>
+            <li>Make a great platform:
+                <ul>
+                    <li>build a new LLVM backend for WebAssembly and an accompanying clang port;</li>
+                    <li>promote other compilers and tools targeting WebAssembly;</li>
+                    <li>enable other useful tooling.</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h2>MVP</h2>
+        <ul>
+            <li>Modules</li>
+            <li class="next">Code in a module is specified in terms of an AST</li>
+            <li class="next">Binary format</li>
+            <li class="next">Text format</li>
+            <li class="next">Compatibility with browsers as well as with other environments</li>
+            <li class="next">Polyfill to JavaScript.</li>
+        </ul>
+        <footer>
+            Modules are interoperable with ES2015 modules
+            AST: each node represents an expression. Each function body consists of a list of expressions. All expressions and operators are typed, with no implicit conversions, subtyping, or overloading rules.
+            Binary format layers: layer 0 - raw binay format, layer 1 - structural compression, layer 2 - gzip, Brotli
+            Text format is isomorphic to binary; view source, devtools (when source maps aren't present), coding
+            Web Embedding: JS API, Security - Cross-Origin Resource Sharing (CORS), Subresource Integrity (SRI)
+            Non-web: Node.js non-JS VM environment
+        </footer>
+    </section>
+    <section class="slide">
+        <h2>Essential Post-MVP Features</h2>
+        <ul>
+            <li>Threads</li>
+            <li>SIMD</li>
+            <li>Zero-cost Exception Handling</li>
+            <li>Feature Testing</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h2>Some of features to add after the MVP</h2>
+        <ul>
+            <li>Tooling support</li>
+            <li>More expressive control flow</li>
+            <li>GC integration</li>
+            <li>DOM integration</li>
+            <li>Source maps integration</li>
+            <li>Coroutines</li>
+            <li>JIT</li>
+            <li>Streaming Compilation</li>
+        </ul>
+        <footer>
+            Control flow - goto, new primitives that address common patterns, TCO
+        </footer>
+    </section>
+	<section class="slide">
+		<h2>Links</h2>
+		<ul>
+			<li><a href="https://github.com/WebAssembly/design">WebAssembly Design Documents</a></li>
+			<li><a href="https://github.com/WebAssembly">WebAssembly organization on GitHub</a></li>
+			<li><a href="https://medium.com/javascript-scene/why-we-need-webassembly-an-interview-with-brendan-eich-7fb2a60b0723">Why we need WebAssembly</a></li>
+            <li><a href="https://github.com/WebAssembly/binaryen">Compiler infrastructure and toolchain library for WebAssembly, in C++</a></li>
+		</ul>
+	</section>
+	<section class="slide">
+		<img src="pictures/css.gif" class="place" height="80%" alt="">
+	</section>
+	<section class="slide">
+		<h2>The steps in the polyfill process</h2>
+		<img src="pictures/js-polyfill-process-preview-opt.png" class="place" width="60%" alt="">
+	</section>
+	<section class="slide">
+		<h2>The steps in the standards process</h2>
+		<img src="pictures/css-standards-process-preview-opt.png" class="place" width="80%" alt="">
+		<footer>
+			flexbox was first proposed in 2009, and developers still complain that they can’t use it today due to a lack of browser support
+		</footer>
+	</section>
+	<section class="slide">
+		<h2>PostCSS</h2>
+		<div style="text-align: center;">
+			<p>
+				<img src="pictures/postcss.svg" height="40%" alt="">
+			</p>
+			<p>
+				<img src="pictures/autoprefixer.svg" heigth="30%" alt="">
+				<img src="pictures/cssnext.svg" height="30%" alt="">
+			</p>
+		</div>
+	</section>
+	<section class="slide">
+		<h2>Houdini</h2>
+		<img src="pictures/houdini-spec-coverage-opt.png" width="80%" class="place" alt="">
+	</section>
+	<section class="slide">
+		<h2>Links</h2>
+		<ul>
+			<li><a href="http://postcss.org/">PostCSS</a></li>
+			<li><a href="https://www.smashingmagazine.com/2016/03/houdini-maybe-the-most-exciting-development-in-css-youve-never-heard-of/">Houdini: Maybe The Most Exciting Development In CSS You’ve Never Heard Of</a></li>
+			<li><a href="https://github.com/w3c/css-houdini-drafts">CSS-TAG Houdini Task Force Specifications</a></li>
+			<li><a href="https://github.com/w3c/css-houdini-drafts/wiki">CSS Houdini Wiki</a></li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2 class="shout grow">What about DOM?</h2>
+	</section>
+	<section class="slide">
+		<div class="place">
+			<h2>Contact me</h2>
+			<div>
+				<img style="vertical-align: middle;" src="pictures/GitHub-Mark-120px-plus.png" height="60" width="60"> <a href="https://github.com/chicoxyzzy">github.com/chicoxyzzy</a>
+			</div>
+			<div>
+				<img style="vertical-align: middle;" src="pictures/TwitterLogo_%2355acee.png" height="60" width="60"> <a href="https://twitter.com/chicoxyzzy">twitter.com/chicoxyzzy</a>
+			</div>
+			<div>
+				<img style="vertical-align: middle;" src="pictures/In-2C-128px-R.png" height="60" width="60"> <a href="https://www.linkedin.com/in/chicoxyzzy">linkedin.com/in/chicoxyzzy</a>
+			</div>
+			<br>
+			<div>Slides <a href="https://chicoxyzzy.github.io/talks/whats_wrong_with_web">chicoxyzzy.github.io/talks/whats_wrong_with_web</a></div>
+		</div>
+	</section>
+	<div class="progress"></div>
+	<script src="node_modules/shower-core/shower.min.js"></script>
+	<script src="node_modules/shower-notes/shower-notes.js"></script>
+	<script src="node_modules/prismjs/prism.js"></script>
+	<script src="node_modules/prismjs/components/prism-core.min.js"></script>
+	<script src="node_modules/prismjs/components/prism-clike.min.js"></script>
+	<script src="node_modules/prismjs/components/prism-javascript.min.js"></script>
+	<script src="node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
+	<!--<script src="node_modules/shower-timer/shower-timer.js"></script>-->
+</body>
+</html>
