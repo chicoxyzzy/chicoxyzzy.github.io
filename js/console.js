@@ -560,6 +560,12 @@ function initConsole(){
     },
     cv(){
       blank();
+      if(isRemoved(CV_FILE)){
+        line('  curl: (37) Failed to open Sergey_Rubanov-CV.pdf: No such file', 'co-err');
+        line('  <span class="co-dim">the file was removed. close and reopen the terminal to restore it.</span>');
+        blank();
+        return;
+      }
       line('  % Total    % Received % Xferd  Average Speed   Time    Name');
       line('  100  149K  100  149K    0     0   262K      0 --:--:-- Sergey_Rubanov-CV.pdf');
       downloadCV();
