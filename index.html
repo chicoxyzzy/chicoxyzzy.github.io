@@ -8,6 +8,9 @@
 <meta name="author" content="Sergey Rubanov">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#030a05">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:title" content="Sergey Rubanov">
 <meta property="og:description" content="Software engineer, independent researcher, and open-source contributor focused on AI agent infrastructure, the web platform, and developer tools.">
 <meta property="og:url" content="https://sergey.works">
@@ -781,6 +784,8 @@ main{
   background:#000080;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='12' cy='8' r='0.8' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='7' cy='15' r='1.2' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='17' cy='4' r='0.6' fill='%23ffffff' opacity='0.3'/%3E%3C/svg%3E");
   font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-size:18px;
+  line-height:1.45;
   color:#ffff00;
   padding:10px;
   min-height:100vh;
@@ -817,6 +822,7 @@ main{
 
 /* scrolling marquee fallback */
 marquee { color:#00ffff; font-size:18px; font-weight:bold; }
+marquee { font-size:22px; }
 
 /* hit counter */
 .counter {
@@ -835,9 +841,85 @@ marquee { color:#00ffff; font-size:18px; font-weight:bold; }
   padding:10px; margin:10px 0;
 }
 .retro-box-title {
-  font-size:16px; color:#00ffff; font-weight:bold;
+  font-size:20px; color:#00ffff; font-weight:bold;
   text-shadow:2px 2px #ff00ff;
   margin-bottom:8px;
+}
+.retro-sidebar-location {
+  font-size:18px;
+  color:#c0c0c0;
+  line-height:1.35;
+}
+.retro-counter-label {
+  color:#00ff00;
+  font-size:15px;
+  font-family:'Courier New',monospace;
+  letter-spacing:.12em;
+  margin-bottom:4px;
+}
+.retro-viewed {
+  border:2px inset #888;
+  background:#c0c0c0;
+  color:#000;
+  padding:8px;
+  font-size:18px;
+  line-height:1.35;
+}
+.retro-viewed b { font-size:19px; }
+.retro-applet-icon { font-size:32px; }
+.retro-applet {
+  font-size:17px;
+  color:#ffff00;
+  line-height:1.3;
+}
+.retro-updated {
+  font-size:17px;
+  color:#c0c0c0;
+  line-height:1.35;
+}
+.retro-about-copy {
+  color:#fff;
+  font-size:21px;
+  line-height:1.55;
+  margin:8px 0;
+}
+.retro-about-note {
+  color:#ffff00;
+  font-size:20px;
+  line-height:1.5;
+  margin:8px 0 2px;
+}
+.retro-about-note .gif-bounce { font-size:24px; }
+.retro-tagline {
+  color:#00ffff;
+  font-size:20px;
+  margin:.2rem 0;
+}
+.retro-links-list {
+  font-size:20px;
+  line-height:1.75;
+}
+.retro-skills-table {
+  border:3px ridge #c0c0c0;
+  border-collapse:collapse;
+  background:#000040;
+}
+.retro-skills-cell {
+  color:#00ffff;
+  font-size:18px;
+  line-height:1.45;
+  border:2px inset #808080;
+}
+.retro-project-copy {
+  font-size:20px;
+  line-height:1.6;
+  color:#fff;
+}
+.retro-footer-note {
+  font-size:14px;
+  color:#808080;
+  font-family:'Courier New',monospace;
+  margin-top:8px;
 }
 .retro-link { color:#ffff00; text-decoration:underline; cursor:pointer; }
 .retro-link:hover { color:#ff00ff; }
@@ -846,26 +928,32 @@ marquee { color:#00ffff; font-size:18px; font-weight:bold; }
   max-width:520px;
 }
 .guestbook-form label {
-  color:#00ffff; font-size:11px; font-weight:bold;
+  color:#66ffff; font-size:18px; font-weight:bold;
+  text-shadow:1px 1px #000;
 }
 .guestbook-form input,
 .guestbook-form textarea {
-  width:100%; background:#ffffcc; color:#000;
-  border:3px inset #c0c0c0;
-  font-family:'Courier New',monospace; font-size:12px;
+  width:100%; background:#fff8c6; color:#050030;
+  border:3px inset #e6d891;
+  font-family:'Courier New',monospace; font-size:18px;
   padding:4px;
+}
+.guestbook-form input:focus,
+.guestbook-form textarea:focus {
+  outline:2px solid #ff66ff;
+  background:#ffffff;
 }
 .guestbook-form textarea { min-height:54px; resize:vertical; }
 .guestbook-submit {
   justify-self:start;
-  background:#c0c0c0; color:#000;
+  background:#ffd24a; color:#00005a;
   border:3px outset #fff;
-  font-family:Arial,sans-serif; font-size:12px; font-weight:bold;
+  font-family:Arial,sans-serif; font-size:17px; font-weight:bold;
   padding:4px 12px; cursor:pointer;
 }
 .guestbook-submit:active { border-style:inset; }
 .guestbook-status {
-  color:#00ff00; font-size:11px; font-family:'Courier New',monospace;
+  color:#7cff7c; font-size:17px; font-family:'Courier New',monospace;
   min-height:1.2em;
 }
 .guestbook-entries {
@@ -873,15 +961,15 @@ marquee { color:#00ffff; font-size:18px; font-weight:bold; }
   display:flex; flex-direction:column; gap:6px;
 }
 .guestbook-entry {
-  background:#000; border:2px inset #808080;
-  color:#fff; padding:6px;
-  font-family:'Courier New',monospace; font-size:12px;
+  background:#050045; border:2px inset #66ffff;
+  color:#f6f2ff; padding:7px;
+  font-family:'Courier New',monospace; font-size:17px;
 }
-.guestbook-entry-name { color:#00ffff; font-weight:bold; }
-.guestbook-entry-date { color:#808080; font-size:10px; }
-.guestbook-entry-msg { color:#ffff00; margin-top:3px; }
+.guestbook-entry-name { color:#66ffff; font-weight:bold; }
+.guestbook-entry-date { color:#ff9cff; font-size:15px; }
+.guestbook-entry-msg { color:#fff36a; margin-top:3px; }
 .guestbook-note {
-  color:#c0c0c0; font-size:10px; font-family:'Courier New',monospace;
+  color:#c7c7ff; font-size:16px; font-family:'Courier New',monospace;
   margin:6px 0 2px;
 }
 #retro-overlay,
@@ -2592,7 +2680,7 @@ document.querySelectorAll('.rev').forEach(el=>io.observe(el));
 
       <h1 class="retro-name">SERGEY RUBANOV</h1>
 
-      <p style="color:#00ffff;font-size:16px;margin:.2rem 0;">
+      <p class="retro-tagline">
         <b><span class="blink">★</span> AI Agents <span class="blink">★</span> Web Platform <span class="blink">★</span> Developer Tools <span class="blink">★</span></b>
       </p>
 
@@ -2605,7 +2693,7 @@ document.querySelectorAll('.rev').forEach(el=>io.observe(el));
         <td class="retro-td" width="160" style="border-right:2px ridge #ffff00;">
           <center>
             <div style="background:#000;border:3px inset #666;padding:5px 6px 5px;margin-bottom:8px;text-align:center;">
-              <div style="color:#00ff00;font-size:9px;font-family:'Courier New',monospace;letter-spacing:.12em;margin-bottom:4px;">YOU ARE VISITOR #</div>
+              <div class="retro-counter-label">YOU ARE VISITOR #</div>
               <div id="retro-hit-display" style="
                 display:inline-block;
                 font-family:'Courier New',monospace;
@@ -2621,10 +2709,10 @@ document.querySelectorAll('.rev').forEach(el=>io.observe(el));
             </div>
 
             🇪🇸
-            <div style="font-size:10px;color:#c0c0c0;">Barcelona, Spain</div>
+            <div class="retro-sidebar-location">Barcelona, Spain</div>
             <br>
 
-            <div style="border:2px inset #888;background:#c0c0c0;color:#000;padding:4px;font-size:10px;">
+            <div class="retro-viewed">
               <b>Best Viewed In</b><br>
               Netscape 4.0<br>
               800 × 600<br>
@@ -2632,11 +2720,11 @@ document.querySelectorAll('.rev').forEach(el=>io.observe(el));
             </div>
             <br>
 
-            <div class="spin" style="font-size:20px;">⚙️</div>
-            <div style="font-size:10px;color:#ffff00;">Loading Java applet...</div>
+            <div class="spin retro-applet-icon">⚙️</div>
+            <div class="retro-applet">Loading Java applet...</div>
             <br>
 
-            <span style="font-size:10px;color:#c0c0c0;">Last updated:<br>TODAY!!!!</span>
+            <span class="retro-updated">Last updated:<br>TODAY!!!!</span>
           </center>
         </td>
 
@@ -2644,21 +2732,21 @@ document.querySelectorAll('.rev').forEach(el=>io.observe(el));
         <td class="retro-td">
           <div class="retro-box">
             <div class="retro-box-title">🌟 ABOUT ME!!! 🌟</div>
-            <p style="color:#ffffff;font-size:13px;line-height:1.6;">
+            <p class="retro-about-copy">
               HI!!! My name is Sergey and I am a <b style="color:#00ffff">SOFTWARE ENGINEER!!!</b>
               I work on <b style="color:#ffff00">AI agents</b>, the <b style="color:#00ff00">web platform</b>, and developer tools!!!
               I am a <span class="blink" style="color:#ff00ff"><b>TC39 + W3C STANDARDS PERSON</b></span> which means I read specification text so you do not have to!!!
               I also build observability and reliability controls for systems with many tiny moving parts!!!
             </p>
-            <p style="color:#ffff00;font-size:12px;">
-              <span class="gif-bounce" style="font-size:16px;">💡</span>
+            <p class="retro-about-note">
+              <span class="gif-bounce">💡</span>
               This page is handcrafted with care, questionable colors, and absolutely no layout tables were harmed!!!
             </p>
           </div>
 
           <div class="retro-box">
             <div class="retro-box-title">🔗 MY LINKS ON THE INFORMATION SUPERHIGHWAY 🔗</div>
-            <p style="font-size:13px;line-height:2;">
+            <p class="retro-links-list">
               📄 <a href="Sergey_Rubanov-CV.pdf" target="_blank" rel="noopener noreferrer" class="retro-link">Download my CV</a> — Serious PDF artifact!!!<br>
               📁 <a href="https://github.com/chicoxyzzy" target="_blank" rel="noopener noreferrer" class="retro-link">github.com/chicoxyzzy</a> — My CODE!!!<br>
               💼 <a href="https://ru.linkedin.com/in/chicoxyzzy" target="_blank" rel="noopener noreferrer" class="retro-link">linkedin.com/in/chicoxyzzy</a> — Professional Networking Site<br>
@@ -2669,21 +2757,21 @@ document.querySelectorAll('.rev').forEach(el=>io.observe(el));
 
           <div class="retro-box">
             <div class="retro-box-title">💾 MY SKILLZ 💾</div>
-            <table width="100%" border="1" cellpadding="6" cellspacing="0" style="border:3px ridge #c0c0c0;border-collapse:collapse;background:#000040;">
+            <table width="100%" border="1" cellpadding="6" cellspacing="0" class="retro-skills-table">
               <tbody><tr>
-                <td style="color:#00ffff;font-size:12px;border:2px inset #808080;" valign="top" width="25%">
+                <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00">AI / LLM systems:</b><br>
                   ✅ agent orchestration<br>✅ prompt/tool flows<br>✅ OpenAI-compatible API<br>✅ Anthropic API<br>✅ llama.cpp-compatible local models<br>✅ MCP/ACP
                 </td>
-                <td style="color:#00ffff;font-size:12px;border:2px inset #808080;" valign="top" width="25%">
+                <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00">Web platform / standards:</b><br>
                   🔥 TC39<br>🔥 W3C<br>🔥 Test262<br>🔥 WebAssembly<br>🔥 JavaScriptCore<br>🔥 WebKit<br>🔥 browsers/webviews
                 </td>
-                <td style="color:#00ffff;font-size:12px;border:2px inset #808080;" valign="top" width="25%">
+                <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00">Languages:</b><br>
                   ⭐ TypeScript<br>⭐ Go<br>⭐ C++<br>⭐ Zig
                 </td>
-                <td style="color:#00ffff;font-size:12px;border:2px inset #808080;" valign="top" width="25%">
+                <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00">Platform / observability:</b><br>
                   💿 OpenTelemetry<br>💿 traces/metrics/logs<br>💿 Prometheus<br>💿 Grafana<br>💿 OTel Collector<br>💿 Docker<br>💿 Kubernetes<br>💿 Terraform<br>💿 AWS<br>💿 GCP<br>💿 Cloudflare
                 </td>
@@ -2693,7 +2781,7 @@ document.querySelectorAll('.rev').forEach(el=>io.observe(el));
 
           <div class="retro-box">
             <div class="retro-box-title">🚀 MY PROJECTZ 🚀</div>
-            <p style="font-size:13px;line-height:1.7;color:#ffffff;">
+            <p class="retro-project-copy">
               <b style="color:#ffff00">Hecate</b> — local-first AI gateway + coding-agent console for cloud/local model traffic!!!<br>
               🌐 <a href="https://hecate.sh" target="_blank" rel="noopener noreferrer" class="retro-link">hecate.sh</a> · 💾 <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="retro-link">source code</a><br><br>
               <b style="color:#ffff00">Cynic</b> — strict-only ECMAScript engine in Zig for non-browser hosts!!!<br>
@@ -2723,7 +2811,7 @@ document.querySelectorAll('.rev').forEach(el=>io.observe(el));
             &nbsp;
             <span class="gif-spin-slow" style="font-size:44px;animation-delay:-.3s;">💾</span>
             <br>
-            <div style="font-size:10px;color:#808080;font-family:'Courier New',monospace;margin-top:8px;">
+            <div class="retro-footer-note">
               © 1997 Sergey Rubanov · All Rights Reserved<br>
               <span class="blink">★</span> This page is best viewed in 800×600 <span class="blink">★</span>
             </div>
