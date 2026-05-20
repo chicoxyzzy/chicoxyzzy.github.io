@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#030a05"/>
+      <stop offset="0.55" stop-color="#06150c"/>
+      <stop offset="1" stop-color="#010403"/>
+    </linearGradient>
+    <pattern id="scan" width="1" height="6" patternUnits="userSpaceOnUse">
+      <rect width="1" height="3" fill="#000" opacity=".16"/>
+      <rect y="3" width="1" height="3" fill="#00e87a" opacity=".035"/>
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#scan)"/>
+  <path d="M0 104h1200M0 526h1200" stroke="#00e87a" stroke-opacity=".13"/>
+  <path d="M104 126v350" stroke="#00e87a" stroke-opacity=".28" stroke-width="2"/>
+  <path d="M136 515h928" stroke="#00e87a" stroke-opacity=".18" stroke-width="2"/>
+
+  <text x="136" y="82" fill="#00e87a" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="32" font-weight="700">
+    sergey@works:~$ whoami --verbose
+  </text>
+
+  <g filter="url(#glow)">
+    <text x="136" y="245" fill="#d0e8d8" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="92" font-weight="700">
+      SERGEY RUBANOV
+    </text>
+  </g>
+
+  <text x="136" y="314" fill="#82b890" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="28" font-weight="700">
+    Software Engineer - Web Platform Standards - AI Agents
+  </text>
+
+  <text x="136" y="390" fill="#d0e8d8" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="31" font-weight="400">
+    <tspan x="136" dy="0">AI agent infrastructure, developer tools,</tspan>
+    <tspan x="136" dy="44">TC39 / W3C standards work, and open source.</tspan>
+  </text>
+
+  <text x="136" y="548" fill="#00e87a" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="32" font-weight="700">
+    sergey.works
+  </text>
+</svg>
