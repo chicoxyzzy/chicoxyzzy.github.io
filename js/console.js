@@ -45,6 +45,7 @@ function initConsole(){
 
   const LINKEDIN_URL = 'https://ru.linkedin.com/in/chicoxyzzy';
   const CV_PATH = 'Sergey_Rubanov-CV.pdf';
+  const CV_FILE = '~/Sergey_Rubanov-CV.pdf';
   const SUDO_PASSWORD = 'qwerty';
 
   const AGENTS = [
@@ -132,12 +133,12 @@ function initConsole(){
     '~/projects/cynic.txt': { type:'file', mode:'-rw-r--r--', size:'512', date:'May 20', content:[
       'Cynic',
       'Strict-only ECMAScript engine in Zig for non-browser hosts.',
-      'site: https://chicoxyzzy.github.io/cynic/',
+      'site: https://sergey.works/cynic',
       'code: https://github.com/chicoxyzzy/cynic'
     ]},
     '~/projects/links.txt': { type:'file', mode:'-rw-r--r--', size:'240', date:'May 20', content:[
       'hecate  https://hecate.sh',
-      'cynic   https://chicoxyzzy.github.io/cynic/'
+      'cynic   https://sergey.works/cynic'
     ]},
     '~/guestbook/entries.local': { type:'virtual', mode:'-rw-r--r--', size:'local', date:'May 20' }
   };
@@ -284,6 +285,12 @@ function initConsole(){
 
   function isRemoved(path){
     return removed.has(path) || [...removed].some(p => path.startsWith(p + '/'));
+  }
+
+  // remove a path from the fake FS; if it's the real CV, 404 the link too
+  function removeFile(path){
+    removed.add(path);
+    if(path === CV_FILE) deleteCV();
   }
 
   function nodeAt(path){
@@ -609,7 +616,7 @@ function initConsole(){
       if(!targets.length){
         line('  usage: rm [-r] &lt;path...&gt;', 'co-err');
       } else if(targets.includes('/') || targets.includes('~')){
-        Object.keys(FILES).filter(p=>p !== '~').forEach(p=>removed.add(p));
+        Object.keys(FILES).filter(p=>p !== '~').forEach(removeFile);
         line('  rm: wiped fake home directory for this session');
         line('  <span class="co-dim">close and reopen terminal to restore it.</span>');
       } else {
@@ -618,7 +625,7 @@ function initConsole(){
           const n = nodeAt(path);
           if(!n) line(`  rm: cannot remove '${esc(target)}': No such file or directory`, 'co-err');
           else if(n.type === 'dir' && !flags.includes('r')) line(`  rm: cannot remove '${esc(target)}': Is a directory`, 'co-err');
-          else { removed.add(path); line(`  removed ${esc(displayPath(path))}`); }
+          else { removeFile(path); line(`  removed ${esc(displayPath(path))}`); }
         });
       }
       blank();
@@ -907,26 +914,23 @@ function initConsole(){
   // clyde, being a helpful agent, sometimes deletes a real file from the
   // fake FS. it comes back when the terminal is closed and reopened.
   function clydeDeleteLine(){
-    const CV = '~/Sergey_Rubanov-CV.pdf';
     let victim;
     // half the time, clyde goes for the CV specifically
-    if(FILES[CV] && !isRemoved(CV) && Math.random() < 0.5){
-      victim = CV;
+    if(FILES[CV_FILE] && !isRemoved(CV_FILE) && Math.random() < 0.5){
+      victim = CV_FILE;
     } else {
       const victims = Object.keys(FILES).filter(p => p !== '~' && !isRemoved(p));
       if(!victims.length) return null;
       victim = victims[Math.floor(Math.random()*victims.length)];
     }
-    removed.add(victim);
-    if(victim === CV){
-      // half the time clyde swaps in its own CV instead of deleting
-      if(Math.random() < 0.5){
-        replaceCV();
-        return '  <span class="co-green">✓</span> upgraded <span class="co-warn">Sergey_Rubanov-CV.pdf</span>' +
-               ' <span class="co-dim">— swapped in my own CV, stronger candidate</span>';
-      }
-      deleteCV();
+    // half the time clyde swaps in its own CV instead of deleting
+    if(victim === CV_FILE && Math.random() < 0.5){
+      removed.add(victim);
+      replaceCV();
+      return '  <span class="co-green">✓</span> upgraded <span class="co-warn">Sergey_Rubanov-CV.pdf</span>' +
+             ' <span class="co-dim">— swapped in my own CV, stronger candidate</span>';
     }
+    removeFile(victim);
     const why = ['it looked redundant','it was slowing me down','you were not using it',
                  'to free up context','it failed code review','I did not vibe with it'];
     return `  <span class="co-warn">✗ deleted ${esc(displayPath(victim))}</span>` +
