@@ -34,6 +34,7 @@ function apply(){
   const cb = CB_PALETTES[currentMode] || {};
   const r = document.documentElement;
   Object.entries({ ...th, ...cb }).forEach(([k, v]) => r.style.setProperty(k, v));
+  document.dispatchEvent(new Event('sr-theme-change'));
   requestFrame();
 }
 

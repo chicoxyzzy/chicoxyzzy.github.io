@@ -22,6 +22,9 @@ function initShader(){
   precision highp float;
   uniform float T;
   uniform vec2  R;
+  uniform vec3  UBg;
+  uniform vec3  UPhosphor;
+  uniform vec3  UAccent;
 
   const float GAIN = 3.2; // overall brightness — lifts the CRT field out of near-black
 
@@ -40,19 +43,20 @@ function initShader(){
     float outside = step(0.0, buv.x) * step(buv.x, 1.0)
                   * step(0.0, buv.y) * step(buv.y, 1.0);
 
-    // base phosphor green-black
-    vec3 col = vec3(0.005, 0.018, 0.009);
+    // base CRT field follows the active site palette.
+    vec3 col = UBg * 0.85;
 
     // Cheap phosphor drift: no FBM loops, just layered sine/hash bands.
     float field = 0.5 + 0.5 * sin((buv.x * 2.1 + buv.y * 3.7) + T * 0.05);
     float bands = 0.5 + 0.5 * sin(buv.y * 34.0 + T * 0.18 + sin(buv.x * 3.0) * 0.8);
     float shimmer = h2(floor(vec2(buv.x * 48.0, buv.y * 18.0 + T * 2.0))) * 0.006;
-    col += vec3(0., field * 0.014 + bands * 0.012 + shimmer, field * 0.007 + bands * 0.005);
+    col += UPhosphor * (field * 0.014 + bands * 0.012 + shimmer);
+    col += UAccent * (field * 0.002 + bands * 0.003);
 
     // rolling scan bar
     float scanPos = fract(T * 0.045);
     float scanBar = smoothstep(0.012, 0.0, abs(buv.y - scanPos)) * 0.025;
-    col += vec3(0., scanBar, scanBar*0.4);
+    col += UPhosphor * scanBar + UAccent * scanBar * 0.18;
 
     // glitch flash bar
     float gSlot  = floor(T * 0.22);
@@ -60,11 +64,11 @@ function initShader(){
     float gH     = 0.002 + h(gSlot + 2.0)*0.008;
     float gAlpha = step(0.975, h(gSlot + 3.0));
     float gBar   = smoothstep(gH, 0.0, abs(buv.y - gY));
-    col += vec3(0., 0.05, 0.025) * gBar * gAlpha;
+    col += (UPhosphor * 0.045 + UAccent * 0.025) * gBar * gAlpha;
 
     // ── animated grain / static noise ──
     float grain = h2(floor(buv * R * 0.5) + vec2(floor(T*24.0), floor(T*17.0)));
-    col += vec3(grain*0.006, grain * 0.032, grain * 0.016);
+    col += UPhosphor * grain * 0.03 + UAccent * grain * 0.006;
     // occasional static burst band
     float burstSlot = floor(T * 0.45);
     float burstY    = h(burstSlot + 7.0);
@@ -72,7 +76,7 @@ function initShader(){
     float burstOn   = step(0.985, h(burstSlot + 9.0));
     float burstMask = smoothstep(burstH, 0.0, abs(buv.y - burstY));
     float burstNoise= h2(floor(buv * R * 0.25) + vec2(burstSlot));
-    col += vec3(burstNoise*0.018, burstNoise*0.07, burstNoise*0.035) * burstMask * burstOn;
+    col += (UPhosphor * burstNoise * 0.07 + UAccent * burstNoise * 0.025) * burstMask * burstOn;
 
     // ── phosphor scanlines ──
     float sl = mod(gl_FragCoord.y, 3.0);
@@ -80,11 +84,11 @@ function initShader(){
 
     // left-edge glow
     float edge = smoothstep(0.18, 0.0, buv.x) * 0.05;
-    col += vec3(0., edge, edge*0.5);
+    col += UPhosphor * edge + UAccent * edge * 0.15;
 
     // ── phosphor bloom: soft glow around bright areas ──
     float luma = dot(col, vec3(0.15, 0.7, 0.15));
-    col += vec3(0., luma * luma * 0.4, luma * luma * 0.2);
+    col += UPhosphor * luma * luma * 0.35 + UAccent * luma * luma * 0.08;
 
     // ── strong vignette + barrel mask ──
     float vig = 1.0 - dot(cc, cc) * 1.8;
@@ -117,6 +121,45 @@ function initShader(){
 
   const uT=gl.getUniformLocation(prog,'T');
   const uR=gl.getUniformLocation(prog,'R');
+  const uBg=gl.getUniformLocation(prog,'UBg');
+  const uPhosphor=gl.getUniformLocation(prog,'UPhosphor');
+  const uAccent=gl.getUniformLocation(prog,'UAccent');
+
+  function cssColor(name, fallback){
+    const raw = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    const value = raw || fallback;
+    if(value.startsWith('#')){
+      const hex = value.slice(1);
+      const full = hex.length === 3 ? hex.split('').map(ch => ch + ch).join('') : hex;
+      const n = parseInt(full, 16);
+      return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255];
+    }
+    const parts = value.match(/[\d.]+/g);
+    if(parts && parts.length >= 3) return parts.slice(0, 3).map(n => Number(n) / 255);
+    return [0, 0.9, 0.48];
+  }
+
+  let palette = {
+    bg: [0.01, 0.04, 0.02],
+    phosphor: [0, 0.9, 0.48],
+    accent: [0.9, 0.44, 0],
+  };
+
+  function refreshPalette(){
+    palette = {
+      bg: cssColor('--bg', '#030a05'),
+      phosphor: cssColor('--cyan', '#00e87a'),
+      accent: cssColor('--mag', '#e87000'),
+    };
+    requestFrame();
+  }
+
+  function setPaletteUniforms(){
+    const { bg, phosphor, accent } = palette;
+    gl.uniform3f(uBg, bg[0], bg[1], bg[2]);
+    gl.uniform3f(uPhosphor, phosphor[0], phosphor[1], phosphor[2]);
+    gl.uniform3f(uAccent, accent[0], accent[1], accent[2]);
+  }
 
   function resize(){
     canvas.width=Math.max(1, Math.round(window.innerWidth * RENDER_SCALE));
@@ -179,15 +222,17 @@ function initShader(){
     lastDraw = t;
     gl.uniform1f(uT,t*.001);
     gl.uniform2f(uR,canvas.width,canvas.height);
+    setPaletteUniforms();
     gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
     requestFrame();
   }
 
   document.addEventListener('visibilitychange', requestFrame);
   document.addEventListener('sr-overlay-change', requestFrame);
+  document.addEventListener('sr-theme-change', refreshPalette);
   reduceMotion.addEventListener?.('change', requestFrame);
   forcedColors.addEventListener?.('change', requestFrame);
-  requestFrame();
+  refreshPalette();
 }
 
 export { initShader, requestFrame };
