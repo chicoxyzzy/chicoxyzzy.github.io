@@ -126,7 +126,8 @@ function initConsole(){
     ]},
     '~/projects/hecate.txt': { type:'file', mode:'-rw-r--r--', size:'620', date:'May 20', content:[
       'Hecate',
-      'Local-first AI gateway and coding-agent console.',
+      'Local-first AI runtime console for cloud/local models and Hecate Chat.',
+      'Supervised coding-agent sessions, task approvals, usage visibility, OpenTelemetry.',
       'site: https://hecate.sh',
       'code: https://github.com/hecatehq/hecate'
     ]},
