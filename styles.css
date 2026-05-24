@@ -17,6 +17,7 @@
   --scrim:       color-mix(in srgb, var(--bg) 78%, transparent);
   --line:        color-mix(in srgb, var(--mid) 34%, transparent);
   --line-soft:   color-mix(in srgb, var(--mid) 20%, transparent);
+  --retro-fun-font: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Marker Felt', 'Noteworthy', 'Trebuchet MS', sans-serif;
 }
 
 /* ── COLOR-BLIND MODES ── */
@@ -793,7 +794,7 @@ main{
 .retro-body {
   background:#000080;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='12' cy='8' r='0.8' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='7' cy='15' r='1.2' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='17' cy='4' r='0.6' fill='%23ffffff' opacity='0.3'/%3E%3C/svg%3E");
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-family: var(--retro-fun-font);
   font-size:18px;
   line-height:1.45;
   color:#ffff00;
@@ -827,7 +828,7 @@ main{
   line-height:1;
   text-transform:uppercase;
   white-space:nowrap;
-  font-family:'Comic Sans MS','Comic Sans',cursive;
+  font-family:var(--retro-fun-font);
   color:#ff00ff;
   -webkit-text-stroke:1px #ffff00;
   text-shadow:3px 3px 0 #00ffff,5px 5px 0 #000;
@@ -1135,4 +1136,3 @@ marquee { font-size:22px; }
   }
   .contact-intro-text { grid-column:1; }
 }
-

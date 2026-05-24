@@ -13,6 +13,7 @@ function initRetro(){
     overlay.classList.toggle('open', isOpen);
     overlay.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
     retroBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.dispatchEvent(new Event('sr-overlay-change'));
     if(isOpen) retroClose.focus();
     else if(lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
   }

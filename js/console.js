@@ -150,12 +150,14 @@ function initConsole(){
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden', 'false');
     openBtn.setAttribute('aria-expanded', 'true');
+    document.dispatchEvent(new Event('sr-overlay-change'));
     input.focus();
   }
   function close(){
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden', 'true');
     openBtn.setAttribute('aria-expanded', 'false');
+    document.dispatchEvent(new Event('sr-overlay-change'));
     if(lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
   }
 

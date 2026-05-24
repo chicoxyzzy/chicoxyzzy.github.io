@@ -6,6 +6,8 @@ function initShader(){
   const canvas = document.getElementById('rain-canvas');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const forcedColors = window.matchMedia('(forced-colors: active)');
+  const RENDER_SCALE = 0.5;
+  const FRAME_MS = 1000 / 15;
 
   if(reduceMotion.matches || forcedColors.matches){
     canvas.style.display = 'none';
@@ -21,22 +23,10 @@ function initShader(){
   uniform float T;
   uniform vec2  R;
 
-  const float GAIN = 3.0; // overall brightness — lifts the CRT field out of near-black
+  const float GAIN = 3.2; // overall brightness — lifts the CRT field out of near-black
 
   float h(float v){ return fract(sin(v*127.1+19.3)*43758.5); }
   float h2(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5); }
-
-  float noise(vec2 p){
-    vec2 i=floor(p), f=fract(p);
-    f=f*f*(3.-2.*f);
-    return mix(mix(h2(i),h2(i+vec2(1,0)),f.x),
-               mix(h2(i+vec2(0,1)),h2(i+vec2(1,1)),f.x),f.y);
-  }
-  float fbm(vec2 p){
-    float v=0.,a=.5;
-    for(int i=0;i<4;i++){v+=a*noise(p);p*=2.1;a*=.5;}
-    return v;
-  }
 
   void main(){
     vec2 uv = gl_FragCoord.xy / R;
@@ -53,17 +43,11 @@ function initShader(){
     // base phosphor green-black
     vec3 col = vec3(0.005, 0.018, 0.009);
 
-    // slow FBM noise field
-    float n = fbm(buv * 3.0 + vec2(T*0.018, T*0.01));
-    col += vec3(0., n*0.018, n*0.009);
-
-    // very slow horizontal interference bands
-    float bands = fbm(vec2(0.5, buv.y*7.0 + T*0.045));
-    col += vec3(0., bands*0.012, bands*0.006);
-
-    // scanline shimmer
-    float shimmer = noise(vec2(buv.x*34.0, buv.y*1.2 + T*0.12)) * 0.006;
-    col += vec3(0., shimmer, shimmer*0.5);
+    // Cheap phosphor drift: no FBM loops, just layered sine/hash bands.
+    float field = 0.5 + 0.5 * sin((buv.x * 2.1 + buv.y * 3.7) + T * 0.05);
+    float bands = 0.5 + 0.5 * sin(buv.y * 34.0 + T * 0.18 + sin(buv.x * 3.0) * 0.8);
+    float shimmer = h2(floor(vec2(buv.x * 48.0, buv.y * 18.0 + T * 2.0))) * 0.006;
+    col += vec3(0., field * 0.014 + bands * 0.012 + shimmer, field * 0.007 + bands * 0.005);
 
     // rolling scan bar
     float scanPos = fract(T * 0.045);
@@ -135,31 +119,64 @@ function initShader(){
   const uR=gl.getUniformLocation(prog,'R');
 
   function resize(){
-    canvas.width=window.innerWidth;
-    canvas.height=window.innerHeight;
+    canvas.width=Math.max(1, Math.round(window.innerWidth * RENDER_SCALE));
+    canvas.height=Math.max(1, Math.round(window.innerHeight * RENDER_SCALE));
     canvas.style.width='100vw';canvas.style.height='100vh';
     gl.viewport(0,0,canvas.width,canvas.height);
   }
   resize();
-  window.addEventListener('resize',resize);
+  let resizeTimer = 0;
+  window.addEventListener('resize',()=>{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(()=>{
+      resize();
+      requestFrame();
+    }, 120);
+  });
 
   let rafId = 0;
+  let timerId = 0;
+  let lastDraw = 0;
+
   function shouldRender(){
     const style = getComputedStyle(canvas);
     return !document.hidden &&
       !reduceMotion.matches &&
       !forcedColors.matches &&
+      !document.getElementById('console-overlay')?.classList.contains('open') &&
+      !document.getElementById('retro-overlay')?.classList.contains('open') &&
       style.display !== 'none' &&
       Number(style.opacity || 1) > 0;
   }
 
+  function cancelScheduled(){
+    if(rafId) cancelAnimationFrame(rafId);
+    if(timerId) clearTimeout(timerId);
+    rafId = 0;
+    timerId = 0;
+  }
+
   requestFrame = function(){
-    if(!rafId && shouldRender()) rafId = requestAnimationFrame(frame);
+    if(rafId || timerId) return;
+    if(!shouldRender()){
+      cancelScheduled();
+      return;
+    }
+    const wait = Math.max(0, FRAME_MS - (performance.now() - lastDraw));
+    if(wait > 0){
+      timerId = setTimeout(()=>{
+        timerId = 0;
+        if(shouldRender()) rafId = requestAnimationFrame(frame);
+      }, wait);
+    } else {
+      rafId = requestAnimationFrame(frame);
+    }
   };
 
   function frame(t){
     rafId = 0;
     if(!shouldRender()) return;
+    lastDraw = t;
     gl.uniform1f(uT,t*.001);
     gl.uniform2f(uR,canvas.width,canvas.height);
     gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
@@ -167,6 +184,7 @@ function initShader(){
   }
 
   document.addEventListener('visibilitychange', requestFrame);
+  document.addEventListener('sr-overlay-change', requestFrame);
   reduceMotion.addEventListener?.('change', requestFrame);
   forcedColors.addEventListener?.('change', requestFrame);
   requestFrame();
