@@ -376,7 +376,8 @@ main{
   color:var(--hi);
   opacity:1;
 }
-.top-links svg{
+.link-icon{
+  display:block;
   width:14px;
   height:14px;
   stroke:currentColor;
@@ -385,10 +386,20 @@ main{
   stroke-linecap:round;
   stroke-linejoin:round;
   flex-shrink:0;
+  transform-box:fill-box;
+  transform-origin:center;
 }
-.top-links .fill-icon{
+.link-icon.fill-icon{
   fill:currentColor;
   stroke:none;
+}
+.icon-cv,
+.icon-github,
+.icon-linkedin,
+.icon-x,
+.icon-bluesky{transform:scale(.86, .94);}
+.icon-bluesky{
+  stroke-width:1.7;
 }
 
 /* ── SECTIONS ── */
@@ -410,7 +421,7 @@ main{
 }
 .row:last-child{border-bottom:none;}
 .row-label{display:flex;align-items:center;gap:.5rem;color:var(--mid);font-size:0.846rem;letter-spacing:.06em;text-transform:uppercase;}
-.row-icon{width:13px;height:13px;stroke:var(--mid);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.row-icon{color:var(--mid);}
 .row-val{color:var(--text);}
 .row-val a{color:var(--mid);text-decoration:none;transition:color .15s;}
 .row-val a:hover{color:var(--hi);}
