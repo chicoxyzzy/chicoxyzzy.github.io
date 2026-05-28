@@ -329,6 +329,12 @@ main{
   padding:.1rem .4rem;
   transition:color .15s,border-color .15s;
 }
+.sk-badge-soon{
+  cursor:default;
+  color:var(--dim);
+  border-color:var(--line);
+}
+.sk-badge-soon:hover{border-color:var(--line);color:var(--dim);}
 .sk-actions .sk-badge{margin-left:0;}
 .comment a{color:var(--mid);text-decoration:none;transition:color .15s;}
 .comment a:hover{color:var(--cyan);}
@@ -939,6 +945,14 @@ marquee { font-size:22px; }
 }
 .retro-link { color:#ffff00; text-decoration:underline; cursor:pointer; }
 .retro-link:hover { color:#ff00ff; }
+.retro-soon {
+  display:inline-block;
+  color:#000080;
+  background:#ffff00;
+  border:2px outset #ffffff;
+  padding:0 6px;
+  font-weight:bold;
+}
 .guestbook-form {
   display:grid; gap:6px;
   max-width:520px;

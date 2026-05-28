@@ -137,9 +137,25 @@ function initConsole(){
       'site: https://sergey.works/cynic',
       'code: https://github.com/chicoxyzzy/cynic'
     ]},
-    '~/projects/links.txt': { type:'file', mode:'-rw-r--r--', size:'240', date:'May 20', content:[
+    '~/projects/pragmatist.txt': { type:'file', mode:'-rw-r--r--', size:'860', date:'May 28', content:[
+      'Pragmatist',
+      'What:',
+      'Agent audit platform with verifiable findings for ECMA-262, TypeScript, and JS engines.',
+      '',
+      'Features:',
+      '- MCP audit tools and parsed spec queries',
+      '- Coq/Rocq mechanization for spec algorithms',
+      '- TypeScript parser/lib diffs against spec-grounded references',
+      '- multi-engine differential runs across V8, JSC, SpiderMonkey, Hermes, QuickJS, engine262, and Cynic',
+      '- test262/spec patch scaffolds and a five-gate reproducible finding verifier',
+      '',
+      'site: soon',
+      'code: soon'
+    ]},
+    '~/projects/links.txt': { type:'file', mode:'-rw-r--r--', size:'280', date:'May 28', content:[
       'hecate  https://hecate.sh',
-      'cynic   https://sergey.works/cynic'
+      'cynic   https://sergey.works/cynic',
+      'pragmatist  soon'
     ]},
     '~/guestbook/entries.local': { type:'virtual', mode:'-rw-r--r--', size:'local', date:'May 20' }
   };
