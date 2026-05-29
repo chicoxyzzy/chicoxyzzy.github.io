@@ -43,7 +43,7 @@ function initConsole(){
   let clydeEscape = -1;
   let clydeGone = false;
 
-  const LINKEDIN_URL = 'https://ru.linkedin.com/in/chicoxyzzy';
+  const LINKEDIN_URL = 'https://www.linkedin.com/in/chicoxyzzy/';
   const CV_PATH = 'Sergey_Rubanov-CV.pdf';
   const CV_FILE = '~/Sergey_Rubanov-CV.pdf';
   const SUDO_PASSWORD = 'qwerty';
@@ -98,7 +98,7 @@ function initConsole(){
     ]},
     '~/contact.txt': { type:'file', mode:'-rw-r--r--', size:'360', date:'May 20', content:[
       'github    https://github.com/chicoxyzzy',
-      'linkedin  https://linkedin.com/in/chicoxyzzy',
+      'linkedin  https://www.linkedin.com/in/chicoxyzzy/',
       'x         https://x.com/chicoxyzzy',
       'bluesky   https://bsky.app/profile/sergey.works'
     ]},
@@ -109,7 +109,7 @@ function initConsole(){
       'set -euo pipefail',
       '',
       'require_human=true',
-      'open "linkedin.com/in/chicoxyzzy"'
+      'open "www.linkedin.com/in/chicoxyzzy/"'
     ]},
     '~/bin/moo': { type:'exec', mode:'-rwxr-xr-x', size:'42', date:'May 20', content:['prints one standards-compliant cow'] },
     '~/bin/clyde': { type:'exec', mode:'-rwxr-xr-x', size:'4.7M', date:'May 20', content:[
