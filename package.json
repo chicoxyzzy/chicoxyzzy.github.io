@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "cv:pdf": "node scripts/generate-cv.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}

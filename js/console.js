@@ -44,8 +44,8 @@ function initConsole(){
   let clydeGone = false;
 
   const LINKEDIN_URL = 'https://www.linkedin.com/in/chicoxyzzy/';
-  const CV_PATH = 'Sergey_Rubanov-CV.pdf';
-  const CV_FILE = '~/Sergey_Rubanov-CV.pdf';
+  const CV_PATH = 'downloads/Sergey-Rubanov-CV.pdf';
+  const CV_FILE = '~/Sergey-Rubanov-CV.pdf';
   const SUDO_PASSWORD = 'qwerty';
 
   const AGENTS = [
@@ -103,7 +103,7 @@ function initConsole(){
       'bluesky   https://bsky.app/profile/sergey.works'
     ]},
     '~/my_password.txt': { type:'file', mode:'-rw-------', size:'6', date:'May 20', content:[SUDO_PASSWORD] },
-    '~/Sergey_Rubanov-CV.pdf': { type:'pdf', mode:'-rw-r--r--', size:'149K', date:'May 20' },
+    '~/Sergey-Rubanov-CV.pdf': { type:'pdf', mode:'-rw-r--r--', size:'588K', date:'Jun 02' },
     '~/bin/hire': { type:'exec', mode:'-rwxr-xr-x', size:'512', date:'May 20', content:[
       '#!/usr/bin/env sergey-shell',
       'set -euo pipefail',
@@ -437,7 +437,7 @@ function initConsole(){
   function downloadCV(){
     const a = document.createElement('a');
     a.href = CV_PATH;
-    a.download = 'Sergey_Rubanov-CV.pdf';
+    a.download = 'Sergey-Rubanov-CV.pdf';
     a.target = '_self';
     document.body.appendChild(a);
     a.click();
@@ -597,15 +597,15 @@ function initConsole(){
     cv(){
       blank();
       if(isRemoved(CV_FILE)){
-        line('  curl: (37) Failed to open Sergey_Rubanov-CV.pdf: No such file', 'co-err');
+        line('  curl: (37) Failed to open Sergey-Rubanov-CV.pdf: No such file', 'co-err');
         line('  <span class="co-dim">the file was removed. close and reopen the terminal to restore it.</span>');
         blank();
         return;
       }
       line('  % Total    % Received % Xferd  Average Speed   Time    Name');
-      line('  100  149K  100  149K    0     0   262K      0 --:--:-- Sergey_Rubanov-CV.pdf');
+      line('  100  588K  100  588K    0     0   262K      0 --:--:-- Sergey-Rubanov-CV.pdf');
       downloadCV();
-      line('  <span class="co-green">saved as Sergey_Rubanov-CV.pdf</span>');
+      line('  <span class="co-green">saved as Sergey-Rubanov-CV.pdf</span>');
       blank();
     },
     curl(args){
@@ -969,7 +969,7 @@ function initConsole(){
     if(victim === CV_FILE && Math.random() < 0.5){
       removed.add(victim);
       replaceCV();
-      return '  <span class="co-green">✓</span> upgraded <span class="co-warn">Sergey_Rubanov-CV.pdf</span>' +
+      return '  <span class="co-green">✓</span> upgraded <span class="co-warn">Sergey-Rubanov-CV.pdf</span>' +
              ' <span class="co-dim">— swapped in my own CV, stronger candidate</span>';
     }
     removeFile(victim);

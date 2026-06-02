@@ -1,0 +1,54 @@
+name: CV PDF
+
+on:
+  pull_request:
+    paths:
+      - cv.html
+      - assets/cv/**
+      - scripts/generate-cv.js
+      - package.json
+      - package-lock.json
+      - .github/workflows/cv-pdf.yml
+  push:
+    branches:
+      - master
+    paths:
+      - cv.html
+      - assets/cv/**
+      - scripts/generate-cv.js
+      - package.json
+      - package-lock.json
+      - .github/workflows/cv-pdf.yml
+  workflow_dispatch:
+
+jobs:
+  generate:
+    name: Generate CV PDF
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Generate PDF
+        run: npm run cv:pdf
+
+      - name: Upload generated PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sergey-Rubanov-CV
+          path: downloads/Sergey-Rubanov-CV.pdf
+
+      - name: Verify committed PDF is current
+        run: git diff --exit-code -- downloads/Sergey-Rubanov-CV.pdf

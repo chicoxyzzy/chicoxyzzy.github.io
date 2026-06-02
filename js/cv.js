@@ -19,7 +19,7 @@ function show404(){
   el.innerHTML =
     '<div class="cv404-code">404</div>' +
     '<div class="cv404-body">' +
-      '<span class="dim">Sergey_Rubanov-CV.pdf</span><br><br>' +
+      '<span class="dim">Sergey-Rubanov-CV.pdf</span><br><br>' +
       'this file was deleted by <span class="dim">clyde code</span>.<br>' +
       'reason: &ldquo;it failed code review&rdquo;' +
     '</div>' +
@@ -67,7 +67,16 @@ function showClydeCV(){
 
 function initCV(){
   document.addEventListener('keydown', e=>{ if(e.key === 'Escape') closeOverlay(); });
-  document.querySelectorAll('a[href$="Sergey_Rubanov-CV.pdf"]').forEach(a=>{
+  document.querySelectorAll('a[href="cv.html"]').forEach(a=>{
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.addEventListener('click', e=>{
+      if(e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      window.open(a.href, '_blank', 'noopener,noreferrer');
+    });
+  });
+  document.querySelectorAll('a[href$="downloads/Sergey-Rubanov-CV.pdf"]').forEach(a=>{
     a.addEventListener('click', e=>{
       if(cvReplaced){ e.preventDefault(); showClydeCV(); }
       else if(cvDeleted){ e.preventDefault(); show404(); }
