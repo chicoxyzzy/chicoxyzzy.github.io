@@ -152,10 +152,27 @@ function initConsole(){
       'site: soon',
       'code: soon'
     ]},
-    '~/projects/links.txt': { type:'file', mode:'-rw-r--r--', size:'280', date:'May 28', content:[
+    '~/projects/tc39-mcp.txt': { type:'file', mode:'-rw-r--r--', size:'760', date:'Jun 02', content:[
+      'tc39-mcp',
+      'What:',
+      'Structured MCP access to TC39 specs, turning ECMA-262 and ECMA-402 into',
+      'clause-level, SHA-pinned data for agents and tools.',
+      '',
+      'Features:',
+      '- AOID-aware search',
+      '- cross-spec references',
+      '- edition diffs and git history',
+      '- test262 and proposal lookup',
+      '- offline stdio plus hosted HTTP',
+      '',
+      'site: https://tc39-mcp.chicoxyzzy.workers.dev',
+      'code: https://github.com/xyzzylabs/tc39-mcp'
+    ]},
+    '~/projects/links.txt': { type:'file', mode:'-rw-r--r--', size:'360', date:'Jun 02', content:[
       'hecate  https://hecate.sh',
       'cynic   https://sergey.works/cynic',
-      'pragmatist  soon'
+      'pragmatist  soon',
+      'tc39-mcp  https://tc39-mcp.chicoxyzzy.workers.dev'
     ]},
     '~/guestbook/entries.local': { type:'virtual', mode:'-rw-r--r--', size:'local', date:'May 20' }
   };
