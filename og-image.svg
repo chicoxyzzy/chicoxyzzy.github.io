@@ -20,30 +20,27 @@
 
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#scan)"/>
-  <path d="M0 104h1200M0 526h1200" stroke="#00e87a" stroke-opacity=".13"/>
-  <path d="M104 126v350" stroke="#00e87a" stroke-opacity=".28" stroke-width="2"/>
-  <path d="M136 515h928" stroke="#00e87a" stroke-opacity=".18" stroke-width="2"/>
+  <path d="M0 104h1200" stroke="#00e87a" stroke-opacity=".13"/>
+  <path d="M104 126v360" stroke="#00e87a" stroke-opacity=".28" stroke-width="2"/>
+  <path d="M136 486h928" stroke="#00e87a" stroke-opacity=".18" stroke-width="2"/>
 
-  <text x="136" y="82" fill="#00e87a" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="32" font-weight="700">
+  <text x="136" y="82" fill="#00e87a" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="32" font-weight="700" font-style="normal">
     sergey@works:~$ whoami --verbose
   </text>
 
   <g filter="url(#glow)">
-    <text x="136" y="245" fill="#d0e8d8" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="92" font-weight="700">
+    <text x="136" y="238" fill="#d0e8d8" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="92" font-weight="700" font-style="normal">
       SERGEY RUBANOV
     </text>
   </g>
 
-  <text x="136" y="314" fill="#82b890" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="28" font-weight="700">
-    Software Engineer - Web Platform Standards - AI Agents
+  <text x="136" y="312" fill="#82b890" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="28" font-weight="700" font-style="normal">
+    Software Engineer - AI Agents - Web Platform Standards
   </text>
 
-  <text x="136" y="390" fill="#d0e8d8" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="31" font-weight="400">
-    <tspan x="136" dy="0">AI agent infrastructure, developer tools,</tspan>
+  <text x="136" y="386" fill="#d0e8d8" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="31" font-weight="400" font-style="normal">
+    <tspan x="136" dy="0">Developer tools, runtime reliability,</tspan>
     <tspan x="136" dy="44">TC39 / W3C standards work, and open source.</tspan>
   </text>
 
-  <text x="136" y="548" fill="#00e87a" font-family="JetBrains Mono, Menlo, Consolas, monospace" font-size="32" font-weight="700">
-    sergey.works
-  </text>
 </svg>

@@ -1,11 +1,13 @@
 // Tweaks panel UI: theme buttons, shader-intensity slider, font-size slider.
 // Persists to the sr_tweaks localStorage key.
 
-import { setTheme } from './themes.js';
+import { setColorMode, setTheme } from './themes.js';
 import { requestFrame } from './shader.js';
 
 const FONT_SIZES = [11, 13, 15, 17];
 const FONT_LABELS = ['Small', 'Medium', 'Large', 'X-Large'];
+const CB_CLASSES = ['cb-deuteranopia','cb-protanopia','cb-tritanopia','cb-highcontrast'];
+const COLOR_MODE_KEY = 'sr_colormode';
 
 function initTweaks(){
   const DEFAULTS = { shaderOpacity:0.55, fontSize:13, colorTheme:'phosphor' };
@@ -46,6 +48,8 @@ function initTweaks(){
   const fontEl     = document.getElementById('tweaks-fontsize');
   const fontValEl  = document.getElementById('tweaks-fontsize-val');
   const themeBtns  = document.querySelectorAll('.tweaks-rbtn[data-theme]');
+  const modeBtns   = document.querySelectorAll('.a11y-row[data-mode]');
+  const root       = document.documentElement;
 
   shaderEl.value  = vals.shaderOpacity;
   let fontIdx = FONT_SIZES.indexOf(vals.fontSize);
@@ -60,11 +64,31 @@ function initTweaks(){
     b.setAttribute('aria-pressed', active ? 'true' : 'false');
   });
 
+  function setMode(mode){
+    CB_CLASSES.forEach(c=>root.classList.remove(c));
+    if(mode) root.classList.add(mode);
+    setColorMode(mode);
+    modeBtns.forEach(r=>{
+      const active = r.dataset.mode===mode;
+      r.classList.toggle('active', active);
+      r.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    try{ localStorage.setItem(COLOR_MODE_KEY, mode); }catch(e){}
+  }
+
+  try{
+    const savedMode = localStorage.getItem(COLOR_MODE_KEY);
+    setMode(savedMode || '');
+  }catch(e){
+    setMode('');
+  }
+
   applyShader(vals.shaderOpacity);
 
   function setOpen(isOpen){
     panel.classList.toggle('open', isOpen);
     panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    panel.toggleAttribute('inert', !isOpen);
     tweaksBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     if(isOpen) shaderEl.focus();
   }
@@ -100,6 +124,7 @@ function initTweaks(){
     setTheme(vals.colorTheme);
     save(vals);
   }));
+  modeBtns.forEach(r=> r.addEventListener('click', ()=> setMode(r.dataset.mode)));
 }
 
 export { initTweaks };

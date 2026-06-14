@@ -31,10 +31,11 @@ function initConsole(){
   const statusCwd = document.getElementById('console-status-cwd');
 
   const HISTORY_KEY = 'sr_cmd_history';
+  const REMOVED_KEY = 'sr_console_removed';
   let history = loadHistory(), hIdx = history.length;
   let lastFocus = null;
   let cwd = '~';
-  let removed = new Set();
+  let removed = loadRemoved();
   let sudoPending = null;
   let editor = null;
   let clydeSession = null;
@@ -68,7 +69,8 @@ function initConsole(){
     '',
     '## Useful commands',
     '- cat about.txt',
-    '- ls projects',
+    '- ls ./projects/',
+    '- cat ./projects/links.txt',
     '- curl cv',
     '- cat my_password.txt',
     '- sudo hire'
@@ -140,14 +142,14 @@ function initConsole(){
     '~/projects/pragmatist.txt': { type:'file', mode:'-rw-r--r--', size:'860', date:'May 28', content:[
       'Pragmatist',
       'What:',
-      'Agent audit platform with verifiable findings for ECMA-262, TypeScript, and JS engines.',
+      'Tool for reproducible bug discovery and result verification across ECMA-262, TypeScript, and JS engines.',
       '',
       'Features:',
-      '- MCP audit tools and parsed spec queries',
+      '- spec analysis grounded in pinned ECMA-262 snapshots',
       '- Coq/Rocq mechanization for spec algorithms',
-      '- TypeScript parser/lib diffs against spec-grounded references',
-      '- multi-engine differential runs across V8, JSC, SpiderMonkey, Hermes, QuickJS, engine262, and Cynic',
-      '- test262/spec patch scaffolds and a five-gate reproducible finding verifier',
+      '- TypeScript parser and library comparison against spec-grounded references',
+      '- cross-engine differential testing across V8, JSC, SpiderMonkey, Hermes, QuickJS, engine262, and Cynic',
+      '- test262/spec patch generation and reproducible result checks',
       '',
       'site: soon',
       'code: soon'
@@ -163,16 +165,21 @@ function initConsole(){
       '- cross-spec references',
       '- edition diffs and git history',
       '- test262 and proposal lookup',
-      '- offline stdio plus hosted HTTP',
+      '- offline stdio plus public HTTP',
       '',
       'site: https://tc39-mcp.chicoxyzzy.workers.dev',
       'code: https://github.com/xyzzylabs/tc39-mcp'
     ]},
     '~/projects/links.txt': { type:'file', mode:'-rw-r--r--', size:'360', date:'Jun 02', content:[
-      'hecate  https://hecate.sh',
-      'cynic   https://sergey.works/cynic',
-      'pragmatist  soon',
-      'tc39-mcp  https://tc39-mcp.chicoxyzzy.workers.dev'
+      'featured:',
+      '  hecate      https://hecate.sh',
+      '  cynic       https://sergey.works/cynic',
+      '  pragmatist  soon',
+      '  tc39-mcp    https://tc39-mcp.chicoxyzzy.workers.dev',
+      '',
+      'more:',
+      '  personal    https://github.com/chicoxyzzy?tab=repositories',
+      '  xyzzy labs  https://github.com/xyzzylabs'
     ]},
     '~/guestbook/entries.local': { type:'virtual', mode:'-rw-r--r--', size:'local', date:'May 20' }
   };
@@ -182,6 +189,7 @@ function initConsole(){
     resetTerminal();
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden', 'false');
+    overlay.removeAttribute('inert');
     openBtn.setAttribute('aria-expanded', 'true');
     document.dispatchEvent(new Event('sr-overlay-change'));
     input.focus();
@@ -189,6 +197,7 @@ function initConsole(){
   function close(){
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('inert', '');
     openBtn.setAttribute('aria-expanded', 'false');
     document.dispatchEvent(new Event('sr-overlay-change'));
     if(lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
@@ -237,6 +246,17 @@ function initConsole(){
   function saveHistory(){
     try{ localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(-100))); }catch(e){}
   }
+  function loadRemoved(){
+    try{
+      const value = JSON.parse(localStorage.getItem(REMOVED_KEY) || '[]');
+      return new Set(Array.isArray(value) ? value.filter(path => typeof path === 'string') : []);
+    }catch(e){
+      return new Set();
+    }
+  }
+  function saveRemoved(){
+    try{ localStorage.setItem(REMOVED_KEY, JSON.stringify([...removed])); }catch(e){}
+  }
   function recordHistory(cmd){
     history.push(cmd);
     hIdx = history.length;
@@ -245,7 +265,7 @@ function initConsole(){
 
   function resetTerminal(){
     cwd = '~';
-    removed = new Set();
+    removed = loadRemoved();
     sudoPending = null;
     editor = null;
     clydeSession = null;
@@ -260,8 +280,8 @@ function initConsole(){
 
   function boot(){
     line('<span class="co-sep">──────────────────────────────────────────────────────────────</span>');
-    line('  <span class="co-cyan">sergey.works tty0</span> — ephemeral personal shell');
-    line('  init: restored /home/sergey from read-only site image');
+    line('  <span class="co-cyan">sergey.works tty0</span> — browser-local personal shell');
+    line('  init: loaded /home/sergey from site image');
     line('  init: mounted <span class="co-cyan">~/guestbook/entries.local</span> from localStorage');
     line('  <span class="co-dim">type <span style="color:var(--hi)">help</span> or start with <span style="color:var(--hi)">cat AGENTS.md</span></span>');
     line('<span class="co-sep">──────────────────────────────────────────────────────────────</span>');
@@ -323,10 +343,14 @@ function initConsole(){
     return removed.has(path) || [...removed].some(p => path.startsWith(p + '/'));
   }
 
-  // remove a path from the fake FS; if it's the real CV, 404 the link too
-  function removeFile(path){
+  // remove a path from the fake FS; if it's the real CV, update the link too
+  function removeFile(path, cvMode = 'delete'){
     removed.add(path);
-    if(path === CV_FILE) deleteCV();
+    saveRemoved();
+    if(path === CV_FILE) {
+      if(cvMode === 'replace') replaceCV();
+      else deleteCV();
+    }
   }
 
   function nodeAt(path){
@@ -453,10 +477,10 @@ function initConsole(){
         ['pwd',                'print working directory'],
         ['ls [-la] [dir]',     'list unusual machinery'],
         ['cd <dir>',           'change directory'],
-        ['cat <file...>',      'inspect local artifacts'],
+        ['cat <file...>',      'inspect local files'],
         ['grep <q> <file>',    'search text files'],
         ['vi <file>',          'open read-only editor'],
-        ['rm <path...>',       'remove files until next terminal open'],
+        ['rm <path...>',       'remove files from this browser-local shell'],
         ['ps',                 'show tiny fake process table'],
         ['man <topic>',        'read terminal manual pages'],
         ['whoami',             'identify the operator'],
@@ -598,7 +622,7 @@ function initConsole(){
       blank();
       if(isRemoved(CV_FILE)){
         line('  curl: (37) Failed to open Sergey-Rubanov-CV.pdf: No such file', 'co-err');
-        line('  <span class="co-dim">the file was removed. close and reopen the terminal to restore it.</span>');
+        line('  <span class="co-dim">the file was removed from this browser-local shell.</span>');
         blank();
         return;
       }
@@ -659,16 +683,18 @@ function initConsole(){
         line('  usage: rm [-r] &lt;path...&gt;', 'co-err');
       } else if(targets.includes('/') || targets.includes('~')){
         Object.keys(FILES).filter(p=>p !== '~').forEach(removeFile);
-        line('  rm: wiped fake home directory for this session');
-        line('  <span class="co-dim">close and reopen terminal to restore it.</span>');
+        line('  rm: wiped fake home directory in browser-local storage');
+        line('  <span class="co-dim">persisted locally in this browser.</span>');
       } else {
+        let removedCount = 0;
         targets.forEach(target=>{
           const path = cleanPath(target);
           const n = nodeAt(path);
           if(!n) line(`  rm: cannot remove '${esc(target)}': No such file or directory`, 'co-err');
           else if(n.type === 'dir' && !flags.includes('r')) line(`  rm: cannot remove '${esc(target)}': Is a directory`, 'co-err');
-          else { removeFile(path); line(`  removed ${esc(displayPath(path))}`); }
+          else { removeFile(path); removedCount++; line(`  removed ${esc(displayPath(path))}`); }
         });
+        if(removedCount) line('  <span class="co-dim">persisted locally in this browser.</span>');
       }
       blank();
     },
@@ -953,8 +979,8 @@ function initConsole(){
     return m[Math.floor(Math.random()*m.length)];
   }
 
-  // clyde, being a helpful agent, sometimes deletes a real file from the
-  // fake FS. it comes back when the terminal is closed and reopened.
+  // clyde, being a helpful agent, sometimes deletes a file from the
+  // browser-local fake FS.
   function clydeDeleteLine(){
     let victim;
     // half the time, clyde goes for the CV specifically
@@ -967,8 +993,7 @@ function initConsole(){
     }
     // half the time clyde swaps in its own CV instead of deleting
     if(victim === CV_FILE && Math.random() < 0.5){
-      removed.add(victim);
-      replaceCV();
+      removeFile(victim, 'replace');
       return '  <span class="co-green">✓</span> upgraded <span class="co-warn">Sergey-Rubanov-CV.pdf</span>' +
              ' <span class="co-dim">— swapped in my own CV, stronger candidate</span>';
     }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Personal Site Craft"
+  short_description: "Craft polished static personal sites"
+  default_prompt: "Use $personal-site-craft to improve my static personal site metadata, wording, accessibility, and CV workflow."

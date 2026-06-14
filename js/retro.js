@@ -12,6 +12,7 @@ function initRetro(){
     if(isOpen) lastFocus = document.activeElement;
     overlay.classList.toggle('open', isOpen);
     overlay.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    overlay.toggleAttribute('inert', !isOpen);
     retroBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     document.dispatchEvent(new Event('sr-overlay-change'));
     if(isOpen) retroClose.focus();
@@ -66,6 +67,7 @@ function initRetro(){
   const guestbookModalProgress = document.getElementById('guestbook-modal-progress');
   const guestbookModalLabel = document.getElementById('guestbook-modal-label');
   const guestbookModalStep = document.getElementById('guestbook-modal-step');
+  let guestbookLastFocus = null;
 
   function escapeText(value) {
     return value.replace(/[&<>"']/g, ch => ({
@@ -105,27 +107,38 @@ function initRetro(){
     if(guestbookModalStep) guestbookModalStep.textContent = step;
   }
 
+  function closeGuestbookModal(restoreFocus = true) {
+    if(!guestbookModal) return;
+    guestbookModal.classList.remove('open');
+    guestbookModal.setAttribute('aria-hidden', 'true');
+    guestbookModal.setAttribute('inert', '');
+    if(restoreFocus && guestbookLastFocus && typeof guestbookLastFocus.focus === 'function') {
+      guestbookLastFocus.focus();
+    }
+  }
+
   async function runGuestbookModal() {
     if(!guestbookModal) return;
     const steps = [
-      [8, 'Booting Sergey-grade guestbook stack'],
-      [24, 'Checking standards-compliant vibes'],
-      [41, 'Routing note through the local agent maze'],
+      [8, 'Booting the guestbook stack'],
+      [24, 'Checking the message envelope'],
+      [41, 'Routing note through local storage'],
       [63, 'Writing signature to this browser'],
       [82, 'Indexing for future homepage archaeology'],
       [100, 'Done!'],
     ];
+    guestbookLastFocus = document.activeElement;
     guestbookModal.classList.add('open');
     guestbookModal.setAttribute('aria-hidden', 'false');
+    guestbookModal.removeAttribute('inert');
     guestbookModalClose?.focus();
     for(const [pct, step] of steps) {
       setGuestbookModalProgress(pct, step);
       await wait(pct === 100 ? 650 : 620);
     }
     await wait(500);
-    guestbookModal.classList.remove('open');
-    guestbookModal.setAttribute('aria-hidden', 'true');
-    setGuestbookModalProgress(0, 'Booting Sergey-grade guestbook stack');
+    closeGuestbookModal();
+    setGuestbookModalProgress(0, 'Booting the guestbook stack');
   }
 
   function renderGuestbook() {
@@ -166,8 +179,7 @@ function initRetro(){
 
   if(guestbookModalClose) {
     guestbookModalClose.addEventListener('click', () => {
-      guestbookModal.classList.remove('open');
-      guestbookModal.setAttribute('aria-hidden', 'true');
+      closeGuestbookModal();
     });
   }
 

@@ -3,18 +3,16 @@
 import { checkCatastrophe } from './catastrophe.js';
 import { initCV } from './cv.js';
 import { initShader } from './shader.js';
-import { initName } from './name.js';
-import { initConsole } from './console.js';
-import { initA11y } from './a11y.js';
-import { initTweaks } from './tweaks.js';
-import { initRetro } from './retro.js';
+import { initName } from './name.js?v=20260614';
+import { initConsole } from './console.js?v=20260614a';
+import { initTweaks } from './tweaks.js?v=20260614b';
+import { initRetro } from './retro.js?v=20260614a';
 
 // If clyde corrupted the system within the last 2 minutes, the site stays down.
 if(!checkCatastrophe()){
   // Shader first so requestFrame is live before themes apply a palette.
   initShader();
   initTweaks();
-  initA11y();
   initName();
   initConsole();
   initRetro();

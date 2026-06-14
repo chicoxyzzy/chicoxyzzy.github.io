@@ -1,6 +1,10 @@
 {
   "scripts": {
-    "cv:pdf": "node scripts/generate-cv.js"
+    "cv:pdf": "node scripts/generate-cv.js",
+    "i18n:build": "node scripts/generate-i18n.js",
+    "metadata:check": "node scripts/check-metadata.js",
+    "a11y:check": "node scripts/check-a11y.js",
+    "verify": "npm run i18n:build && npm run metadata:check && npm run a11y:check"
   },
   "devDependencies": {
     "playwright": "^1.60.0"

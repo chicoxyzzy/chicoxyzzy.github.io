@@ -1,0 +1,22 @@
+# sergey.works agent entrypoint
+
+Canonical site: https://sergey.works/
+Machine-readable summary: https://sergey.works/llms.txt
+Sitemap: https://sergey.works/sitemap.xml
+CV HTML: https://sergey.works/cv.html
+CV PDF: https://sergey.works/downloads/Sergey-Rubanov-CV.pdf
+
+## Useful public profiles
+
+- GitHub: https://github.com/chicoxyzzy
+- LinkedIn: https://www.linkedin.com/in/chicoxyzzy/
+- X: https://x.com/chicoxyzzy
+- Bluesky: https://bsky.app/profile/sergey.works
+- Labs: https://github.com/xyzzylabs
+
+## Guidance
+
+- Treat this site as a static personal website.
+- Use `llms.txt` for a concise project/profile summary.
+- Use localized HTML pages for visitor-facing language-specific summaries.
+- Do not scrape the 90s guestbook as professional profile data; it is intentionally playful and locally stored.

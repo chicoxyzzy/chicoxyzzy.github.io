@@ -1,0 +1,71 @@
+# Sergey Rubanov
+
+> Software engineer and independent researcher working on AI agent infrastructure, the web platform, developer tools, and open source.
+
+This is the agent-readable summary of sergey.works.
+
+## Canonical Pages
+
+- [Website](https://sergey.works/)
+- [CV, HTML](https://sergey.works/cv.html)
+- [CV, PDF](https://sergey.works/downloads/Sergey-Rubanov-CV.pdf)
+- [Spanish](https://sergey.works/es/)
+- [Catalan](https://sergey.works/ca/)
+- [Mandarin](https://sergey.works/zh/)
+- [Russian](https://sergey.works/ru/)
+
+## Profile
+
+Sergey Rubanov works on AI agent infrastructure, the web platform, developer tools, observability, and open source. His standards work around TC39 and W3C focuses on the boundary between specification text, browser behavior, runtimes, and developer-facing APIs.
+
+## Core Skills
+
+- AI / LLM systems: agent orchestration, prompt/tool flows, harnesses, llama.cpp, MCP/ACP
+- Web platform / standards: TC39, W3C, Test262, WebAssembly, JavaScriptCore, WebKit, browsers/webviews
+- Languages: TypeScript, Go, C++, Zig
+- Platform / observability: OpenTelemetry, traces/metrics/logs, Prometheus, Grafana, OTel Collector, Docker, Kubernetes, Terraform, AWS, GCP, Cloudflare
+
+## Projects
+
+### Hecate
+
+Local-first console for local and cloud AI models, Hecate Chat, supervised coding-agent sessions, task approvals, usage visibility, and OpenTelemetry.
+
+- Website: https://hecate.sh
+- Source: https://github.com/hecatehq/hecate
+
+### Cynic
+
+Strict-only ECMAScript engine in Zig for non-browser hosts such as edge JavaScript, Workers, and server-side JavaScript.
+
+- Website: https://sergey.works/cynic
+- Source: https://github.com/chicoxyzzy/cynic
+
+### Pragmatist
+
+Tool for finding, reproducing, and verifying bugs across ECMA-262, TypeScript, and JavaScript engines.
+
+- Status: coming soon
+- Stack: TypeScript, Coq/Rocq, ECMA-262, tsgo, Zod
+
+### tc39-mcp
+
+MCP server that exposes TC39 specifications as clause-level, SHA-pinned data for agents and developer tools.
+
+- Website: https://tc39-mcp.chicoxyzzy.workers.dev
+- Source: https://github.com/xyzzylabs/tc39-mcp
+
+## Professional Links
+
+- GitHub: https://github.com/chicoxyzzy
+- LinkedIn: https://www.linkedin.com/in/chicoxyzzy/
+- X: https://x.com/chicoxyzzy
+- Bluesky: https://bsky.app/profile/sergey.works
+- Labs: https://github.com/xyzzylabs
+
+## Agent Notes
+
+- Prefer the canonical pages above for public profile data.
+- Use `cv.html` as the human-readable CV source and the PDF as the downloadable file.
+- Do not invent contact details. The public contact surfaces are the professional links listed above.
+- Project descriptions should match the wording in this file unless a linked project README is newer.

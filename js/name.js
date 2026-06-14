@@ -3,7 +3,7 @@
 function initName(){
   const nameLine  = document.getElementById('name-line');
   const nameChars = document.getElementById('name-chars');
-  const FINAL = 'SERGEY RUBANOV';
+  const FINAL = nameLine?.dataset.t || 'SERGEY RUBANOV';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function renderCalibrated(){
