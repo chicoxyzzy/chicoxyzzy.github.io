@@ -804,7 +804,9 @@ main{
 #retro-overlay {
   display:none; position:fixed; inset:0; z-index:2000;
   overflow-y:auto;
+  overflow-x:hidden;
   background:#000080;
+  overscroll-behavior:contain;
 }
 #retro-overlay.open { display:block; }
 
@@ -817,6 +819,10 @@ main{
   color:#ffff00;
   padding:10px;
   min-height:100vh;
+  width:100%;
+  max-width:100vw;
+  overflow-x:hidden;
+  box-sizing:border-box;
 }
 .retro-close {
   position:fixed; top:8px; right:12px; z-index:2001;
@@ -831,8 +837,42 @@ main{
 .retro-td { vertical-align:top; padding:8px; }
 .retro-td-side { border-right:2px ridge #ffff00; }
 @media(max-width:600px){
+  #retro-overlay {
+    width:100vw;
+    max-width:100vw;
+  }
+  .retro-body {
+    width:100vw;
+    max-width:100vw;
+    padding:56px 10px 18px;
+  }
   .retro-table, .retro-table tbody, .retro-table tr, .retro-td { display:block; width:100%; }
   .retro-td-side { border-right:none; border-bottom:2px ridge #ffff00; }
+  .retro-table,
+  .retro-skills-table {
+    table-layout:fixed;
+  }
+  .retro-box,
+  .retro-viewed,
+  .retro-skills-table,
+  .guestbook-form {
+    max-width:100%;
+  }
+  .retro-name,
+  .retro-tagline,
+  .retro-about-copy,
+  .retro-about-note,
+  .retro-links-list,
+  .retro-project-copy,
+  .retro-skills-cell,
+  .guestbook-entry {
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+  .retro-name {
+    white-space:normal;
+    text-align:center;
+  }
 }
 
 .blink { animation:blink 1s step-end infinite; }
