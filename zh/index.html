@@ -145,6 +145,9 @@
         },
         {
           "@id": "https://sergey.works/#tc39-mcp"
+        },
+        {
+          "@id": "https://sergey.works/#wasm-mcp"
         }
       ]
     },
@@ -199,10 +202,21 @@
     {
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#tc39-mcp",
-      "name": "tc39-mcp",
+      "name": "TC39 MCP",
       "description": "MCP 服务器，将 TC39 规范暴露为按条款组织、由 SHA 固定的数据，供智能体和开发工具使用",
-      "url": "https://tc39-mcp.chicoxyzzy.workers.dev",
+      "url": "https://mcp.xyzzylabs.ai/tc39/",
       "codeRepository": "https://github.com/xyzzylabs/tc39-mcp",
+      "programmingLanguage": "TypeScript",
+      "author": {
+        "@id": "https://sergey.works/#person"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://sergey.works/#wasm-mcp",
+      "name": "WASM MCP",
+      "description": "面向 WebAssembly 规范和工具上下文的 MCP endpoint，供智能体和开发工具使用",
+      "url": "https://mcp.xyzzylabs.ai/wasm/",
       "programmingLanguage": "TypeScript",
       "author": {
         "@id": "https://sergey.works/#person"
@@ -343,15 +357,26 @@
     </div>
     <div class="skill-block">
       <div class="sk-head">
-        <span class="sk-title">tc39-mcp</span>
+        <span class="sk-title">TC39 MCP</span>
         <span class="sk-actions">
-          <a href="https://tc39-mcp.chicoxyzzy.workers.dev" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">网站</span></a>
+          <a href="https://mcp.xyzzylabs.ai/tc39/" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">网站</span></a>
           <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ github</a>
         </span>
       </div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.what">简介</span><span class="sk-val" data-i18n="project.tc39mcp.what">MCP 服务器，将 TC39 规范暴露为按条款组织、由 SHA 固定的数据，供智能体和开发工具使用</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.features">功能</span><span class="sk-val" data-i18n="project.tc39mcp.features">AOID 搜索 · 跨规范引用 · 版本差异 · git 历史 · test262 和提案查询 · 离线 stdio 与公开 HTTP</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.stack">技术</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">ECMA-262</span><span class="t">ECMA-402</span><span class="t">Cloudflare Workers</span><span class="t">VitePress</span><span class="t">Zod</span></span></div>
+    </div>
+    <div class="skill-block">
+      <div class="sk-head">
+        <span class="sk-title">WASM MCP</span>
+        <span class="sk-actions">
+          <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">网站</span></a>
+        </span>
+      </div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">简介</span><span class="sk-val" data-i18n="project.wasmmcp.what">面向 WebAssembly 规范和工具上下文的 MCP endpoint，供智能体和开发工具使用</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">功能</span><span class="sk-val" data-i18n="project.wasmmcp.features">WebAssembly 规范上下文 · 面向智能体的查询 · 公开 HTTP endpoint</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">技术</span><span class="sk-val"><span class="t">WebAssembly</span><span class="t">MCP</span><span class="t">TypeScript</span><span class="t">Cloudflare Workers</span></span></div>
     </div>
     <div class="skill-block">
       <div class="sk-head">
@@ -624,7 +649,7 @@
 
           <div class="retro-box">
             <div class="retro-box-title" data-i18n="retro.projectsTitle">🚀 我的项目 🚀</div>
-            <p class="retro-project-copy" data-i18n="retro.projectsCopy"><b style="color:#ffff00">Hecate</b> — 本地优先的 AI 控制台，支持本地/云端模型、Hecate Chat、受控的代码智能体会话、任务审批、用量可见性和 OpenTelemetry!!!<br>🌐 <a href="https://hecate.sh" target="_blank" rel="noopener noreferrer" class="retro-link">hecate.sh</a> · 💾 <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="retro-link">源代码</a><br><br><b style="color:#ffff00">Cynic</b> — 用 Zig 写的 strict-only ECMAScript 引擎，面向非浏览器宿主!!!<br>🌐 <a href="https://sergey.works/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">sergey.works/cynic</a> · 💾 <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">源代码</a><br><br><b style="color:#ffff00">Pragmatist</b> — 用于发现、复现并验证 ECMA-262、TypeScript 和 JS 引擎错误的工具!!! 它查询规范、比较引擎、准备 test262/spec 补丁，并且拒绝只凭感觉!!!<br><span class="retro-soon">即将发布!!!</span><br><br><b style="color:#ffff00">tc39-mcp</b> — 面向 TC39 规范的 MCP 服务器!!! 智能体可以获得由 SHA 固定的 ECMA-262 + ECMA-402 条款、AOID 搜索、引用、diff、历史、test262 和提案，不用抓取巨大的 HTML 文件!!!<br>🌐 <a href="https://tc39-mcp.chicoxyzzy.workers.dev" target="_blank" rel="noopener noreferrer" class="retro-link">tc39-mcp docs</a> · 💾 <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="retro-link">源代码</a></p>
+            <p class="retro-project-copy" data-i18n="retro.projectsCopy"><b style="color:#ffff00">Hecate</b> — 本地优先的 AI 控制台，支持本地/云端模型、Hecate Chat、受控的代码智能体会话、任务审批、用量可见性和 OpenTelemetry!!!<br>🌐 <a href="https://hecate.sh" target="_blank" rel="noopener noreferrer" class="retro-link">hecate.sh</a> · 💾 <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="retro-link">源代码</a><br><br><b style="color:#ffff00">Cynic</b> — 用 Zig 写的 strict-only ECMAScript 引擎，面向非浏览器宿主!!!<br>🌐 <a href="https://sergey.works/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">sergey.works/cynic</a> · 💾 <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">源代码</a><br><br><b style="color:#ffff00">Pragmatist</b> — 用于发现、复现并验证 ECMA-262、TypeScript 和 JS 引擎错误的工具!!! 它查询规范、比较引擎、准备 test262/spec 补丁，并且拒绝只凭感觉!!!<br><span class="retro-soon">即将发布!!!</span><br><br><b style="color:#ffff00">TC39 MCP</b> — 面向 TC39 规范的 MCP 服务器!!! 智能体可以获得由 SHA 固定的 ECMA-262 + ECMA-402 条款、AOID 搜索、引用、diff、历史、test262 和提案，不用抓取巨大的 HTML 文件!!!<br>🌐 <a href="https://mcp.xyzzylabs.ai/tc39/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/tc39/</a> · 💾 <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="retro-link">源代码</a><br><br><b style="color:#ffff00">WASM MCP</b> — 面向 WebAssembly 规范和工具上下文的 MCP endpoint!!!<br>🌐 <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/wasm/</a></p>
           </div>
 
           <div class="retro-box">

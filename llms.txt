@@ -48,12 +48,18 @@ Tool for finding, reproducing, and verifying bugs across ECMA-262, TypeScript, a
 - Status: coming soon
 - Stack: TypeScript, Coq/Rocq, ECMA-262, tsgo, Zod
 
-### tc39-mcp
+### TC39 MCP
 
 MCP server that exposes TC39 specifications as clause-level, SHA-pinned data for agents and developer tools.
 
-- Website: https://tc39-mcp.chicoxyzzy.workers.dev
+- Website: https://mcp.xyzzylabs.ai/tc39/
 - Source: https://github.com/xyzzylabs/tc39-mcp
+
+### WASM MCP
+
+MCP endpoint for WebAssembly specifications and tooling context for agents and developer tools.
+
+- Website: https://mcp.xyzzylabs.ai/wasm/
 
 ## Professional Links
 

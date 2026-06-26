@@ -145,6 +145,9 @@
         },
         {
           "@id": "https://sergey.works/#tc39-mcp"
+        },
+        {
+          "@id": "https://sergey.works/#wasm-mcp"
         }
       ]
     },
@@ -193,10 +196,21 @@
     {
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#tc39-mcp",
-      "name": "tc39-mcp",
+      "name": "TC39 MCP",
       "description": "MCP server that exposes TC39 specifications as clause-level, SHA-pinned data for agents and developer tools.",
-      "url": "https://tc39-mcp.chicoxyzzy.workers.dev",
+      "url": "https://mcp.xyzzylabs.ai/tc39/",
       "codeRepository": "https://github.com/xyzzylabs/tc39-mcp",
+      "programmingLanguage": "TypeScript",
+      "author": {
+        "@id": "https://sergey.works/#person"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://sergey.works/#wasm-mcp",
+      "name": "WASM MCP",
+      "description": "MCP endpoint for WebAssembly specifications and tooling context for agents and developer tools.",
+      "url": "https://mcp.xyzzylabs.ai/wasm/",
       "programmingLanguage": "TypeScript",
       "author": {
         "@id": "https://sergey.works/#person"
@@ -337,15 +351,26 @@
     </div>
     <div class="skill-block">
       <div class="sk-head">
-        <span class="sk-title">tc39-mcp</span>
+        <span class="sk-title">TC39 MCP</span>
         <span class="sk-actions">
-          <a href="https://tc39-mcp.chicoxyzzy.workers.dev" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">website</span></a>
+          <a href="https://mcp.xyzzylabs.ai/tc39/" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">website</span></a>
           <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ github</a>
         </span>
       </div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.tc39mcp.what">MCP server that exposes TC39 specifications as clause-level, SHA-pinned data for agents and developer tools</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.tc39mcp.features">AOID-aware search · cross-spec references · edition diffs · git history · test262 and proposal lookup · offline stdio and public HTTP</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">ECMA-262</span><span class="t">ECMA-402</span><span class="t">Cloudflare Workers</span><span class="t">VitePress</span><span class="t">Zod</span></span></div>
+    </div>
+    <div class="skill-block">
+      <div class="sk-head">
+        <span class="sk-title">WASM MCP</span>
+        <span class="sk-actions">
+          <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">website</span></a>
+        </span>
+      </div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.wasmmcp.what">MCP endpoint for WebAssembly specifications and tooling context for agents and developer tools</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.wasmmcp.features">WebAssembly spec context · agent-oriented lookup · hosted HTTP endpoint</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">WebAssembly</span><span class="t">MCP</span><span class="t">TypeScript</span><span class="t">Cloudflare Workers</span></span></div>
     </div>
     <div class="skill-block">
       <div class="sk-head">
@@ -630,8 +655,10 @@
               🌐 <a href="https://sergey.works/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">sergey.works/cynic</a> · 💾 <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">source code</a><br><br>
               <b style="color:#ffff00">Pragmatist</b> — tool for finding, reproducing, and verifying bugs across ECMA-262, TypeScript, and JS engines!!! It queries specs, compares engines, prepares test262/spec patches, and refuses to trust hunches!!!<br>
               <span class="retro-soon">Released soon!!!</span><br><br>
-              <b style="color:#ffff00">tc39-mcp</b> — MCP server for TC39 specs!!! Agents get SHA-pinned ECMA-262 + ECMA-402 clauses, AOID search, references, diffs, history, test262, and proposals instead of scraping a giant HTML file!!!<br>
-              🌐 <a href="https://tc39-mcp.chicoxyzzy.workers.dev" target="_blank" rel="noopener noreferrer" class="retro-link">tc39-mcp docs</a> · 💾 <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="retro-link">source code</a>
+              <b style="color:#ffff00">TC39 MCP</b> — MCP server for TC39 specs!!! Agents get SHA-pinned ECMA-262 + ECMA-402 clauses, AOID search, references, diffs, history, test262, and proposals instead of scraping a giant HTML file!!!<br>
+              🌐 <a href="https://mcp.xyzzylabs.ai/tc39/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/tc39/</a> · 💾 <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="retro-link">source code</a><br><br>
+              <b style="color:#ffff00">WASM MCP</b> — MCP endpoint for WebAssembly specs and tooling context!!!<br>
+              🌐 <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/wasm/</a>
             </p>
           </div>
 

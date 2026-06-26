@@ -145,6 +145,9 @@
         },
         {
           "@id": "https://sergey.works/#tc39-mcp"
+        },
+        {
+          "@id": "https://sergey.works/#wasm-mcp"
         }
       ]
     },
@@ -199,10 +202,21 @@
     {
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#tc39-mcp",
-      "name": "tc39-mcp",
+      "name": "TC39 MCP",
       "description": "MCP-сервер, который отдаёт спецификации TC39 как данные, разбитые по разделам и привязанные к SHA, для агентов и инструментов",
-      "url": "https://tc39-mcp.chicoxyzzy.workers.dev",
+      "url": "https://mcp.xyzzylabs.ai/tc39/",
       "codeRepository": "https://github.com/xyzzylabs/tc39-mcp",
+      "programmingLanguage": "TypeScript",
+      "author": {
+        "@id": "https://sergey.works/#person"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://sergey.works/#wasm-mcp",
+      "name": "WASM MCP",
+      "description": "MCP endpoint для спецификаций WebAssembly и инструментального контекста для агентов и инструментов разработчика",
+      "url": "https://mcp.xyzzylabs.ai/wasm/",
       "programmingLanguage": "TypeScript",
       "author": {
         "@id": "https://sergey.works/#person"
@@ -343,15 +357,26 @@
     </div>
     <div class="skill-block">
       <div class="sk-head">
-        <span class="sk-title">tc39-mcp</span>
+        <span class="sk-title">TC39 MCP</span>
         <span class="sk-actions">
-          <a href="https://tc39-mcp.chicoxyzzy.workers.dev" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">сайт</span></a>
+          <a href="https://mcp.xyzzylabs.ai/tc39/" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">сайт</span></a>
           <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ github</a>
         </span>
       </div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.what">описание</span><span class="sk-val" data-i18n="project.tc39mcp.what">MCP-сервер, который отдаёт спецификации TC39 как данные, разбитые по разделам и привязанные к SHA, для агентов и инструментов</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.features">возможности</span><span class="sk-val" data-i18n="project.tc39mcp.features">AOID-поиск · cross-spec ссылки · диффы редакций · git-история · поиск по test262 и proposals · offline stdio и публичный HTTP</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.stack">технологии</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">ECMA-262</span><span class="t">ECMA-402</span><span class="t">Cloudflare Workers</span><span class="t">VitePress</span><span class="t">Zod</span></span></div>
+    </div>
+    <div class="skill-block">
+      <div class="sk-head">
+        <span class="sk-title">WASM MCP</span>
+        <span class="sk-actions">
+          <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">сайт</span></a>
+        </span>
+      </div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">описание</span><span class="sk-val" data-i18n="project.wasmmcp.what">MCP endpoint для спецификаций WebAssembly и инструментального контекста для агентов и инструментов разработчика</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">возможности</span><span class="sk-val" data-i18n="project.wasmmcp.features">Контекст спецификаций WebAssembly · поиск для агентов · публичный HTTP endpoint</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">технологии</span><span class="sk-val"><span class="t">WebAssembly</span><span class="t">MCP</span><span class="t">TypeScript</span><span class="t">Cloudflare Workers</span></span></div>
     </div>
     <div class="skill-block">
       <div class="sk-head">
@@ -624,7 +649,7 @@
 
           <div class="retro-box">
             <div class="retro-box-title" data-i18n="retro.projectsTitle">🚀 МОИ PROJECTZ 🚀</div>
-            <p class="retro-project-copy" data-i18n="retro.projectsCopy"><b style="color:#ffff00">Hecate</b> — local-first консоль для локальных и облачных AI-моделей, Hecate Chat, сессий coding-агентов, подтверждения задач, учёта использования и OpenTelemetry!!!<br>🌐 <a href="https://hecate.sh" target="_blank" rel="noopener noreferrer" class="retro-link">hecate.sh</a> · 💾 <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="retro-link">исходный код</a><br><br><b style="color:#ffff00">Cynic</b> — strict-only ECMAScript-движок на Zig для небраузерных сред!!!<br>🌐 <a href="https://sergey.works/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">sergey.works/cynic</a> · 💾 <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">исходный код</a><br><br><b style="color:#ffff00">Pragmatist</b> — инструмент для поиска, воспроизведения и проверки ошибок в ECMA-262, TypeScript и JS-движках!!! Он читает спецификации, сравнивает движки, готовит патчи для test262/spec и не верит на слово!!!<br><span class="retro-soon">Скоро релиз!!!</span><br><br><b style="color:#ffff00">tc39-mcp</b> — MCP-сервер для спецификаций TC39!!! Агенты получают разделы ECMA-262 + ECMA-402, привязанные к SHA, AOID-поиск, ссылки, диффы, историю, test262 и proposals вместо парсинга огромного HTML-файла!!!<br>🌐 <a href="https://tc39-mcp.chicoxyzzy.workers.dev" target="_blank" rel="noopener noreferrer" class="retro-link">tc39-mcp docs</a> · 💾 <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="retro-link">исходный код</a></p>
+            <p class="retro-project-copy" data-i18n="retro.projectsCopy"><b style="color:#ffff00">Hecate</b> — local-first консоль для локальных и облачных AI-моделей, Hecate Chat, сессий coding-агентов, подтверждения задач, учёта использования и OpenTelemetry!!!<br>🌐 <a href="https://hecate.sh" target="_blank" rel="noopener noreferrer" class="retro-link">hecate.sh</a> · 💾 <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="retro-link">исходный код</a><br><br><b style="color:#ffff00">Cynic</b> — strict-only ECMAScript-движок на Zig для небраузерных сред!!!<br>🌐 <a href="https://sergey.works/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">sergey.works/cynic</a> · 💾 <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">исходный код</a><br><br><b style="color:#ffff00">Pragmatist</b> — инструмент для поиска, воспроизведения и проверки ошибок в ECMA-262, TypeScript и JS-движках!!! Он читает спецификации, сравнивает движки, готовит патчи для test262/spec и не верит на слово!!!<br><span class="retro-soon">Скоро релиз!!!</span><br><br><b style="color:#ffff00">TC39 MCP</b> — MCP-сервер для спецификаций TC39!!! Агенты получают разделы ECMA-262 + ECMA-402, привязанные к SHA, AOID-поиск, ссылки, диффы, историю, test262 и proposals вместо парсинга огромного HTML-файла!!!<br>🌐 <a href="https://mcp.xyzzylabs.ai/tc39/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/tc39/</a> · 💾 <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="retro-link">исходный код</a><br><br><b style="color:#ffff00">WASM MCP</b> — MCP endpoint для спецификаций WebAssembly и инструментального контекста!!!<br>🌐 <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/wasm/</a></p>
           </div>
 
           <div class="retro-box">

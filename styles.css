@@ -318,10 +318,15 @@ main{
 }
 .sk-badge-soon{
   cursor:default;
-  color:var(--dim);
-  border-color:var(--line);
+  color:var(--hi);
+  border-color:var(--mid);
+  background:color-mix(in srgb,var(--mid) 10%,transparent);
+  opacity:.92;
 }
-.sk-badge-soon:hover{border-color:var(--line);color:var(--dim);}
+.sk-badge-soon:hover{
+  color:var(--hi);
+  border-color:var(--mid);
+}
 .sk-actions .sk-badge{margin-left:0;}
 .comment a{color:var(--mid);text-decoration:none;transition:color .15s;}
 .comment a:hover{color:var(--cyan);}

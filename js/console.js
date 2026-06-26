@@ -155,7 +155,7 @@ function initConsole(){
       'code: soon'
     ]},
     '~/projects/tc39-mcp.txt': { type:'file', mode:'-rw-r--r--', size:'760', date:'Jun 02', content:[
-      'tc39-mcp',
+      'TC39 MCP',
       'What:',
       'Structured MCP access to TC39 specs, turning ECMA-262 and ECMA-402 into',
       'clause-level, SHA-pinned data for agents and tools.',
@@ -167,15 +167,28 @@ function initConsole(){
       '- test262 and proposal lookup',
       '- offline stdio plus public HTTP',
       '',
-      'site: https://tc39-mcp.chicoxyzzy.workers.dev',
+      'site: https://mcp.xyzzylabs.ai/tc39/',
       'code: https://github.com/xyzzylabs/tc39-mcp'
+    ]},
+    '~/projects/wasm-mcp.txt': { type:'file', mode:'-rw-r--r--', size:'520', date:'Jun 26', content:[
+      'WASM MCP',
+      'What:',
+      'MCP endpoint for WebAssembly specifications and tooling context for agents and developer tools.',
+      '',
+      'Features:',
+      '- WebAssembly spec context',
+      '- agent-oriented lookup',
+      '- hosted public HTTP endpoint',
+      '',
+      'site: https://mcp.xyzzylabs.ai/wasm/'
     ]},
     '~/projects/links.txt': { type:'file', mode:'-rw-r--r--', size:'360', date:'Jun 02', content:[
       'featured:',
       '  hecate      https://hecate.sh',
       '  cynic       https://sergey.works/cynic',
       '  pragmatist  soon',
-      '  tc39-mcp    https://tc39-mcp.chicoxyzzy.workers.dev',
+      '  tc39-mcp    https://mcp.xyzzylabs.ai/tc39/',
+      '  wasm-mcp    https://mcp.xyzzylabs.ai/wasm/',
       '',
       'more:',
       '  personal    https://github.com/chicoxyzzy?tab=repositories',

@@ -12,7 +12,7 @@ const pages = [
 ];
 
 const requiredGraphTypes = ["WebSite", "ProfilePage", "Person", "ImageObject"];
-const requiredProjects = ["Hecate", "Cynic", "Pragmatist", "tc39-mcp"];
+const requiredProjects = ["Hecate", "Cynic", "Pragmatist", "TC39 MCP", "WASM MCP"];
 
 const failures = [];
 
