@@ -5,6 +5,7 @@ Machine-readable summary: https://sergey.works/llms.txt
 Sitemap: https://sergey.works/sitemap.xml
 CV HTML: https://sergey.works/cv.html
 CV PDF: https://sergey.works/downloads/Sergey-Rubanov-CV.pdf
+Privacy: https://sergey.works/privacy.html
 
 ## Useful public profiles
 

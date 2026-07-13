@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const pages = ["index.html", "es/index.html", "ca/index.html", "zh/index.html", "ru/index.html", "cv.html"];
+const pages = ["index.html", "es/index.html", "ca/index.html", "zh/index.html", "ru/index.html", "cv.html", "privacy.html"];
 const failures = [];
 
 function fail(file, message) {

@@ -460,6 +460,52 @@ main{
 .rev.in{opacity:1;transform:none;}
 .eof{margin-top:5rem;opacity:.5;font-size:0.846rem;color:var(--mid);}
 
+/* ── PRIVACY NOTICE ── */
+.privacy-main{
+  min-height:100vh;
+  padding-top:3rem;
+}
+.privacy-nav{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-bottom:2rem;
+  color:var(--mid);
+}
+.privacy-nav a{
+  color:var(--cyan);
+  text-decoration:none;
+}
+.privacy-nav a:hover{color:var(--hi);}
+.privacy-notice h1{
+  color:var(--hi);
+  font-size:clamp(1.8rem,5vw,3rem);
+  line-height:1.1;
+  margin-bottom:.35rem;
+}
+.privacy-notice h2{
+  color:var(--cyan);
+  font-size:1rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin:2rem 0 .45rem;
+}
+.privacy-notice p,
+.privacy-notice li{
+  color:var(--text);
+  max-width:68ch;
+}
+.privacy-notice p + p{margin-top:.85rem;}
+.privacy-notice ul{margin:.7rem 0 0 1.35rem;}
+.privacy-notice a{color:var(--cyan);}
+.privacy-notice code{
+  color:var(--hi);
+  background:var(--surface);
+  border:1px solid var(--line-soft);
+  padding:.05rem .28rem;
+}
+.privacy-updated{color:var(--mid);}
+
 /* ════════════════════════════════════════
    EASTER EGG: CONSOLE
 ════════════════════════════════════════ */

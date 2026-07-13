@@ -9,6 +9,7 @@ This is the agent-readable summary of sergey.works.
 - [Website](https://sergey.works/)
 - [CV, HTML](https://sergey.works/cv.html)
 - [CV, PDF](https://sergey.works/downloads/Sergey-Rubanov-CV.pdf)
+- [Privacy](https://sergey.works/privacy.html)
 - [Spanish](https://sergey.works/es/)
 - [Catalan](https://sergey.works/ca/)
 - [Mandarin](https://sergey.works/zh/)

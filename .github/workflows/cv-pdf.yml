@@ -1,5 +1,8 @@
 name: CV PDF
 
+permissions:
+  contents: write
+
 on:
   pull_request:
     paths:
@@ -51,4 +54,19 @@ jobs:
           path: downloads/Sergey-Rubanov-CV.pdf
 
       - name: Verify committed PDF is current
+        if: github.event_name == 'pull_request'
         run: git diff --exit-code -- downloads/Sergey-Rubanov-CV.pdf
+
+      - name: Commit generated PDF
+        if: github.event_name != 'pull_request'
+        run: |
+          if git diff --quiet -- downloads/Sergey-Rubanov-CV.pdf; then
+            echo "CV PDF is already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add downloads/Sergey-Rubanov-CV.pdf
+          git commit -m "Update generated CV PDF"
+          git push
