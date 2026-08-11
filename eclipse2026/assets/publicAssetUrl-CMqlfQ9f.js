@@ -1,0 +1,1 @@
+function e(e,t=`/eclipse2026/`){return`${t.endsWith(`/`)?t:`${t}/`}${e.startsWith(`/`)?e.slice(1):e}`}export{e as t};

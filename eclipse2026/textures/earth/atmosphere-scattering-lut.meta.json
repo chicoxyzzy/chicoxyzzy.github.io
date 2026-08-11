@@ -1,0 +1,18 @@
+{
+  "title": "Pre-baked Earth atmosphere scattering lookup",
+  "generatedBy": "scripts/generate-atmosphere-lut.ts",
+  "dimensions": {
+    "width": 256,
+    "height": 128
+  },
+  "axes": {
+    "x": "view-normal cosine from -1 to 1",
+    "y": "sun-normal cosine from -1 to 1"
+  },
+  "model": [
+    "Rayleigh-dominant blue scattering with a narrow, desaturated Mie/twilight component.",
+    "The LUT is a rendering approximation, not an atmospheric science product.",
+    "Pre-baking replaces per-frame multi-sample ray marching on mobile GPUs."
+  ],
+  "sha256": "eed32a98516a5952f235cfc78619d26934972fe5c48f1dd265c3fbdff2391dd6"
+}

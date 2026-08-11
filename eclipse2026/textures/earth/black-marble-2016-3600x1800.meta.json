@@ -1,0 +1,22 @@
+{
+  "source": {
+    "title": "NASA Earth at Night: Black Marble 2016",
+    "url": "https://svs.gsfc.nasa.gov/30876/",
+    "downloadUrl": "https://eoimages.gsfc.nasa.gov/images/imagerecords/144000/144898/BlackMarble_2016_01deg.jpg",
+    "mediaGuidelinesUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "accessDate": "2026-07-12",
+    "credit": "NASA Earth Observatory / Joshua Stevens; Suomi NPP VIIRS data from Miguel Román, NASA GSFC",
+    "notes": [
+      "Cloud-free 2016 global composite of nighttime visible light.",
+      "Used only as a low-intensity emissive map; it is not an event-time observation for August 2026.",
+      "Stored locally so the public page does not load NASA imagery at runtime.",
+      "Use must remain factual and must not imply NASA endorsement."
+    ]
+  },
+  "asset": {
+    "fileName": "black-marble-2016-3600x1800.jpg",
+    "width": 3600,
+    "height": 1800,
+    "format": "JPEG"
+  }
+}

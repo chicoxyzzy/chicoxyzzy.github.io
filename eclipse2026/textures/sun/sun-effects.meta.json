@@ -1,0 +1,29 @@
+{
+  "source": "Procedural visual effect generated locally for xyzzylabs.ai",
+  "notes": [
+    "The glow is a visual exposure proxy and does not alter the physical Sun radius or ephemeris position.",
+    "Two static additive sprites avoid runtime canvas-texture differences between WebGPU and WebGL."
+  ],
+  "assets": [
+    {
+      "fileName": "core-glow-512.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "8c18593db868ae8f40aac065817b7b1d8844afb35aff48d966291cf6b277a174"
+    },
+    {
+      "fileName": "corona-glow-512.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "6cd29fc5f7aee715ff4d8f55818aae6ccd24a0eabca6bcbecc7deadaae74fcb8"
+    }
+  ],
+  "photosphere": {
+    "fileName": "photosphere-procedural-1024x512.webp",
+    "width": 1024,
+    "height": 512,
+    "format": "WebP",
+    "sourceSha256": "b90b5e9eead8cff7f3bca4f2fab6298ad226aaf0fb2440ff85d8e863b0b97581",
+    "sha256": "8857a68ed3643704b9b0ca52fd1e4f352698496ab11626b521dc6fffcd4b265d"
+  }
+}

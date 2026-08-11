@@ -1,0 +1,47 @@
+{
+  "source": {
+    "title": "NASA Blue Marble: Next Generation",
+    "url": "https://neo.gsfc.nasa.gov/view.php?datasetId=BlueMarbleNG",
+    "downloadUrl": "https://neo.gsfc.nasa.gov/servlet/RenderData?si=526300&cs=rgb&format=JPEG&width=3600&height=1800",
+    "mediaGuidelinesUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "accessDate": "2026-07-12",
+    "credit": "NASA Earth Observatory",
+    "notes": [
+      "August 2004 Terra/MODIS true-color Blue Marble image.",
+      "Stored locally so the public page does not load NASA imagery at runtime.",
+      "Use must remain factual and must not imply NASA endorsement."
+    ]
+  },
+  "asset": {
+    "fileName": "blue-marble-august-2004-3600x1800.jpg",
+    "width": 3600,
+    "height": 1800,
+    "format": "JPEG"
+  },
+  "derivedAssets": [
+    {
+      "fileName": "earth-surface-response-2048x1024.webp",
+      "width": 2048,
+      "height": 1024,
+      "format": "lossless WebP",
+      "use": "Ocean mask and elevation response packed from NASA NEO SRTM/RAMP2 topography."
+    },
+    {
+      "fileName": "earth-topography-normal-2048x1024.webp",
+      "width": 2048,
+      "height": 1024,
+      "format": "lossless WebP",
+      "use": "Tangent-space normal map derived from the NASA NEO SRTM/RAMP2 elevation grid."
+    }
+  ],
+  "topographySource": {
+    "title": "NASA NEO SRTM/RAMP2 Topography",
+    "url": "https://neo.gsfc.nasa.gov/view.php?datasetId=SRTM_RAMP2_TOPO",
+    "downloadUrl": "https://neo.gsfc.nasa.gov/archive/geotiff.float/SRTM_RAMP2_TOPO/SRTM_RAMP2_TOPO_2000.FLOAT.TIFF",
+    "accessDate": "2026-07-12",
+    "notes": [
+      "The source float GeoTIFF stores land elevation; its no-data ocean cells provide the water mask.",
+      "Elevation is used only for subtle normal and roughness response, not exaggerated globe displacement."
+    ]
+  }
+}

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#02050b" />
+    <meta
+      name="description"
+      content="Solar eclipse 2026: NASA full path, route cities, and a WebGPU globe."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2302050b'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23ffd166'/%3E%3Ccircle cx='38' cy='29' r='18' fill='%2302050b'/%3E%3C/svg%3E"
+    />
+    <title>xyzzylabs.ai — Solar Eclipse</title>
+    <script type="module" crossorigin src="/eclipse2026/assets/index-DRXG8NDz.js"></script>
+    <link rel="stylesheet" crossorigin href="/eclipse2026/assets/index-BLgDJLB8.css">
+  </head>
+  <body>
+    <main id="app" class="eclipse-app is-booting" aria-busy="true">
+      <section class="render-stage" aria-label="3D eclipse view">
+        <canvas
+          id="eclipse-canvas"
+          role="img"
+          tabindex="0"
+          aria-label="3D Earth with Sun, Moon, Moon shadow, and eclipse city markers"
+          aria-describedby="canvas-help"
+        ></canvas>
+        <div class="scene-loader" aria-hidden="true">
+          <span class="scene-loader-eclipse"></span>
+        </div>
+        <div id="sky-label-layer" class="sky-label-layer" aria-hidden="true"></div>
+        <div id="city-label-layer" class="city-label-layer" aria-hidden="true"></div>
+
+        <section class="brand-panel" aria-label="Project">
+          <p class="brand" translate="no">
+            <a class="brand-link" href="https://xyzzylabs.ai" target="_blank" rel="noreferrer" aria-label="xyzzy_labs homepage">
+              <img class="brand-icon" src="/eclipse2026/brand/xyzzy-labs-icon.svg" alt="" width="22" height="22" aria-hidden="true" />
+              <span>xyzzy_labs</span>
+            </a>
+          </p>
+          <div class="hero-heading">
+            <span class="eclipse-mark" aria-hidden="true"></span>
+            <h1 aria-label="Solar eclipse 2026">
+              <span class="title-text">Solar eclipse</span>
+              <span class="title-year">2026</span>
+            </h1>
+          </div>
+          <p class="lede">
+            <time datetime="2026-08-12">12 Aug 2026</time>
+            <span class="lede-separator" aria-hidden="true">·</span>
+            <span>Greenland → Iceland → Spain</span>
+            <span id="renderer-badge" class="renderer-chip">3D</span>
+          </p>
+        </section>
+
+        <button id="share-view" class="share-feature" type="button" aria-label="Share current view">
+          <i data-lucide="share-2" aria-hidden="true"></i>
+          <span class="share-feature-label">Share</span>
+        </button>
+
+        <footer id="source-footer" class="source-footer" aria-label="Data sources"></footer>
+
+        <div id="fallback-message" class="fallback-message" role="alert" hidden>
+          3D view unavailable. Sources remain available.
+        </div>
+      </section>
+
+      <section class="timeline-panel timeline-row" aria-label="Eclipse timeline and view controls">
+        <div class="timeline-primary">
+          <div class="timeline-actions">
+            <button id="play-toggle" class="icon-button timeline-play" type="button" aria-label="Play timeline">
+              <i data-lucide="play" aria-hidden="true"></i>
+            </button>
+            <button
+              id="loop-toggle"
+              class="icon-button timeline-loop"
+              type="button"
+              aria-label="Loop timeline"
+              aria-pressed="false"
+            >
+              <i data-lucide="repeat" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="timeline-shell">
+            <div class="time-readout">
+              <span id="time-label" class="time-primary">--:--</span>
+              <span class="time-meta">
+                <span id="time-date-label" class="time-date">Aug 12</span>
+                <span class="time-zone-picker">
+                  <button
+                    id="time-zone-toggle"
+                    class="time-zone-toggle"
+                    type="button"
+                    aria-label="Change timeline timezone"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-controls="time-zone-popover"
+                  >
+                    <span id="time-zone-label" class="time-zone-label">Europe/Madrid</span>
+                    <i data-lucide="chevron-down" aria-hidden="true"></i>
+                  </button>
+                  <span id="time-zone-popover" class="time-zone-popover" hidden>
+                    <label class="time-zone-search-shell">
+                      <i data-lucide="search" aria-hidden="true"></i>
+                      <span class="visually-hidden">Search timezone</span>
+                      <input
+                        id="time-zone-search"
+                        class="time-zone-search"
+                        type="text"
+                        autocomplete="off"
+                        spellcheck="false"
+                        aria-label="Search timezone"
+                        aria-controls="time-zone-list"
+                      />
+                    </label>
+                    <span id="time-zone-list" class="time-zone-list" role="listbox" aria-label="Timezones"></span>
+                  </span>
+                </span>
+              </span>
+            </div>
+            <div class="time-control">
+              <span id="timeline-rail" class="timeline-rail">
+                <span class="timeline-chapters" aria-hidden="true">
+                  <span class="timeline-chapter" data-region-label="Greenland" data-region-start="17:10" data-region-end="17:42"></span>
+                  <span class="timeline-chapter" data-region-label="Iceland" data-region-start="17:44" data-region-end="17:52"></span>
+                  <span class="timeline-chapter" data-region-label="Spain" data-region-start="18:26" data-region-end="18:34"></span>
+                </span>
+                <span id="timeline-chapter-cuts" class="timeline-chapter-cuts" aria-hidden="true"></span>
+                <span id="timeline-milestones" class="timeline-milestones" role="group" aria-label="Timeline events"></span>
+                <input id="time-slider" type="range" min="0" max="1000" step="0.1" value="0" aria-label="Eclipse timeline" />
+              </span>
+              <span id="timeline-chapter-tooltip" class="timeline-chapter-tooltip" role="tooltip" aria-hidden="true">
+                <strong id="timeline-chapter-name" class="timeline-chapter-name"></strong>
+                <span class="timeline-chapter-separator" aria-hidden="true">·</span>
+                <span id="timeline-chapter-time" class="timeline-chapter-time"></span>
+              </span>
+            </div>
+            <div class="timeline-scale">
+              <span class="timeline-bound timeline-bound-start">
+                <span id="time-start-label" class="timeline-bound-time">--:--</span>
+              </span>
+              <span class="timeline-region-status">
+                <span class="timeline-region-dot" aria-hidden="true"></span>
+                <span id="timeline-region-current" class="timeline-region-current">Open ocean</span>
+                <span class="timeline-status-separator" aria-hidden="true">·</span>
+                <span id="timeline-event-current" class="timeline-event-current">Timeline end</span>
+              </span>
+              <span class="timeline-bound timeline-bound-end">
+                <span id="time-end-label" class="timeline-bound-time">--:--</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dock-command-bar" aria-label="View and playback controls">
+          <div class="location-tabs" aria-label="View presets">
+            <button class="location-tab active" type="button" data-location="orbit" aria-pressed="true">Orbit</button>
+            <button
+              class="location-tab"
+              type="button"
+              data-location="system"
+              aria-label="Moon view. Cinematic scale: the Moon is closer and larger; Orbit uses real scale."
+              aria-pressed="false"
+            >
+              <span class="location-tab-label">Moon</span>
+              <span class="location-tab-info" aria-hidden="true">
+                <i data-lucide="info"></i>
+                <span class="location-tab-tooltip">
+                  <strong>Cinematic scale</strong>
+                  <span>Moon is closer and larger. Orbit uses real scale.</span>
+                </span>
+              </span>
+            </button>
+          </div>
+
+          <label class="playback-speed-control">
+            <span class="visually-hidden">Playback speed</span>
+            <select id="playback-speed" aria-label="Playback speed">
+              <option value="0.5">0.5×</option>
+              <option value="1" selected>1×</option>
+              <option value="2">2×</option>
+            </select>
+          </label>
+
+          <div class="camera-actions" aria-label="Camera controls">
+            <button id="reset-view" class="icon-button dock-icon has-tooltip" type="button" aria-label="Reset view" data-tooltip="Reset view">
+              <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="settings-menu">
+            <button
+              id="settings-toggle"
+              class="settings-summary settings-summary-compact has-tooltip"
+              type="button"
+              aria-label="Scene settings"
+              aria-expanded="false"
+              aria-controls="settings-layer-grid"
+              data-tooltip="Settings"
+            >
+              <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+            </button>
+            <fieldset id="settings-layer-grid" class="layer-grid">
+              <legend class="visually-hidden">Layers</legend>
+              <label><input type="checkbox" data-layer="path" checked /> Path</label>
+              <label><input type="checkbox" data-layer="shadowCone" /> Cone</label>
+              <label><input type="checkbox" data-layer="atmosphere" checked /> Atmosphere</label>
+              <label title="HYG stars, OpenNGC objects, and JPL planet ephemerides"><input type="checkbox" data-layer="stars" checked /> Sky</label>
+              <label title="Automatic labels for selected celestial objects"><input type="checkbox" data-layer="skyHighlights" /> Highlights</label>
+            </fieldset>
+          </div>
+        </div>
+      </section>
+
+      <section class="control-panel" aria-label="Route cities">
+        <section class="city-panel" aria-label="Cities">
+          <div class="city-panel-header">
+            <span class="city-panel-title">Cities</span>
+            <span id="city-panel-current">Route</span>
+            <button
+              id="city-panel-toggle"
+              class="icon-button city-panel-toggle"
+              type="button"
+              aria-label="Collapse city inspector"
+              aria-expanded="true"
+              aria-controls="city-panel-body"
+            >
+              <i data-lucide="chevron-up" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div id="city-panel-body" class="city-panel-body">
+            <label class="city-search-shell">
+              <i data-lucide="search" aria-hidden="true"></i>
+              <span class="visually-hidden">Search route cities</span>
+              <input id="city-search" type="search" autocomplete="off" spellcheck="false" placeholder="Search cities" />
+            </label>
+            <div id="city-list" class="city-list"></div>
+          </div>
+        </section>
+      </section>
+
+      <aside id="city-tooltip" class="city-tooltip" hidden></aside>
+      <aside id="sky-tooltip" class="sky-tooltip" role="tooltip" hidden></aside>
+      <span id="canvas-help" class="visually-hidden">Drag or use arrow keys to orbit. Scroll, pinch, plus, or minus to zoom. Tap a sky object to inspect it. Press zero to reset the camera.</span>
+      <span id="eclipse-narration" class="visually-hidden" aria-live="polite"></span>
+      <span id="app-status" class="visually-hidden" role="status"></span>
+    </main>
+  </body>
+</html>

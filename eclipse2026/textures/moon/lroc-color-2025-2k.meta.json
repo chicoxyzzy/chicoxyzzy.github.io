@@ -1,0 +1,31 @@
+{
+  "source": {
+    "title": "NASA SVS CGI Moon Kit",
+    "url": "https://svs.gsfc.nasa.gov/4720/",
+    "downloadUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_2k.jpg",
+    "mediaGuidelinesUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "accessDate": "2026-07-01",
+    "credit": "NASA's Scientific Visualization Studio",
+    "notes": [
+      "2025 sRGB Moon color map for 3D rendering.",
+      "Adapted by NASA SVS from LROC WAC color data and lower-resolution polar albedo data.",
+      "The NASA SVS page notes that this map is optimized for aesthetics; scientific applications should use the source data.",
+      "Stored locally so the public page does not load NASA imagery at runtime.",
+      "Use must remain factual and must not imply NASA endorsement."
+    ]
+  },
+  "asset": {
+    "fileName": "lroc-color-2025-2k.jpg",
+    "width": 2048,
+    "height": 1024,
+    "format": "JPEG"
+  },
+  "reliefAsset": {
+    "fileName": "lola-normal-1k.webp",
+    "width": 1024,
+    "height": 512,
+    "format": "lossless WebP",
+    "sourceDownloadUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/ldem_3_8bit.jpg",
+    "use": "Tangent-space normal map derived from NASA LOLA elevation data."
+  }
+}

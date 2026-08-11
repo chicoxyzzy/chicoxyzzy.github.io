@@ -1,0 +1,34 @@
+{
+  "source": {
+    "title": "2MASS All-Sky Data Release",
+    "pageUrl": "https://irsa.ipac.caltech.edu/data/2MASS/docs/releases/allsky/index.html",
+    "imageUrl": "https://irsa.ipac.caltech.edu/data/2MASS/docs/releases/allsky/jhk_log.gif",
+    "accessDate": "2026-07-11",
+    "acknowledgement": "Two Micron All Sky Survey, a joint project of the University of Massachusetts and IPAC/Caltech, funded by NASA and NSF.",
+    "sourceSha256": "e9ba601f8de2af97dd988a41f78e8270b5912626e4a3202ac2f4039662e51768"
+  },
+  "output": {
+    "path": "/textures/sky/2mass-milky-way-jhk-icrs-2048x1024.webp",
+    "width": 2048,
+    "height": 1024,
+    "sha256": "242300672e4b9b05cf776ecb2f355841e2194c123bcda86ed49f8618d628b8c1"
+  },
+  "processing": {
+    "sourceProjection": "Galactic Hammer-Aitoff, longitude increasing left",
+    "outputProjection": "ICRS/J2000 equirectangular, RA increasing right",
+    "sourceBoundsPixels": {
+      "minX": 32,
+      "maxX": 1248,
+      "minY": 15,
+      "maxY": 623
+    },
+    "angularBlurRadiusDegrees": 0.3515625,
+    "channels": "2MASS J/H/Ks logarithmic integrated point-source flux",
+    "notes": [
+      "The source is reprojected before smoothing; a declination-aware angular kernel avoids stretching survey structure near the celestial poles.",
+      "The angular low-pass contributes diffuse Galactic structure instead of duplicating catalog point stars.",
+      "Color is near-infrared survey color, not unaided-eye optical color.",
+      "Alpha is derived from the log-flux luminance and is further exposure-controlled at runtime."
+    ]
+  }
+}

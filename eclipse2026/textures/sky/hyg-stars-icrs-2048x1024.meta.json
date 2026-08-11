@@ -1,0 +1,46 @@
+{
+  "sourceCatalog": "src/generated/hygBrightStars.json",
+  "sourceSha256": "f79ee57daeaaf7a4dbe5b36100af54223b89f88385fe756dafb76a7232efcb49",
+  "records": 4114,
+  "magnitudeLimit": 5.8,
+  "outputs": [
+    {
+      "path": "/textures/sky/hyg-stars-icrs-2048x1024.png",
+      "width": 2048,
+      "height": 1024,
+      "sha256": "5c2c81510ec28a44e9a95993e9a75d51155d80cb2d5b3c71227ff3968407b425"
+    },
+    {
+      "path": "/textures/sky/hyg-stars-icrs-4096x2048.webp",
+      "width": 4096,
+      "height": 2048,
+      "sha256": "1dd315e66a6ec34d8fe1fb733469f51d3d4b919811f3882f8b62f85edef30dc4"
+    }
+  ],
+  "processing": {
+    "projection": "ICRS/J2000 equirectangular, RA increasing right",
+    "northAtTop": true,
+    "color": "HYG B-V color index proxy",
+    "brightness": "Visual magnitude hierarchy with Gaussian point-spread proxy"
+  },
+  "deepSkyProxies": {
+    "galaxy": {
+      "path": "/textures/sky/deep-sky-galaxy.png",
+      "width": 256,
+      "height": 256,
+      "sha256": "7d8f1f91b613ec8b3d58f5e17e26ef008135d88c934b199b606671019eb42515"
+    },
+    "nebula": {
+      "path": "/textures/sky/deep-sky-nebula.png",
+      "width": 256,
+      "height": 256,
+      "sha256": "cc757a8a87773d01af7fe0ae21f4691706c4593ff45ebb6a3115b4ccb20d6739"
+    },
+    "cluster": {
+      "path": "/textures/sky/deep-sky-cluster.png",
+      "width": 256,
+      "height": 256,
+      "sha256": "ce8e17d410e5a984435f8c7b32c42b9fb9fef577c000496b8109b891b6bb914f"
+    }
+  }
+}
