@@ -163,7 +163,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#hecate",
       "name": "Hecate",
-      "description": "Local-first console for local and cloud AI models, Hecate Chat, supervised coding-agent sessions, task approvals, usage visibility, and OpenTelemetry.",
+      "description": "Local-first AI workspace and runtime for chats, model providers, project-scoped work, and supervised coding agents.",
       "url": "https://hecate.sh",
       "codeRepository": "https://github.com/hecatehq/hecate",
       "programmingLanguage": ["Go", "TypeScript"],
@@ -175,7 +175,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#cynic",
       "name": "Cynic",
-      "description": "Strict-only ECMAScript engine in Zig for non-browser hosts such as edge JavaScript, Workers, and server-side JavaScript.",
+      "description": "Strict-only ECMAScript and WebAssembly engine written from scratch in Zig, with hardened realms and host-controlled code generation.",
       "url": "https://sergey.works/cynic",
       "codeRepository": "https://github.com/chicoxyzzy/cynic",
       "programmingLanguage": "Zig",
@@ -187,7 +187,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#pragmatist",
       "name": "Pragmatist",
-      "description": "Tool for finding, reproducing, and verifying bugs across ECMA-262, TypeScript, and JavaScript engines.",
+      "description": "Tool that lets agents find and prove bugs in ECMAScript specifications, TypeScript, JavaScript engines, and WebAssembly runtimes.",
       "programmingLanguage": ["TypeScript", "Coq/Rocq"],
       "author": {
         "@id": "https://sergey.works/#person"
@@ -197,7 +197,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#tc39-mcp",
       "name": "TC39 MCP",
-      "description": "MCP server that exposes TC39 specifications as clause-level, SHA-pinned data for agents and developer tools.",
+      "description": "MCP server that gives agents structured, reproducible access to ECMA-262 and ECMA-402 instead of a multi-megabyte HTML document.",
       "url": "https://mcp.xyzzylabs.ai/tc39/",
       "codeRepository": "https://github.com/xyzzylabs/tc39-mcp",
       "programmingLanguage": "TypeScript",
@@ -209,7 +209,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#wasm-mcp",
       "name": "WASM MCP",
-      "description": "MCP endpoint for WebAssembly specifications and tooling context for agents and developer tools.",
+      "description": "Read-only MCP server for the WebAssembly Core, JavaScript, and Web APIs, with instruction-level and clause-level lookup.",
       "url": "https://mcp.xyzzylabs.ai/wasm/",
       "programmingLanguage": "TypeScript",
       "author": {
@@ -301,9 +301,9 @@
 
     <div class="skill-block core-skills">
       <div class="sk-head" data-i18n="skills.heading">Core skills</div>
-      <div class="sk-row"><span class="sk-key" data-i18n="skills.ai">AI / LLM systems</span><span class="sk-val"><span class="t" data-i18n="skills.agentOrchestration">agent orchestration</span><span class="t" data-i18n="skills.promptTool">prompt/tool flows</span><span class="t" data-i18n="skills.harness">harness</span><span class="t">llama.cpp</span></span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="skills.web">Web platform / standards</span><span class="sk-val"><span class="t">TC39</span><span class="t">W3C</span><span class="t">Test262</span><span class="t">WebAssembly</span><span class="t">JavaScriptCore</span><span class="t">WebKit</span><span class="t" data-i18n="skills.browsers">browsers/webviews</span></span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="skills.languages">Languages</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">Go</span><span class="t">C++</span><span class="t">Zig</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="skills.ai">AI / agent systems</span><span class="sk-val"><span class="t" data-i18n="skills.agentOrchestration">agent orchestration</span><span class="t" data-i18n="skills.toolExecution">tool execution</span><span class="t" data-i18n="skills.evaluation">evaluation harnesses</span><span class="t" data-i18n="skills.providerRouting">provider routing</span><span class="t" data-i18n="skills.modelApis">OpenAI / Anthropic APIs</span><span class="t">llama.cpp</span><span class="t">MCP / ACP</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="skills.web">Web platform / standards</span><span class="sk-val"><span class="t">ECMA-262</span><span class="t">ECMA-402</span><span class="t">TC39</span><span class="t">W3C</span><span class="t">Test262</span><span class="t">WebAssembly</span><span class="t">JavaScriptCore</span><span class="t">WebKit</span><span class="t" data-i18n="skills.browsers">browser / WebView runtimes</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="skills.languages">Languages</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">Go</span><span class="t">C++</span><span class="t">Zig</span><span class="t">Coq / Rocq</span></span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="skills.platform">Platform / observability</span><span class="sk-val"><span class="t">OpenTelemetry</span><span class="t" data-i18n="skills.traces">traces/metrics/logs</span><span class="t">Prometheus</span><span class="t">Grafana</span><span class="t">OTel Collector</span><span class="t">Docker</span><span class="t">Kubernetes</span><span class="t">Terraform</span><span class="t">AWS</span><span class="t">GCP</span><span class="t">Cloudflare</span></span></div>
     </div>
 
@@ -323,8 +323,8 @@
           <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ github</a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.hecate.what">Local-first AI runtime console for cloud/local models and Hecate Chat</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.hecate.features">Supervised coding-agent sessions · task approvals · usage visibility · OpenTelemetry</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.hecate.what">Local-first AI workspace and runtime for chats, model providers, project-scoped work, and supervised coding agents</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.hecate.features">OpenAI and Anthropic API compatibility · native and ACP agent sessions · approvals and diff review · project context and memory · usage and OpenTelemetry</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">Go</span><span class="t">TypeScript</span><span class="t">React</span><span class="t">Tauri</span><span class="t">SQLite</span><span class="t">OpenTelemetry</span></span></div>
     </div>
     <div class="skill-block">
@@ -335,8 +335,9 @@
           <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ github</a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.cynic.what">Strict-only ECMAScript engine in Zig for non-browser hosts such as edge JS, Workers, and server-side JS</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">Zig</span><span class="t">ECMAScript</span><span class="t">Test262</span><span class="t">compiler/engine internals</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.cynic.what">Strict-only ECMAScript and WebAssembly engine written from scratch in Zig, with hardened realms and host-controlled code generation</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.cynic.features">Strict semantics without Annex B · frozen primordials and built-in harden() · opt-in eval · WebAssembly support · Test262 and Wasm conformance suites</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">Zig</span><span class="t">ECMAScript</span><span class="t">WebAssembly</span><span class="t">Test262</span><span class="t">WebAssembly testsuite</span></span></div>
     </div>
     <div class="skill-block">
       <div class="sk-head">
@@ -345,9 +346,9 @@
           <span class="sk-badge sk-badge-soon" aria-label="Pragmatist release coming soon" data-i18n="project.soon" data-i18n-attr="aria-label:project.pragmatist.soonLabel">soon</span>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.pragmatist.what">Tool for finding, reproducing, and verifying bugs across ECMA-262, TypeScript, and JavaScript engines</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.pragmatist.features">Spec-aware queries · Coq/Rocq mechanization · TypeScript parser and library diffs · cross-engine differential runs · test262/spec patch scaffolds · deterministic verification</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">Coq/Rocq</span><span class="t">ECMA-262</span><span class="t">tsgo</span><span class="t">Zod</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.pragmatist.what">Tool that lets agents find and prove bugs in ECMAScript specifications, TypeScript, JavaScript engines, and WebAssembly runtimes</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.pragmatist.features">Pinned specification data · Coq/Rocq mechanization · TypeScript AST and library diffs · cross-runtime differential runs · patch scaffolding · deterministic replay of every finding</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">Coq/Rocq</span><span class="t">ECMA-262</span><span class="t">WebAssembly</span><span class="t">tsgo</span><span class="t">Zod</span></span></div>
     </div>
     <div class="skill-block">
       <div class="sk-head">
@@ -357,8 +358,8 @@
           <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ github</a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.tc39mcp.what">MCP server that exposes TC39 specifications as clause-level, SHA-pinned data for agents and developer tools</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.tc39mcp.features">AOID-aware search · cross-spec references · edition diffs · git history · test262 and proposal lookup · offline stdio and public HTTP</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.tc39mcp.what">MCP server that gives agents structured, reproducible access to ECMA-262 and ECMA-402 instead of a multi-megabyte HTML document</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.tc39mcp.features">Clause and AOID search · bidirectional cross-spec references · edition diffs and git history · Test262 and proposal lookup · SHA-pinned responses · local stdio and hosted HTTP</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">ECMA-262</span><span class="t">ECMA-402</span><span class="t">Cloudflare Workers</span><span class="t">VitePress</span><span class="t">Zod</span></span></div>
     </div>
     <div class="skill-block">
@@ -368,9 +369,9 @@
           <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">website</span></a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.wasmmcp.what">MCP endpoint for WebAssembly specifications and tooling context for agents and developer tools</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.wasmmcp.features">WebAssembly spec context · agent-oriented lookup · hosted HTTP endpoint</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">WebAssembly</span><span class="t">MCP</span><span class="t">TypeScript</span><span class="t">Cloudflare Workers</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">what</span><span class="sk-val" data-i18n="project.wasmmcp.what">Read-only MCP server for the WebAssembly Core, JavaScript, and Web APIs, with instruction-level and clause-level lookup</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">features</span><span class="sk-val" data-i18n="project.wasmmcp.features">Opcode, stack signature, and trap metadata · validation and execution references · full-text spec search · proposal index · SHA-pinned deterministic responses · local stdio and hosted HTTP</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">stack</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">WebAssembly</span><span class="t">Cloudflare Workers</span><span class="t">VitePress</span><span class="t">Zod</span></span></div>
     </div>
     <div class="skill-block">
       <div class="sk-head">
@@ -380,7 +381,7 @@
           <a href="https://github.com/xyzzylabs" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ xyzzy labs</a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.more.key">where</span><span class="sk-val" data-i18n="project.more.what">More open-source work, experiments, and smaller tools live on GitHub.</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.more.key">where</span><span class="sk-val" data-i18n="project.more.what">Browse more open-source projects, experiments, and smaller tools across my personal repositories and xyzzy labs.</span></div>
     </div>
   </div>
 </section>
@@ -635,19 +636,19 @@
               <tbody><tr>
                 <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00" data-i18n="retro.skillsAi">AI / LLM systems:</b><br>
-                  ✅ agent orchestration<br>✅ prompt/tool flows<br>✅ OpenAI-compatible API<br>✅ Anthropic API<br>✅ llama.cpp-compatible local models<br>✅ MCP/ACP
+                  ✅ <span data-i18n="skills.agentOrchestration">agent orchestration</span><br>✅ <span data-i18n="skills.toolExecution">tool execution</span><br>✅ <span data-i18n="skills.evaluation">evaluation harnesses</span><br>✅ <span data-i18n="skills.providerRouting">provider routing</span><br>✅ <span data-i18n="skills.modelApis">OpenAI / Anthropic APIs</span><br>✅ llama.cpp<br>✅ MCP / ACP
                 </td>
                 <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00" data-i18n="retro.skillsWeb">Web platform / standards:</b><br>
-                  🔥 TC39<br>🔥 W3C<br>🔥 Test262<br>🔥 WebAssembly<br>🔥 JavaScriptCore<br>🔥 WebKit<br>🔥 browsers/webviews
+                  🔥 ECMA-262<br>🔥 ECMA-402<br>🔥 TC39<br>🔥 W3C<br>🔥 Test262<br>🔥 WebAssembly<br>🔥 JavaScriptCore<br>🔥 WebKit<br>🔥 <span data-i18n="skills.browsers">browser / WebView runtimes</span>
                 </td>
                 <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00" data-i18n="retro.skillsLanguages">Languages:</b><br>
-                  ⭐ TypeScript<br>⭐ Go<br>⭐ C++<br>⭐ Zig
+                  ⭐ TypeScript<br>⭐ Go<br>⭐ C++<br>⭐ Zig<br>⭐ Coq / Rocq
                 </td>
                 <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00" data-i18n="retro.skillsPlatform">Platform / observability:</b><br>
-                  💿 OpenTelemetry<br>💿 traces/metrics/logs<br>💿 Prometheus<br>💿 Grafana<br>💿 OTel Collector<br>💿 Docker<br>💿 Kubernetes<br>💿 Terraform<br>💿 AWS<br>💿 GCP<br>💿 Cloudflare
+                  💿 OpenTelemetry<br>💿 <span data-i18n="skills.traces">traces / metrics / logs</span><br>💿 Prometheus<br>💿 Grafana<br>💿 OTel Collector<br>💿 Docker<br>💿 Kubernetes<br>💿 Terraform<br>💿 AWS<br>💿 GCP<br>💿 Cloudflare
                 </td>
               </tr>
             </tbody></table>
@@ -656,15 +657,15 @@
           <div class="retro-box">
             <div class="retro-box-title" data-i18n="retro.projectsTitle">🚀 MY PROJECTZ 🚀</div>
             <p class="retro-project-copy" data-i18n="retro.projectsCopy">
-              <b style="color:#ffff00">Hecate</b> — local-first AI runtime console for cloud/local models, Hecate Chat, supervised coding-agent sessions, task approvals, usage visibility, and OpenTelemetry!!!<br>
+              <b style="color:#ffff00">Hecate</b> — local-first AI workspace for chats, projects, model providers, and supervised coding agents!!! Approvals, diffs, usage, and traces stay where the human can see them!!!<br>
               🌐 <a href="https://hecate.sh" target="_blank" rel="noopener noreferrer" class="retro-link">hecate.sh</a> · 💾 <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="retro-link">source code</a><br><br>
-              <b style="color:#ffff00">Cynic</b> — strict-only ECMAScript engine in Zig for non-browser hosts!!!<br>
+              <b style="color:#ffff00">Cynic</b> — strict-only ECMAScript + WebAssembly engine written from scratch in Zig!!! Annex B was not invited!!!<br>
               🌐 <a href="https://sergey.works/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">sergey.works/cynic</a> · 💾 <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">source code</a><br><br>
-              <b style="color:#ffff00">Pragmatist</b> — tool for finding, reproducing, and verifying bugs across ECMA-262, TypeScript, and JS engines!!! It queries specs, compares engines, prepares test262/spec patches, and refuses to trust hunches!!!<br>
-              <span class="retro-soon">Released soon!!!</span><br><br>
-              <b style="color:#ffff00">TC39 MCP</b> — MCP server for TC39 specs!!! Agents get SHA-pinned ECMA-262 + ECMA-402 clauses, AOID search, references, diffs, history, test262, and proposals instead of scraping a giant HTML file!!!<br>
+              <b style="color:#ffff00">Pragmatist</b> — finds bugs in specs, TypeScript, and runtimes, then makes every claim bring reproducible evidence!!! No evidence, no finding!!!<br>
+              <span class="retro-soon">Coming soon!!!</span><br><br>
+              <b style="color:#ffff00">TC39 MCP</b> — gives agents structured, SHA-pinned ECMA-262 + ECMA-402 instead of a 4 MB HTML treasure hunt!!!<br>
               🌐 <a href="https://mcp.xyzzylabs.ai/tc39/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/tc39/</a> · 💾 <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="retro-link">source code</a><br><br>
-              <b style="color:#ffff00">WASM MCP</b> — MCP endpoint for WebAssembly specs and tooling context!!!<br>
+              <b style="color:#ffff00">WASM MCP</b> — read-only MCP server for WebAssembly instructions, clauses, types, traps, and proposals!!! Same SHA, same answer!!!<br>
               🌐 <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/wasm/</a>
             </p>
           </div>

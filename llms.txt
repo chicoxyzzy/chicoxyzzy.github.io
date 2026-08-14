@@ -21,45 +21,50 @@ Sergey Rubanov works on AI agent infrastructure, the web platform, developer too
 
 ## Core Skills
 
-- AI / LLM systems: agent orchestration, prompt/tool flows, harnesses, llama.cpp, MCP/ACP
-- Web platform / standards: TC39, W3C, Test262, WebAssembly, JavaScriptCore, WebKit, browsers/webviews
-- Languages: TypeScript, Go, C++, Zig
+- AI / agent systems: agent orchestration, tool execution, evaluation harnesses, provider routing, OpenAI/Anthropic APIs, llama.cpp, MCP/ACP
+- Web platform / standards: ECMA-262, ECMA-402, TC39, W3C, Test262, WebAssembly, JavaScriptCore, WebKit, browser/WebView runtimes
+- Languages: TypeScript, Go, C++, Zig, Coq/Rocq
 - Platform / observability: OpenTelemetry, traces/metrics/logs, Prometheus, Grafana, OTel Collector, Docker, Kubernetes, Terraform, AWS, GCP, Cloudflare
 
 ## Projects
 
 ### Hecate
 
-Local-first console for local and cloud AI models, Hecate Chat, supervised coding-agent sessions, task approvals, usage visibility, and OpenTelemetry.
+Local-first AI workspace and runtime for chats, model providers, project-scoped work, and supervised coding agents.
 
+- Capabilities: OpenAI and Anthropic API compatibility; native and ACP agent sessions; approvals and diff review; project context and memory; usage reporting and OpenTelemetry.
 - Website: https://hecate.sh
 - Source: https://github.com/hecatehq/hecate
 
 ### Cynic
 
-Strict-only ECMAScript engine in Zig for non-browser hosts such as edge JavaScript, Workers, and server-side JavaScript.
+Strict-only ECMAScript and WebAssembly engine written from scratch in Zig, with hardened realms and host-controlled code generation.
 
+- Capabilities: strict semantics without Annex B; frozen primordials and built-in `harden()`; opt-in `eval`; WebAssembly support; Test262 and Wasm conformance suites.
 - Website: https://sergey.works/cynic
 - Source: https://github.com/chicoxyzzy/cynic
 
 ### Pragmatist
 
-Tool for finding, reproducing, and verifying bugs across ECMA-262, TypeScript, and JavaScript engines.
+Tool that lets agents find and prove bugs in ECMAScript specifications, TypeScript, JavaScript engines, and WebAssembly runtimes.
 
+- Capabilities: pinned specification data; Coq/Rocq mechanization; TypeScript AST and library diffs; cross-runtime differential runs; patch scaffolding; deterministic replay of every finding.
 - Status: coming soon
-- Stack: TypeScript, Coq/Rocq, ECMA-262, tsgo, Zod
+- Stack: TypeScript, Coq/Rocq, ECMA-262, WebAssembly, tsgo, Zod
 
 ### TC39 MCP
 
-MCP server that exposes TC39 specifications as clause-level, SHA-pinned data for agents and developer tools.
+MCP server that gives agents structured, reproducible access to ECMA-262 and ECMA-402 instead of a multi-megabyte HTML document.
 
+- Capabilities: clause and AOID search; bidirectional cross-spec references; edition diffs and git history; Test262 and proposal lookup; SHA-pinned responses; local stdio and hosted HTTP.
 - Website: https://mcp.xyzzylabs.ai/tc39/
 - Source: https://github.com/xyzzylabs/tc39-mcp
 
 ### WASM MCP
 
-MCP endpoint for WebAssembly specifications and tooling context for agents and developer tools.
+Read-only MCP server for the WebAssembly Core, JavaScript, and Web APIs, with instruction-level and clause-level lookup.
 
+- Capabilities: opcode, stack signature, and trap metadata; validation and execution references; full-text spec search; proposal index; SHA-pinned deterministic responses; local stdio and hosted HTTP.
 - Website: https://mcp.xyzzylabs.ai/wasm/
 
 ## Professional Links

@@ -163,7 +163,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#hecate",
       "name": "Hecate",
-      "description": "Consola local-first per executar models d'IA locals o al núvol, amb Hecate Chat",
+      "description": "Espai de treball i runtime d'IA que funciona en local i aplega xats, proveïdors de models, projectes i agents de programació supervisats",
       "url": "https://hecate.sh",
       "codeRepository": "https://github.com/hecatehq/hecate",
       "programmingLanguage": [
@@ -178,7 +178,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#cynic",
       "name": "Cynic",
-      "description": "Motor ECMAScript strict-only en Zig per a entorns que no són navegador, com edge JS, Workers i JS de servidor",
+      "description": "Motor d'ECMAScript i WebAssembly escrit des de zero en Zig, només en mode estricte, amb realms reforçats i generació de codi sota el control de l'entorn host",
       "url": "https://sergey.works/cynic",
       "codeRepository": "https://github.com/chicoxyzzy/cynic",
       "programmingLanguage": "Zig",
@@ -190,7 +190,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#pragmatist",
       "name": "Pragmatist",
-      "description": "Eina per trobar, reproduir i verificar errors a ECMA-262, TypeScript i motors JavaScript",
+      "description": "Eina amb què els agents troben i demostren errors en especificacions ECMAScript, TypeScript, motors JavaScript i entorns d'execució WebAssembly",
       "programmingLanguage": [
         "TypeScript",
         "Coq/Rocq"
@@ -203,7 +203,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#tc39-mcp",
       "name": "TC39 MCP",
-      "description": "Servidor MCP que exposa les especificacions TC39 com a dades per clàusula, fixades per SHA, per a agents i eines",
+      "description": "Servidor MCP que dona als agents accés estructurat i reproduïble a ECMA-262 i ECMA-402, sense fer-los processar un HTML de diversos megabytes",
       "url": "https://mcp.xyzzylabs.ai/tc39/",
       "codeRepository": "https://github.com/xyzzylabs/tc39-mcp",
       "programmingLanguage": "TypeScript",
@@ -215,7 +215,7 @@
       "@type": "SoftwareSourceCode",
       "@id": "https://sergey.works/#wasm-mcp",
       "name": "WASM MCP",
-      "description": "Endpoint MCP per a especificacions WebAssembly i context de tooling per a agents i eines",
+      "description": "Servidor MCP de només lectura per a les especificacions Core, JavaScript API i Web API de WebAssembly, amb consultes per instrucció i per secció",
       "url": "https://mcp.xyzzylabs.ai/wasm/",
       "programmingLanguage": "TypeScript",
       "author": {
@@ -290,7 +290,7 @@
     <div class="tagline" data-i18n="hero.tagline">Recerca · estàndards web · agents d'IA · codi obert</div>
     <div class="hero-summary">
       <p data-i18n="hero.summary">Desenvolupament i recerca independent en infraestructura per a agents d'IA, plataforma web, eines per a desenvolupadors i codi obert.</p>
-      <p data-i18n="hero.standards">Treball amb estàndards de <span class="tc39">TC39</span> i <span class="w3c">W3C</span>, al punt on el text de les especificacions es troba amb navegadors, runtimes i APIs per a desenvolupadors.</p>
+      <p data-i18n="hero.standards">Treball amb estàndards de <span class="tc39">TC39</span> i <span class="w3c">W3C</span>, al punt on el text de les especificacions es troba amb navegadors, entorns d’execució i API per a desenvolupadors.</p>
     </div>
   </div>
   <div class="hint">
@@ -307,10 +307,10 @@
 
     <div class="skill-block core-skills">
       <div class="sk-head" data-i18n="skills.heading">Competències clau</div>
-      <div class="sk-row"><span class="sk-key" data-i18n="skills.ai">Sistemes AI / LLM</span><span class="sk-val"><span class="t" data-i18n="skills.agentOrchestration">orquestració d'agents</span><span class="t" data-i18n="skills.promptTool">fluxos de prompts i eines</span><span class="t" data-i18n="skills.harness">bancs de proves</span><span class="t">llama.cpp</span></span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="skills.web">Plataforma web / estàndards</span><span class="sk-val"><span class="t">TC39</span><span class="t">W3C</span><span class="t">Test262</span><span class="t">WebAssembly</span><span class="t">JavaScriptCore</span><span class="t">WebKit</span><span class="t" data-i18n="skills.browsers">navegadors/webviews</span></span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="skills.languages">Llenguatges</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">Go</span><span class="t">C++</span><span class="t">Zig</span></span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="skills.platform">Plataforma / observabilitat</span><span class="sk-val"><span class="t">OpenTelemetry</span><span class="t" data-i18n="skills.traces">traces/mètriques/logs</span><span class="t">Prometheus</span><span class="t">Grafana</span><span class="t">OTel Collector</span><span class="t">Docker</span><span class="t">Kubernetes</span><span class="t">Terraform</span><span class="t">AWS</span><span class="t">GCP</span><span class="t">Cloudflare</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="skills.ai">Sistemes d'IA i agents</span><span class="sk-val"><span class="t" data-i18n="skills.agentOrchestration">orquestració d'agents</span><span class="t" data-i18n="skills.toolExecution">execució d'eines</span><span class="t" data-i18n="skills.evaluation">infraestructura d'avaluació</span><span class="t" data-i18n="skills.providerRouting">encaminament entre proveïdors</span><span class="t" data-i18n="skills.modelApis">API d'OpenAI i Anthropic</span><span class="t">llama.cpp</span><span class="t">MCP / ACP</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="skills.web">Plataforma web / estàndards</span><span class="sk-val"><span class="t">ECMA-262</span><span class="t">ECMA-402</span><span class="t">TC39</span><span class="t">W3C</span><span class="t">Test262</span><span class="t">WebAssembly</span><span class="t">JavaScriptCore</span><span class="t">WebKit</span><span class="t" data-i18n="skills.browsers">entorns de navegador i WebView</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="skills.languages">Llenguatges</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">Go</span><span class="t">C++</span><span class="t">Zig</span><span class="t">Coq / Rocq</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="skills.platform">Plataforma / observabilitat</span><span class="sk-val"><span class="t">OpenTelemetry</span><span class="t" data-i18n="skills.traces">traces / mètriques / logs</span><span class="t">Prometheus</span><span class="t">Grafana</span><span class="t">OTel Collector</span><span class="t">Docker</span><span class="t">Kubernetes</span><span class="t">Terraform</span><span class="t">AWS</span><span class="t">GCP</span><span class="t">Cloudflare</span></span></div>
     </div>
 
   </div>
@@ -329,8 +329,8 @@
           <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ github</a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.hecate.what">Consola local-first per executar models d'IA locals o al núvol, amb Hecate Chat</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.features">funcionalitats</span><span class="sk-val" data-i18n="project.hecate.features">Sessions supervisades amb agents de codi · aprovació de tasques · visibilitat sobre l'ús · OpenTelemetry</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.hecate.what">Espai de treball i runtime d'IA que funciona en local i aplega xats, proveïdors de models, projectes i agents de programació supervisats</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">funcionalitats</span><span class="sk-val" data-i18n="project.hecate.features">API compatibles amb OpenAI i Anthropic · agents integrats i externs mitjançant ACP · aprovacions i revisió de canvis · context i memòria per projecte · mètriques d'ús i OpenTelemetry</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.stack">tecnologies</span><span class="sk-val"><span class="t">Go</span><span class="t">TypeScript</span><span class="t">React</span><span class="t">Tauri</span><span class="t">SQLite</span><span class="t">OpenTelemetry</span></span></div>
     </div>
     <div class="skill-block">
@@ -341,8 +341,9 @@
           <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ github</a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.cynic.what">Motor ECMAScript strict-only en Zig per a entorns que no són navegador, com edge JS, Workers i JS de servidor</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">tecnologies</span><span class="sk-val"><span class="t">Zig</span><span class="t">ECMAScript</span><span class="t">Test262</span><span class="t">compiler/engine internals</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.cynic.what">Motor d'ECMAScript i WebAssembly escrit des de zero en Zig, només en mode estricte, amb realms reforçats i generació de codi sota el control de l'entorn host</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">funcionalitats</span><span class="sk-val" data-i18n="project.cynic.features">Semàntica estricta sense Annex B · primordials congelats i harden() integrat · eval opcional · suport de WebAssembly · suites de conformitat Test262 i Wasm</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">tecnologies</span><span class="sk-val"><span class="t">Zig</span><span class="t">ECMAScript</span><span class="t">WebAssembly</span><span class="t">Test262</span><span class="t">WebAssembly testsuite</span></span></div>
     </div>
     <div class="skill-block">
       <div class="sk-head">
@@ -351,9 +352,9 @@
           <span class="sk-badge sk-badge-soon" aria-label="Llançament de Pragmatist aviat" data-i18n="project.soon" data-i18n-attr="aria-label:project.pragmatist.soonLabel">aviat</span>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.pragmatist.what">Eina per trobar, reproduir i verificar errors a ECMA-262, TypeScript i motors JavaScript</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.features">funcionalitats</span><span class="sk-val" data-i18n="project.pragmatist.features">Consultes sobre especificacions · mecanització en Coq/Rocq · diffs del parser i les llibreries de TypeScript · plantilles de patches per a test262/spec · proves diferencials entre motors · verificació determinista</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">tecnologies</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">Coq/Rocq</span><span class="t">ECMA-262</span><span class="t">tsgo</span><span class="t">Zod</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.pragmatist.what">Eina amb què els agents troben i demostren errors en especificacions ECMAScript, TypeScript, motors JavaScript i entorns d'execució WebAssembly</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">funcionalitats</span><span class="sk-val" data-i18n="project.pragmatist.features">Especificacions fixades per commit · formalització amb Coq/Rocq · comparació d'AST i llibreries de TypeScript · proves diferencials entre implementacions · preparació de patches · verificació reproduïble de cada troballa</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">tecnologies</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">Coq/Rocq</span><span class="t">ECMA-262</span><span class="t">WebAssembly</span><span class="t">tsgo</span><span class="t">Zod</span></span></div>
     </div>
     <div class="skill-block">
       <div class="sk-head">
@@ -363,8 +364,8 @@
           <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ github</a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.tc39mcp.what">Servidor MCP que exposa les especificacions TC39 com a dades per clàusula, fixades per SHA, per a agents i eines</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.features">funcionalitats</span><span class="sk-val" data-i18n="project.tc39mcp.features">Cerca per AOID · referències entre especificacions · diffs entre edicions · historial git · cerca a test262 i propostes · stdio offline i HTTP públic</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.tc39mcp.what">Servidor MCP que dona als agents accés estructurat i reproduïble a ECMA-262 i ECMA-402, sense fer-los processar un HTML de diversos megabytes</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">funcionalitats</span><span class="sk-val" data-i18n="project.tc39mcp.features">Cerca per clàusula i AOID · referències bidireccionals entre especificacions · comparació d'edicions i historial git · consulta de Test262 i propostes · respostes fixades per SHA · stdio local i HTTP públic</span></div>
       <div class="sk-row"><span class="sk-key" data-i18n="project.stack">tecnologies</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">ECMA-262</span><span class="t">ECMA-402</span><span class="t">Cloudflare Workers</span><span class="t">VitePress</span><span class="t">Zod</span></span></div>
     </div>
     <div class="skill-block">
@@ -374,9 +375,9 @@
           <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ <span data-i18n="project.website">web</span></a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.wasmmcp.what">Endpoint MCP per a especificacions WebAssembly i context de tooling per a agents i eines</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.features">funcionalitats</span><span class="sk-val" data-i18n="project.wasmmcp.features">Context d'especificacions WebAssembly · cerca orientada a agents · endpoint HTTP públic</span></div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">tecnologies</span><span class="sk-val"><span class="t">WebAssembly</span><span class="t">MCP</span><span class="t">TypeScript</span><span class="t">Cloudflare Workers</span></span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.what">descripció</span><span class="sk-val" data-i18n="project.wasmmcp.what">Servidor MCP de només lectura per a les especificacions Core, JavaScript API i Web API de WebAssembly, amb consultes per instrucció i per secció</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.features">funcionalitats</span><span class="sk-val" data-i18n="project.wasmmcp.features">Opcodes, signatures de pila i condicions de trap · referències de validació i execució · cerca en tot el text de l'especificació · índex de propostes · respostes deterministes fixades per SHA · stdio local i HTTP públic</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.stack">tecnologies</span><span class="sk-val"><span class="t">TypeScript</span><span class="t">WebAssembly</span><span class="t">Cloudflare Workers</span><span class="t">VitePress</span><span class="t">Zod</span></span></div>
     </div>
     <div class="skill-block">
       <div class="sk-head">
@@ -386,7 +387,7 @@
           <a href="https://github.com/xyzzylabs" target="_blank" rel="noopener noreferrer" class="sk-badge">↗ xyzzy labs</a>
         </span>
       </div>
-      <div class="sk-row"><span class="sk-key" data-i18n="project.more.key">enllaç</span><span class="sk-val" data-i18n="project.more.what">Hi ha més projectes de codi obert, experiments i eines petites a GitHub.</span></div>
+      <div class="sk-row"><span class="sk-key" data-i18n="project.more.key">enllaç</span><span class="sk-val" data-i18n="project.more.what">Explora més projectes de codi obert, experiments i utilitats als meus repositoris personals i a xyzzy labs.</span></div>
     </div>
   </div>
 </section>
@@ -635,20 +636,20 @@
             <table width="100%" border="1" cellpadding="6" cellspacing="0" class="retro-skills-table">
               <tbody><tr>
                 <td class="retro-skills-cell" valign="top" width="25%">
-                  <b style="color:#ffff00" data-i18n="retro.skillsAi">Sistemes AI / LLM:</b><br>
-                  ✅ agent orchestration<br>✅ prompt/tool flows<br>✅ OpenAI-compatible API<br>✅ Anthropic API<br>✅ llama.cpp-compatible local models<br>✅ MCP/ACP
+                  <b style="color:#ffff00" data-i18n="retro.skillsAi">Sistemes d'IA i agents:</b><br>
+                  ✅ <span data-i18n="skills.agentOrchestration">orquestració d'agents</span><br>✅ <span data-i18n="skills.toolExecution">execució d'eines</span><br>✅ <span data-i18n="skills.evaluation">infraestructura d'avaluació</span><br>✅ <span data-i18n="skills.providerRouting">encaminament entre proveïdors</span><br>✅ <span data-i18n="skills.modelApis">API d'OpenAI i Anthropic</span><br>✅ llama.cpp<br>✅ MCP / ACP
                 </td>
                 <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00" data-i18n="retro.skillsWeb">Plataforma web / estàndards:</b><br>
-                  🔥 TC39<br>🔥 W3C<br>🔥 Test262<br>🔥 WebAssembly<br>🔥 JavaScriptCore<br>🔥 WebKit<br>🔥 browsers/webviews
+                  🔥 ECMA-262<br>🔥 ECMA-402<br>🔥 TC39<br>🔥 W3C<br>🔥 Test262<br>🔥 WebAssembly<br>🔥 JavaScriptCore<br>🔥 WebKit<br>🔥 <span data-i18n="skills.browsers">entorns de navegador i WebView</span>
                 </td>
                 <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00" data-i18n="retro.skillsLanguages">Llenguatges:</b><br>
-                  ⭐ TypeScript<br>⭐ Go<br>⭐ C++<br>⭐ Zig
+                  ⭐ TypeScript<br>⭐ Go<br>⭐ C++<br>⭐ Zig<br>⭐ Coq / Rocq
                 </td>
                 <td class="retro-skills-cell" valign="top" width="25%">
                   <b style="color:#ffff00" data-i18n="retro.skillsPlatform">Plataforma / observabilitat:</b><br>
-                  💿 OpenTelemetry<br>💿 traces/metrics/logs<br>💿 Prometheus<br>💿 Grafana<br>💿 OTel Collector<br>💿 Docker<br>💿 Kubernetes<br>💿 Terraform<br>💿 AWS<br>💿 GCP<br>💿 Cloudflare
+                  💿 OpenTelemetry<br>💿 <span data-i18n="skills.traces">traces / mètriques / logs</span><br>💿 Prometheus<br>💿 Grafana<br>💿 OTel Collector<br>💿 Docker<br>💿 Kubernetes<br>💿 Terraform<br>💿 AWS<br>💿 GCP<br>💿 Cloudflare
                 </td>
               </tr>
             </tbody></table>
@@ -656,7 +657,7 @@
 
           <div class="retro-box">
             <div class="retro-box-title" data-i18n="retro.projectsTitle">🚀 ELS MEUS PROJECTZ 🚀</div>
-            <p class="retro-project-copy" data-i18n="retro.projectsCopy"><b style="color:#ffff00">Hecate</b> — consola local-first per a models locals o al núvol, Hecate Chat, sessions supervisades amb agents de codi, aprovació de tasques, visibilitat sobre l’ús i OpenTelemetry!!!<br>🌐 <a href="https://hecate.sh" target="_blank" rel="noopener noreferrer" class="retro-link">hecate.sh</a> · 💾 <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="retro-link">codi font</a><br><br><b style="color:#ffff00">Cynic</b> — motor ECMAScript strict-only en Zig per a entorns que no són navegadors!!!<br>🌐 <a href="https://sergey.works/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">sergey.works/cynic</a> · 💾 <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">codi font</a><br><br><b style="color:#ffff00">Pragmatist</b> — eina per trobar, reproduir i verificar errors a ECMA-262, TypeScript i motors JS!!! Consulta especificacions, compara motors, prepara patches per a test262/spec i no es refia de les intuïcions!!!<br><span class="retro-soon">Disponible aviat!!!</span><br><br><b style="color:#ffff00">TC39 MCP</b> — servidor MCP per a especificacions TC39!!! Els agents reben clàusules ECMA-262 + ECMA-402 fixades per SHA, cerca AOID, referències, diffs, historial, test262 i propostes sense extreure dades d’un HTML gegant!!!<br>🌐 <a href="https://mcp.xyzzylabs.ai/tc39/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/tc39/</a> · 💾 <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="retro-link">codi font</a><br><br><b style="color:#ffff00">WASM MCP</b> — endpoint MCP per a especificacions WebAssembly i context de tooling!!!<br>🌐 <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/wasm/</a></p>
+            <p class="retro-project-copy" data-i18n="retro.projectsCopy"><b style="color:#ffff00">Hecate</b> — entorn d’IA local per a xats, projectes, proveïdors de models i agents de programació supervisats!!! Aprovacions, canvis, ús i traces queden a la vista de l’usuari!!!<br>🌐 <a href="https://hecate.sh" target="_blank" rel="noopener noreferrer" class="retro-link">hecate.sh</a> · 💾 <a href="https://github.com/hecatehq/hecate" target="_blank" rel="noopener noreferrer" class="retro-link">codi font</a><br><br><b style="color:#ffff00">Cynic</b> — motor strict-only d’ECMAScript + WebAssembly escrit des de zero en Zig!!! Annex B no hi estava convidat!!!<br>🌐 <a href="https://sergey.works/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">sergey.works/cynic</a> · 💾 <a href="https://github.com/chicoxyzzy/cynic" target="_blank" rel="noopener noreferrer" class="retro-link">codi font</a><br><br><b style="color:#ffff00">Pragmatist</b> — troba errors en especificacions, TypeScript i implementacions, i exigeix proves reproduïbles per a cada afirmació!!! Sense proves no hi ha troballa!!!<br><span class="retro-soon">Properament!!!</span><br><br><b style="color:#ffff00">TC39 MCP</b> — lliura als agents ECMA-262 + ECMA-402 estructurats i fixats per SHA en lloc d’una cerca del tresor per 4 MB d’HTML!!!<br>🌐 <a href="https://mcp.xyzzylabs.ai/tc39/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/tc39/</a> · 💾 <a href="https://github.com/xyzzylabs/tc39-mcp" target="_blank" rel="noopener noreferrer" class="retro-link">codi font</a><br><br><b style="color:#ffff00">WASM MCP</b> — servidor MCP de només lectura per a instruccions, seccions, tipus, condicions de trap i propostes de WebAssembly!!! Mateix SHA, mateixa resposta!!!<br>🌐 <a href="https://mcp.xyzzylabs.ai/wasm/" target="_blank" rel="noopener noreferrer" class="retro-link">mcp.xyzzylabs.ai/wasm/</a></p>
           </div>
 
           <div class="retro-box">

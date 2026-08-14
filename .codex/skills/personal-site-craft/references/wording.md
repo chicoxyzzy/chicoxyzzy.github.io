@@ -21,10 +21,11 @@ Use a compact `what / features / stack` shape when the site is terminal- or port
 
 Project descriptions should be technical but clean:
 
-- Hecate: local-first console for local/cloud AI models, Hecate Chat, supervised coding-agent sessions, task approvals, usage visibility, OpenTelemetry.
-- Cynic: strict-only ECMAScript engine in Zig for non-browser hosts such as edge JavaScript, Workers, and server-side JavaScript.
-- Pragmatist: tool for finding, reproducing, and verifying bugs across ECMA-262, TypeScript, and JavaScript engines.
-- tc39-mcp: MCP server exposing TC39 specifications as clause-level, SHA-pinned data for agents and developer tools.
+- Hecate: local-first AI workspace and runtime for chats, model providers, project-scoped work, and supervised coding agents.
+- Cynic: strict-only ECMAScript and WebAssembly engine written from scratch in Zig, with hardened realms and host-controlled code generation.
+- Pragmatist: tool that lets agents find and prove bugs in ECMAScript specifications, TypeScript, JavaScript engines, and WebAssembly runtimes.
+- tc39-mcp: MCP server that gives agents structured, reproducible access to ECMA-262 and ECMA-402 instead of a multi-megabyte HTML document.
+- wasm-mcp: read-only MCP server for the WebAssembly Core, JavaScript, and Web APIs, with instruction-level and clause-level lookup.
 
 Avoid phrases that sounded wrong in this project:
 

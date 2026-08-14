@@ -314,7 +314,7 @@
 
     /* ---------- Projects ---------- */
     .item {
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       break-inside: avoid;
     }
     .item:last-child { margin-bottom: 0; }
@@ -451,6 +451,35 @@
 
     .role li b { font-weight: 700; color: var(--ink); }
 
+    .role-phase {
+      margin-top: 9px;
+      padding-left: 12px;
+      border-left: 1px solid var(--rule);
+      break-inside: avoid;
+    }
+
+    .role-phase + .role-phase { margin-top: 11px; }
+
+    .role-phase-title {
+      margin: 0 0 3px;
+      font-family: var(--display);
+      font-size: 1.14rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .role-phase-title .context {
+      margin-left: 5px;
+      font-family: var(--mono);
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    .role-phase .stack { color: var(--muted); }
+
     /* ---------- Two-up footer lists ---------- */
     .two-col {
       display: grid;
@@ -497,6 +526,97 @@
       }
     }
 
+    @media screen and (max-width: 650px) {
+      html { font-size: 14px; }
+      body { padding: 8px; }
+
+      .cv-toolbar {
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+        font-size: .86rem;
+      }
+
+      .cv-toolbar a,
+      .cv-toolbar button {
+        flex: 1 1 105px;
+        padding: 0 9px;
+      }
+
+      .page { padding: 20px 16px 28px; }
+
+      .masthead {
+        grid-template-columns: minmax(0, 1fr) 88px;
+        gap: 12px;
+        align-items: end;
+      }
+
+      .eyebrow {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 4px 7px;
+        font-size: .72rem;
+      }
+
+      .eyebrow::before { margin-top: .45em; }
+      h1 { font-size: 3rem; }
+      .headline { font-size: 1.08rem; }
+
+      .portrait {
+        width: 88px;
+        height: 107px;
+      }
+
+      .contact-bar {
+        gap: 8px 14px;
+        font-size: .8rem;
+      }
+
+      .grid {
+        display: block;
+        margin-top: 24px;
+      }
+
+      section { display: block; }
+
+      .sec-label {
+        display: flex;
+        align-items: baseline;
+        gap: 9px;
+        margin-bottom: 10px;
+        padding-top: 0;
+      }
+
+      .sec-title { margin-top: 0; }
+      .sec-body { margin-bottom: 22px; }
+      .lede { font-size: 1.08rem; }
+
+      .skill-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .chip { font-size: .78rem; }
+
+      .item-head {
+        flex-wrap: wrap;
+        gap: 2px 8px;
+      }
+
+      .item-head .tag { white-space: normal; }
+
+      .role-head {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .dates { text-align: left; }
+
+      .role-phase-title .context {
+        display: block;
+        margin: 3px 0 0;
+      }
+    }
+
     /* ---------- Print ---------- */
     @media print {
       html { background: #fff; font-size: 9.7px; }
@@ -540,7 +660,7 @@
         <div>
           <p class="eyebrow">Software Engineer <span class="loc">/ Barcelona, Spain</span></p>
           <h1 id="cv-title">Sergey<br>Rubanov</h1>
-          <p class="headline">Builds <em>AI agent infrastructure</em>, <em>web platform tooling</em> &amp; <em>developer tools</em> at the boundary between specifications, runtimes, engines, and APIs.</p>
+          <p class="headline">Engineering <em>AI agent infrastructure</em>, <em>web platform tooling</em> &amp; <em>developer tools</em>, from specifications and engines to production systems.</p>
         </div>
         <div class="portrait">
           <img src="assets/cv/photo-portrait.jpg" alt="Portrait of Sergey Rubanov">
@@ -563,8 +683,8 @@
           <h2 class="sec-title">Profile</h2>
         </div>
         <div class="sec-body">
-          <p class="lede">Software engineer and independent researcher focused on AI agent infrastructure, the web platform, developer tooling, and open source.</p>
-          <p class="lede">Works with <b class="hl">TC39</b> and <b class="hl">W3C</b> standards across specification text, browser behavior, runtimes, and developer-facing APIs.</p>
+          <p class="lede">Software engineer and independent researcher working on AI agent infrastructure, the web platform, developer tooling, and open source.</p>
+          <p class="lede">Contributes to <b class="hl">TC39</b> and <b class="hl">W3C</b> work on JavaScript semantics, browser behavior, conformance tests, and developer-facing APIs.</p>
         </div>
       </section>
 
@@ -575,21 +695,24 @@
         </div>
         <div class="sec-body skills">
           <div class="skill-row">
-            <span class="label">AI / LLM systems</span>
+            <span class="label">AI / agent systems</span>
             <span class="chips">
               <span class="chip">agent orchestration</span>
-              <span class="chip">prompt/tool flows</span>
-              <span class="chip">eval &amp; quality-regression</span>
-              <span class="chip">harness</span>
+              <span class="chip">tool execution</span>
+              <span class="chip">evaluation harnesses</span>
+              <span class="chip">provider routing</span>
+              <span class="chip">OpenAI / Anthropic APIs</span>
               <span class="chip">llama.cpp</span>
-              <span class="chip">MCP/ACP</span>
+              <span class="chip">MCP / ACP</span>
             </span>
           </div>
           <div class="skill-row">
             <span class="label">Web platform / standards</span>
             <span class="chips">
               <span class="chip">ECMA-262</span>
+              <span class="chip">ECMA-402</span>
               <span class="chip">TC39</span>
+              <span class="chip">W3C</span>
               <span class="chip">Test262</span>
               <span class="chip">WebAssembly</span>
               <span class="chip">JavaScriptCore</span>
@@ -604,6 +727,7 @@
               <span class="chip">Go</span>
               <span class="chip">C++</span>
               <span class="chip">Zig</span>
+              <span class="chip">Coq / Rocq</span>
             </span>
           </div>
           <div class="skill-row">
@@ -634,9 +758,9 @@
           <article class="item">
             <div class="item-head">
               <h3>Hecate</h3>
-              <span class="tag">AI runtime tooling</span>
+              <span class="tag">AI workspace / runtime</span>
             </div>
-            <p>Local-first console for local and cloud AI models, supervised coding-agent sessions, task approvals, usage visibility, and OpenTelemetry traces.</p>
+            <p>Local-first workspace for local and cloud AI models, project context, and supervised coding agents, with provider APIs, approvals, diff review, usage reporting, and OpenTelemetry.</p>
             <p class="stack"><b>Stack</b> Go · TypeScript · React · Tauri · SQLite · OpenTelemetry</p>
             <p class="links-inline"><a target="_blank" rel="noopener noreferrer" href="https://hecate.sh"><svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"></path></svg>hecate.sh</a><span class="sep">·</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/hecatehq/hecate"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.56v-2c-3.34.72-4.04-1.58-4.04-1.58-.55-1.37-1.34-1.74-1.34-1.74-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.21 1.83 1.21 1.07 1.8 2.8 1.28 3.49.98.1-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 0 1 6 0c2.28-1.53 3.29-1.21 3.29-1.21.66 1.65.24 2.87.12 3.17.77.83 1.23 1.88 1.23 3.17 0 4.54-2.81 5.53-5.49 5.83.43.36.81 1.08.81 2.18v3.23c0 .31.21.68.82.56A12.02 12.02 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"></path></svg>github.com/hecatehq/hecate</a></p>
           </article>
@@ -644,22 +768,20 @@
           <article class="item">
             <div class="item-head">
               <h3>Cynic</h3>
-              <span class="tag">ECMAScript engine</span>
+              <span class="tag">ECMAScript / WebAssembly engine</span>
             </div>
-            <p>Strict-only ECMAScript engine in Zig for non-browser hosts such as edge JS, Workers, and server-side JS.</p>
-            <p class="stack"><b>Stack</b> Zig · ECMAScript · Test262 · compiler/engine internals</p>
+            <p>Strict-only ECMAScript and WebAssembly engine in Zig with frozen primordials, hardened realms, host-controlled code generation, and no Annex B.</p>
+            <p class="stack"><b>Stack</b> Zig · ECMAScript · WebAssembly · Test262 · WebAssembly testsuite</p>
             <p class="links-inline"><a target="_blank" rel="noopener noreferrer" href="https://sergey.works/cynic"><svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"></path></svg>sergey.works/cynic</a><span class="sep">·</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/chicoxyzzy/cynic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.56v-2c-3.34.72-4.04-1.58-4.04-1.58-.55-1.37-1.34-1.74-1.34-1.74-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.21 1.83 1.21 1.07 1.8 2.8 1.28 3.49.98.1-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 0 1 6 0c2.28-1.53 3.29-1.21 3.29-1.21.66 1.65.24 2.87.12 3.17.77.83 1.23 1.88 1.23 3.17 0 4.54-2.81 5.53-5.49 5.83.43.36.81 1.08.81 2.18v3.23c0 .31.21.68.82.56A12.02 12.02 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"></path></svg>github.com/chicoxyzzy/cynic</a></p>
           </article>
 
           <article class="item">
             <div class="item-head">
               <h3>Pragmatist</h3>
-              <span class="tag">Verification tooling</span>
+              <span class="tag">Reproducible verification</span>
             </div>
-            <p>Tool for finding, reproducing, and verifying specification and implementation bugs across ECMA-262, TypeScript, and JavaScript engines.</p>
-            <p>Parsed-spec queries, Coq/Rocq mechanization, TypeScript parser/lib diffs, cross-engine differential runs, test262/spec patch scaffolds, and reproducible verification reports.</p>
-            <p class="stack"><b>Stack</b> TypeScript · Coq/Rocq · ECMA-262 · tsgo · Zod</p>
-            <p class="links-inline">Release coming soon.</p>
+            <p>Research tool for proving bugs in ECMAScript specifications, TypeScript, JavaScript engines, and WebAssembly runtimes using pinned source data, Coq/Rocq mechanization, differential runs, patch scaffolding, and deterministic replay.</p>
+            <p class="stack"><b>Stack</b> TypeScript · Coq/Rocq · ECMA-262 · WebAssembly · tsgo · Zod</p>
           </article>
 
           <article class="item">
@@ -667,10 +789,19 @@
               <h3>TC39 MCP</h3>
               <span class="tag">MCP server</span>
             </div>
-            <p>MCP server that serves TC39 specifications as clause-level, SHA-pinned data for agents and tooling.</p>
-            <p>AOID-aware search, cross-spec references, edition diffs, git history, test262 and proposal lookup, offline stdio, and public HTTP.</p>
+            <p>MCP server for clause-level ECMA-262 and ECMA-402 search, cross-spec references, edition diffs, git history, Test262 and proposal lookup, and SHA-pinned local or hosted responses.</p>
             <p class="stack"><b>Stack</b> TypeScript · ECMA-262 · ECMA-402 · Cloudflare Workers · VitePress · Zod</p>
             <p class="links-inline"><a target="_blank" rel="noopener noreferrer" href="https://mcp.xyzzylabs.ai/tc39/"><svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"></path></svg>mcp.xyzzylabs.ai/tc39/</a><span class="sep">·</span><a target="_blank" rel="noopener noreferrer" href="https://github.com/xyzzylabs/tc39-mcp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.56v-2c-3.34.72-4.04-1.58-4.04-1.58-.55-1.37-1.34-1.74-1.34-1.74-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.21 1.83 1.21 1.07 1.8 2.8 1.28 3.49.98.1-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 0 1 6 0c2.28-1.53 3.29-1.21 3.29-1.21.66 1.65.24 2.87.12 3.17.77.83 1.23 1.88 1.23 3.17 0 4.54-2.81 5.53-5.49 5.83.43.36.81 1.08.81 2.18v3.23c0 .31.21.68.82.56A12.02 12.02 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"></path></svg>github.com/xyzzylabs/tc39-mcp</a></p>
+          </article>
+
+          <article class="item">
+            <div class="item-head">
+              <h3>WASM MCP</h3>
+              <span class="tag">MCP server</span>
+            </div>
+            <p>Read-only MCP server for WebAssembly specifications with instruction and clause lookup, opcode and stack-signature metadata, proposal search, and SHA-pinned local or hosted responses.</p>
+            <p class="stack"><b>Stack</b> TypeScript · WebAssembly · Cloudflare Workers · VitePress · Zod</p>
+            <p class="links-inline"><a target="_blank" rel="noopener noreferrer" href="https://mcp.xyzzylabs.ai/wasm/"><svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"></path></svg>mcp.xyzzylabs.ai/wasm/</a></p>
           </article>
         </div>
       </section>
@@ -689,12 +820,12 @@
               </div>
               <span class="dates">Sep 2025 — Present</span>
             </div>
-            <p>Independent work across AI agent infrastructure, web platform standards, developer tools, observability, and open source.</p>
+            <p>Independent engineering and research across AI agents, web standards, developer tools, and open source.</p>
             <ul>
-              <li>Build agent tooling around tool execution, task runtimes, JavaScript runtime behavior, web standards, and observability.</li>
-              <li>Design operator controls for agent systems: provider readiness, routing diagnostics, trace links, usage/cost visibility, policy boundaries, approvals, and sandbox-aware execution.</li>
+              <li>Build local-first agent tooling for model access, supervised coding sessions, approvals, diff review, and telemetry.</li>
+              <li>Develop standards and conformance tools for ECMAScript, TypeScript, and WebAssembly, including source pinning and differential testing.</li>
               <li>Contribute to TC39/ECMA-262 and Test262 by analyzing proposal trade-offs, refining specification text and semantics, and collaborating with browser vendors, JS engines, and the standards community.</li>
-              <li>Turn research-heavy agent/runtime ideas into usable tools, documentation, release paths, and test loops.</li>
+              <li>Consult on agent architecture, developer tooling, observability, and deployment.</li>
             </ul>
           </article>
 
@@ -719,14 +850,23 @@
               </div>
               <span class="dates">May 2024 — May 2025</span>
             </div>
-            <p>Joined Firetiger through the Dispatch.run acquisition.</p>
-            <ul>
-              <li><b>Dispatch.run:</b> owned the CLI for the Durable Functions platform, including local development, deployment flow, and cloud handoff.</li>
-              <li>Researched deployment approaches for running Go code through WebAssembly on Cloudflare.</li>
-              <li><b>Firetiger:</b> worked on telemetry product features, infrastructure, and OpenTelemetry compatibility.</li>
-              <li>Supported early customers through onboarding, troubleshooting, integrations in Python/TypeScript, Vercel support, and Kubernetes/Terraform deployment workflows.</li>
-            </ul>
-            <p class="stack"><b>Stack</b> Go · Python · TypeScript · Node · Next.js · Vercel · Docker · Kubernetes · Terraform · AWS / GCP / Cloudflare · OpenTelemetry / Prometheus / Grafana / OTel Collector</p>
+            <p>Firetiger acquired Dispatch.run four months into the role.</p>
+            <div class="role-phase">
+              <h4 class="role-phase-title">Firetiger <span class="context">observability platform</span></h4>
+              <ul>
+                <li>Built product features and infrastructure for an OpenTelemetry-based observability platform.</li>
+                <li>Helped early customers instrument Python and TypeScript services and deploy integrations across Vercel, Kubernetes, and Terraform-managed infrastructure.</li>
+              </ul>
+              <p class="stack"><b>Stack</b> Python · TypeScript · Node.js · Next.js · Vercel · Docker · Kubernetes · Terraform · AWS / GCP · OpenTelemetry · Prometheus · Grafana · OTel Collector</p>
+            </div>
+            <div class="role-phase">
+              <h4 class="role-phase-title">Dispatch.run <span class="context">durable functions platform</span></h4>
+              <ul>
+                <li>Owned the CLI workflow for local development, deployment, and handoff to cloud execution.</li>
+                <li>Evaluated running Go workloads as WebAssembly on Cloudflare.</li>
+              </ul>
+              <p class="stack"><b>Stack</b> Go · WebAssembly · Cloudflare</p>
+            </div>
           </article>
 
           <article class="role">
@@ -738,8 +878,8 @@
               <span class="dates">Mar 2022 — Jan 2024</span>
             </div>
             <ul>
-              <li>Developed core Socket Runtime components in C++ across execution stability, platform integration, and runtime behavior.</li>
-              <li>Enhanced JavaScript APIs for Node.js compatibility and native capabilities across mobile and desktop runtimes.</li>
+              <li>Developed core Socket Runtime components in C++ for execution, platform integration, and native capabilities.</li>
+              <li>Expanded JavaScript APIs for Node.js compatibility across mobile and desktop hosts.</li>
               <li>Built tooling for project setup, local development, and runtime debugging.</li>
             </ul>
             <p class="stack"><b>Stack</b> C++ / C / Objective-C++ · JavaScript / TypeScript · Node.js · WebKit- and Chromium-based webviews (WKWebView, libwebkit2gtk, WebView2)</p>
@@ -763,7 +903,7 @@
       </section>
 
       <section>
-        <div class="sec-label">
+        <div class="sec-label page-break">
           <div class="sec-num">05</div>
           <h2 class="sec-title">Earlier Experience</h2>
         </div>
@@ -777,7 +917,7 @@
               <span class="dates">Dec 2014 — Aug 2019</span>
             </div>
             <ul>
-              <li>Led frontend development for a web trading terminal, Chrome extension, Ledger hardware-wallet apps, and cryptocurrency products.</li>
+              <li>Led frontend development of a web trading terminal, browser extension, Ledger hardware-wallet apps, and cryptocurrency products.</li>
               <li>Mentored and interviewed web developers while leading delivery across React/Preact, TypeScript, RxJS, D3, Redux/MobX, and browser-extension work.</li>
             </ul>
             <p class="stack"><b>Stack</b> React/Preact · Redux/MobX · RxJS · D3 · TypeScript · C</p>
@@ -792,8 +932,8 @@
               <span class="dates">Oct 2013 — Nov 2014</span>
             </div>
             <ul>
-              <li>Built a React-Native-like JavaScript SDK for an interactive TV platform; helped adopt SpiderMonkey and later migrate to V8.</li>
-              <li>Managed build systems, DevTools extensions, and R&D for client applications.</li>
+              <li>Built a JavaScript SDK for an interactive TV platform, similar to React Native; helped adopt SpiderMonkey and later migrate to V8.</li>
+              <li>Maintained build tooling and DevTools extensions and prototyped client-side platform features.</li>
             </ul>
             <p class="stack"><b>Stack</b> JavaScript · Babel · React · Chrome DevTools extensions</p>
           </article>
@@ -807,9 +947,9 @@
               <span class="dates">Sep 2012 — Jul 2013</span>
             </div>
             <ul>
-              <li>Led frontend team to deliver the frontend for an advertising platform.</li>
-              <li>Established unit testing with Karma and Jasmine to reduce frontend defects and regression frequency.</li>
-              <li>Coordinated with backend and product teams to resolve integration issues and improve data accuracy.</li>
+              <li>Led frontend delivery for an advertising platform.</li>
+              <li>Introduced unit testing with Karma and Jasmine to improve regression coverage.</li>
+              <li>Worked with backend and product teams on integration and data-quality issues.</li>
             </ul>
             <p class="stack"><b>Stack</b> Angular · JavaScript</p>
           </article>
@@ -823,9 +963,9 @@
               <span class="dates">Sep 2009 — Jul 2013</span>
             </div>
             <ul>
-              <li>Built a CRM-like system with integrations for call-center software: Genesys Agent Desktop and Oktell.</li>
-              <li>Promoted to Team Lead in 2012; led a team to implement a CRM system for call-center workflows and customer-interaction tracking.</li>
-              <li>Developed a dynamic web-based operator-script generator, streamlining call-center operations and reducing response times.</li>
+              <li>Built a CRM and integrations with Genesys Agent Desktop and Oktell for call-center workflows.</li>
+              <li>Promoted to Team Lead in 2012; led delivery of customer-interaction tracking and operator workflows.</li>
+              <li>Built a web-based operator-script generator for call-center teams.</li>
               <li>Worked with MySQL, MSSQL, and Oracle databases for CRM data, reporting, and call-center integrations.</li>
             </ul>
             <p class="stack"><b>Stack</b> PHP · JavaScript · MSSQL · MySQL · OracleDB</p>
