@@ -53,7 +53,7 @@ const locales = [
       "hero.summary":
         "Desarrollo e investigación independiente en infraestructura para agentes de IA, plataforma web, herramientas para desarrolladores y código abierto.",
       "hero.standards":
-        'Trabajo con estándares de <span class="tc39">TC39</span> y <span class="w3c">W3C</span>, en el punto donde el texto de las especificaciones se cruza con navegadores, entornos de ejecución y APIs para desarrolladores.',
+        'Contribuyo en <span class="tc39">TC39</span> y <span class="w3c">W3C</span> a las especificaciones de JavaScript y las API web, así como a la interoperabilidad y la coherencia entre navegadores.',
       "skills.heading": "Competencias clave",
       "skills.ai": "Sistemas de IA y agentes",
       "skills.agentOrchestration": "orquestación de agentes",
@@ -184,7 +184,7 @@ const locales = [
       "hero.summary":
         "Desenvolupament i recerca independent en infraestructura per a agents d'IA, plataforma web, eines per a desenvolupadors i codi obert.",
       "hero.standards":
-        'Treball amb estàndards de <span class="tc39">TC39</span> i <span class="w3c">W3C</span>, al punt on el text de les especificacions es troba amb navegadors, entorns d’execució i API per a desenvolupadors.',
+        'Contribueixo, dins de <span class="tc39">TC39</span> i <span class="w3c">W3C</span>, a les especificacions de JavaScript i les API web, la interoperabilitat i la coherència entre navegadors.',
       "skills.heading": "Competències clau",
       "skills.ai": "Sistemes d'IA i agents",
       "skills.agentOrchestration": "orquestració d'agents",
@@ -312,7 +312,7 @@ const locales = [
       "hero.nameCaps": "SERGEY RUBANOV",
       "hero.tagline": "研究 · Web 平台标准 · AI 智能体 · 开源",
       "hero.summary": "从事 AI 智能体基础设施、Web 平台、开发者工具和开源方向的开发与独立研究。",
-      "hero.standards": '参与 <span class="tc39">TC39</span> 与 <span class="w3c">W3C</span> 标准相关工作，关注规范文本、浏览器行为、运行时和开发者 API 的交界处。',
+      "hero.standards": '参与 <span class="tc39">TC39</span> 和 <span class="w3c">W3C</span> 的标准制定，主要关注 JavaScript 与 Web API 规范、不同实现间的兼容性和浏览器行为。',
       "skills.heading": "核心技能",
       "skills.ai": "AI 与智能体系统",
       "skills.agentOrchestration": "智能体编排",
@@ -437,7 +437,7 @@ const locales = [
       "hero.nameCaps": "СЕРГЕЙ РУБАНОВ",
       "hero.tagline": "Исследования · веб-стандарты · AI-агенты · open source",
       "hero.summary": "Разработка и независимые исследования в области AI-агентов, веб-платформы, инструментов для разработчиков и open source.",
-      "hero.standards": 'Стандарты <span class="tc39">TC39</span> и <span class="w3c">W3C</span>: стык текста спецификаций, поведения браузеров, рантаймов и API для разработчиков.',
+      "hero.standards": 'Участвую в работе <span class="tc39">TC39</span> и <span class="w3c">W3C</span> над спецификациями JavaScript и веб-API, совместимостью реализаций и поведением браузеров.',
       "skills.heading": "Ключевые навыки",
       "skills.ai": "AI-системы и агенты",
       "skills.agentOrchestration": "оркестрация агентов",

@@ -17,7 +17,7 @@ This is the agent-readable summary of sergey.works.
 
 ## Profile
 
-Sergey Rubanov works on AI agent infrastructure, the web platform, developer tools, observability, and open source. His standards work around TC39 and W3C focuses on the boundary between specification text, browser behavior, runtimes, and developer-facing APIs.
+Sergey Rubanov works on AI agent infrastructure, the web platform, developer tools, observability, and open source. He contributes to TC39 and W3C standards for JavaScript, browser interoperability, and web APIs.
 
 ## Core Skills
 
